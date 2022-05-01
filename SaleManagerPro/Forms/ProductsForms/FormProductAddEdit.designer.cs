@@ -33,14 +33,16 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.panelunit3 = new System.Windows.Forms.Panel();
+            this.labeunit3lError = new System.Windows.Forms.Label();
             this.btnunit3cancel = new CustomControls.Controls.RJButton();
             this.label3 = new System.Windows.Forms.Label();
             this.textunit3count = new CustomControls.Controls.RJTextBox();
             this.combounit3 = new System.Windows.Forms.ComboBox();
             this.pictureaddunit3 = new System.Windows.Forms.PictureBox();
-            this.pictureaddunit2 = new System.Windows.Forms.PictureBox();
             this.panelunit2 = new System.Windows.Forms.Panel();
+            this.labeunit2lError = new System.Windows.Forms.Label();
             this.btnunit2cancel = new CustomControls.Controls.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.textunit2count = new CustomControls.Controls.RJTextBox();
@@ -48,11 +50,14 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.label1 = new System.Windows.Forms.Label();
             this.TextCatogry = new System.Windows.Forms.ComboBox();
             this.combounit1 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.textStartStock = new CustomControls.Controls.RJTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.textLimitStock = new CustomControls.Controls.RJTextBox();
             this.labeLimitStockError = new System.Windows.Forms.Label();
             this.textPricePurchase = new CustomControls.Controls.RJTextBox();
@@ -65,23 +70,18 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.btnSave = new CustomControls.Controls.RJButton();
             this.labelId = new System.Windows.Forms.Label();
             this.labeNamelError = new System.Windows.Forms.Label();
+            this.pictureaddunit2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridProducts = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.تعديلالمنتجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حذفالمنتجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labeunit2lError = new System.Windows.Forms.Label();
-            this.labeunit3lError = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textStartStock = new CustomControls.Controls.RJTextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelunit3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureaddunit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureaddunit2)).BeginInit();
             this.panelunit2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureaddunit2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProducts)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -123,6 +123,17 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.panel1.Size = new System.Drawing.Size(595, 703);
             this.panel1.TabIndex = 8;
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label9.Location = new System.Drawing.Point(111, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 26);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "الوحدات";
+            // 
             // panelunit3
             // 
             this.panelunit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -136,6 +147,17 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.panelunit3.Size = new System.Drawing.Size(280, 198);
             this.panelunit3.TabIndex = 25;
             this.panelunit3.Visible = false;
+            // 
+            // labeunit3lError
+            // 
+            this.labeunit3lError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labeunit3lError.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labeunit3lError.ForeColor = System.Drawing.Color.Red;
+            this.labeunit3lError.Location = new System.Drawing.Point(101, 149);
+            this.labeunit3lError.Name = "labeunit3lError";
+            this.labeunit3lError.Size = new System.Drawing.Size(162, 25);
+            this.labeunit3lError.TabIndex = 21;
             // 
             // btnunit3cancel
             // 
@@ -214,17 +236,6 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.pictureaddunit3.Visible = false;
             this.pictureaddunit3.Click += new System.EventHandler(this.pictureaddunit3_Click);
             // 
-            // pictureaddunit2
-            // 
-            this.pictureaddunit2.Image = global::SaleManagerPro.Properties.Resources.icon_add_48px;
-            this.pictureaddunit2.Location = new System.Drawing.Point(127, 43);
-            this.pictureaddunit2.Name = "pictureaddunit2";
-            this.pictureaddunit2.Size = new System.Drawing.Size(48, 48);
-            this.pictureaddunit2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureaddunit2.TabIndex = 23;
-            this.pictureaddunit2.TabStop = false;
-            this.pictureaddunit2.Click += new System.EventHandler(this.pictureaddunit2_Click);
-            // 
             // panelunit2
             // 
             this.panelunit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -238,6 +249,17 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.panelunit2.Size = new System.Drawing.Size(280, 197);
             this.panelunit2.TabIndex = 22;
             this.panelunit2.Visible = false;
+            // 
+            // labeunit2lError
+            // 
+            this.labeunit2lError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labeunit2lError.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labeunit2lError.ForeColor = System.Drawing.Color.Red;
+            this.labeunit2lError.Location = new System.Drawing.Point(105, 152);
+            this.labeunit2lError.Name = "labeunit2lError";
+            this.labeunit2lError.Size = new System.Drawing.Size(153, 25);
+            this.labeunit2lError.TabIndex = 20;
             // 
             // btnunit2cancel
             // 
@@ -337,6 +359,15 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.combounit1.Size = new System.Drawing.Size(283, 32);
             this.combounit1.TabIndex = 16;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(425, 375);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "الرصيد المبدئي";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -381,6 +412,41 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "التصنيف";
+            // 
+            // textStartStock
+            // 
+            this.textStartStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.textStartStock.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.textStartStock.BorderFocusColor = System.Drawing.Color.Red;
+            this.textStartStock.BorderRadius = 15;
+            this.textStartStock.BorderSize = 2;
+            this.textStartStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.textStartStock.ForeColor = System.Drawing.Color.White;
+            this.textStartStock.Location = new System.Drawing.Point(290, 391);
+            this.textStartStock.Margin = new System.Windows.Forms.Padding(4);
+            this.textStartStock.Multiline = false;
+            this.textStartStock.Name = "textStartStock";
+            this.textStartStock.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
+            this.textStartStock.PasswordChar = false;
+            this.textStartStock.PlaceholderColor = System.Drawing.Color.Gainsboro;
+            this.textStartStock.PlaceholderText = "الرصيد المبدئي";
+            this.textStartStock.Size = new System.Drawing.Size(292, 42);
+            this.textStartStock.TabIndex = 3;
+            this.textStartStock.Texts = "";
+            this.textStartStock.UnderlinedStyle = false;
+            this.textStartStock._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
+            this.textStartStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textStartStock_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(307, 436);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(265, 25);
+            this.label10.TabIndex = 13;
             // 
             // textLimitStock
             // 
@@ -586,6 +652,17 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.labeNamelError.Size = new System.Drawing.Size(265, 25);
             this.labeNamelError.TabIndex = 4;
             // 
+            // pictureaddunit2
+            // 
+            this.pictureaddunit2.Image = global::SaleManagerPro.Properties.Resources.icon_add_48px;
+            this.pictureaddunit2.Location = new System.Drawing.Point(127, 43);
+            this.pictureaddunit2.Name = "pictureaddunit2";
+            this.pictureaddunit2.Size = new System.Drawing.Size(48, 48);
+            this.pictureaddunit2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureaddunit2.TabIndex = 23;
+            this.pictureaddunit2.TabStop = false;
+            this.pictureaddunit2.Click += new System.EventHandler(this.pictureaddunit2_Click);
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -593,10 +670,10 @@ namespace SaleManagerPro.Forms.ProductsForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoScroll = true;
             this.panel2.Controls.Add(this.dataGridProducts);
-            this.panel2.Location = new System.Drawing.Point(612, 0);
+            this.panel2.Location = new System.Drawing.Point(769, 0);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(757, 711);
+            this.panel2.Size = new System.Drawing.Size(600, 711);
             this.panel2.TabIndex = 9;
             // 
             // dataGridProducts
@@ -621,7 +698,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.dataGridProducts.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridProducts.RowTemplate.Height = 25;
             this.dataGridProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProducts.Size = new System.Drawing.Size(757, 544);
+            this.dataGridProducts.Size = new System.Drawing.Size(600, 544);
             this.dataGridProducts.TabIndex = 7;
             // 
             // contextMenuStrip1
@@ -647,83 +724,6 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.حذفالمنتجToolStripMenuItem.Text = "حذف المنتج";
             this.حذفالمنتجToolStripMenuItem.Click += new System.EventHandler(this.حذفالمنتجToolStripMenuItem_Click);
             // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label9.Location = new System.Drawing.Point(111, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 26);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "الوحدات";
-            // 
-            // labeunit2lError
-            // 
-            this.labeunit2lError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labeunit2lError.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.labeunit2lError.ForeColor = System.Drawing.Color.Red;
-            this.labeunit2lError.Location = new System.Drawing.Point(105, 152);
-            this.labeunit2lError.Name = "labeunit2lError";
-            this.labeunit2lError.Size = new System.Drawing.Size(153, 25);
-            this.labeunit2lError.TabIndex = 20;
-            // 
-            // labeunit3lError
-            // 
-            this.labeunit3lError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labeunit3lError.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.labeunit3lError.ForeColor = System.Drawing.Color.Red;
-            this.labeunit3lError.Location = new System.Drawing.Point(101, 149);
-            this.labeunit3lError.Name = "labeunit3lError";
-            this.labeunit3lError.Size = new System.Drawing.Size(162, 25);
-            this.labeunit3lError.TabIndex = 21;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(307, 436);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(265, 25);
-            this.label10.TabIndex = 13;
-            // 
-            // textStartStock
-            // 
-            this.textStartStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textStartStock.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textStartStock.BorderFocusColor = System.Drawing.Color.Red;
-            this.textStartStock.BorderRadius = 15;
-            this.textStartStock.BorderSize = 2;
-            this.textStartStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.textStartStock.ForeColor = System.Drawing.Color.White;
-            this.textStartStock.Location = new System.Drawing.Point(290, 391);
-            this.textStartStock.Margin = new System.Windows.Forms.Padding(4);
-            this.textStartStock.Multiline = false;
-            this.textStartStock.Name = "textStartStock";
-            this.textStartStock.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textStartStock.PasswordChar = false;
-            this.textStartStock.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textStartStock.PlaceholderText = "الرصيد المبدئي";
-            this.textStartStock.Size = new System.Drawing.Size(292, 42);
-            this.textStartStock.TabIndex = 3;
-            this.textStartStock.Texts = "";
-            this.textStartStock.UnderlinedStyle = false;
-            this.textStartStock._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
-            this.textStartStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textStartStock_KeyPress);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(425, 375);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 13);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "الرصيد المبدئي";
-            // 
             // FormProductAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,10 +742,10 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.panelunit3.ResumeLayout(false);
             this.panelunit3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureaddunit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureaddunit2)).EndInit();
             this.panelunit2.ResumeLayout(false);
             this.panelunit2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureaddunit2)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProducts)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

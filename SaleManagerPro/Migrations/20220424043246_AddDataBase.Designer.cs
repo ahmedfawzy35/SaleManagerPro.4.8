@@ -10,8 +10,8 @@ using SaleManagerPro.Data;
 namespace SaleManagerPro.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220416194025_edit-startstock-to-product")]
-    partial class editstartstocktoproduct
+    [Migration("20220424043246_AddDataBase")]
+    partial class AddDataBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,9 @@ namespace SaleManagerPro.Migrations
                     b.Property<string>("CheckNumber")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("CustomerIdCustomer")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -121,6 +124,8 @@ namespace SaleManagerPro.Migrations
                     b.HasKey("IdCashInFromCusInstallment");
 
                     b.HasIndex("CheckNumber");
+
+                    b.HasIndex("CustomerIdCustomer");
 
                     b.HasIndex("IdCustomersInstallment");
 
@@ -568,6 +573,9 @@ namespace SaleManagerPro.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CustomerIdCustomer")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -590,6 +598,8 @@ namespace SaleManagerPro.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("IdCashInFromSalerInstallment");
+
+                    b.HasIndex("CustomerIdCustomer");
 
                     b.HasIndex("IdSalersInstallment");
 
@@ -650,6 +660,9 @@ namespace SaleManagerPro.Migrations
                     b.Property<string>("CheckNumber")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("CustomerIdCustomer")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -674,6 +687,8 @@ namespace SaleManagerPro.Migrations
                     b.HasKey("IdCashOutToCusInstallmentByCheck");
 
                     b.HasIndex("CheckNumber");
+
+                    b.HasIndex("CustomerIdCustomer");
 
                     b.HasIndex("IdCustomersInstallment");
 
@@ -894,6 +909,9 @@ namespace SaleManagerPro.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CustomerIdCustomer")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -916,6 +934,8 @@ namespace SaleManagerPro.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("IdCashOutToCusInstallment");
+
+                    b.HasIndex("CustomerIdCustomer");
 
                     b.HasIndex("IdCustomersInstallment");
 
@@ -1425,6 +1445,9 @@ namespace SaleManagerPro.Migrations
 
                     b.Property<string>("Adress")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HideInOrders")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -2456,7 +2479,7 @@ namespace SaleManagerPro.Migrations
 
             modelBuilder.Entity("SaleManagerPro.Models.OrdersAndPurchaces.OrderBackDetails", b =>
                 {
-                    b.Property<int>("IdOrderDetailsBack")
+                    b.Property<int>("IdOrderBackDetails")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -2485,7 +2508,7 @@ namespace SaleManagerPro.Migrations
                     b.Property<double>("Value")
                         .HasColumnType("float");
 
-                    b.HasKey("IdOrderDetailsBack");
+                    b.HasKey("IdOrderBackDetails");
 
                     b.HasIndex("IdOrderBack");
 
@@ -2723,6 +2746,9 @@ namespace SaleManagerPro.Migrations
                     b.Property<DateTime>("DateEdit")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("HideInOrders")
+                        .HasColumnType("bit");
+
                     b.Property<int>("IdCatogry")
                         .HasColumnType("int");
 
@@ -2757,6 +2783,46 @@ namespace SaleManagerPro.Migrations
                     b.HasIndex("IdUser");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Products.ProductEquation", b =>
+                {
+                    b.Property<int>("IdProductEquation")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateEdit")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUser")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsEdit")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdProductEquation");
+
+                    b.HasIndex("IdProduct");
+
+                    b.HasIndex("IdUser");
+
+                    b.ToTable("ProductEquation");
                 });
 
             modelBuilder.Entity("SaleManagerPro.Models.Products.ProductUnits", b =>
@@ -2998,7 +3064,7 @@ namespace SaleManagerPro.Migrations
                         .HasForeignKey("CheckNumber");
 
                     b.HasOne("SaleManagerPro.Models.Customers.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("CashInFromCusByCheck")
                         .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3015,6 +3081,10 @@ namespace SaleManagerPro.Migrations
                     b.HasOne("SaleManagerPro.Models.Cash.Checks.ChecksIn", "ChecksIn")
                         .WithMany()
                         .HasForeignKey("CheckNumber");
+
+                    b.HasOne("SaleManagerPro.Models.Customers.Customer", null)
+                        .WithMany("CashInFromCusInstallmentByCheck")
+                        .HasForeignKey("CustomerIdCustomer");
 
                     b.HasOne("SaleManagerPro.Models.Installments.CustomersInstallment", "CustomersInstallment")
                         .WithMany()
@@ -3140,7 +3210,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.Cash.CashIns.CashInCash.CashInFromCus", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Customers.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("CashInFromCus")
                         .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3214,6 +3284,10 @@ namespace SaleManagerPro.Migrations
 
             modelBuilder.Entity("SaleManagerPro.Models.Cash.CashIns.CashInCash.CashInFromSalerInstallment", b =>
                 {
+                    b.HasOne("SaleManagerPro.Models.Customers.Customer", null)
+                        .WithMany("CashInFromSalerInstallment")
+                        .HasForeignKey("CustomerIdCustomer");
+
                     b.HasOne("SaleManagerPro.Models.Installments.SalersInstallment", "SalersInstallment")
                         .WithMany()
                         .HasForeignKey("IdSalersInstallment")
@@ -3234,7 +3308,7 @@ namespace SaleManagerPro.Migrations
                         .HasForeignKey("CheckNumber");
 
                     b.HasOne("SaleManagerPro.Models.Customers.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("CashOutToCusByCheck")
                         .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3251,6 +3325,10 @@ namespace SaleManagerPro.Migrations
                     b.HasOne("SaleManagerPro.Models.Cash.Checks.ChecksOut", "ChecksOut")
                         .WithMany()
                         .HasForeignKey("CheckNumber");
+
+                    b.HasOne("SaleManagerPro.Models.Customers.Customer", null)
+                        .WithMany("CashOutToCusInstallmentByCheck")
+                        .HasForeignKey("CustomerIdCustomer");
 
                     b.HasOne("SaleManagerPro.Models.Installments.CustomersInstallment", "CustomersInstallment")
                         .WithMany()
@@ -3344,7 +3422,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.Cash.CashOuts.CashOutCash.CashOutToCus", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Customers.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("CashOutToCus")
                         .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3358,6 +3436,10 @@ namespace SaleManagerPro.Migrations
 
             modelBuilder.Entity("SaleManagerPro.Models.Cash.CashOuts.CashOutCash.CashOutToCusInstallment", b =>
                 {
+                    b.HasOne("SaleManagerPro.Models.Customers.Customer", null)
+                        .WithMany("CashOutToCusInstallment")
+                        .HasForeignKey("CustomerIdCustomer");
+
                     b.HasOne("SaleManagerPro.Models.Installments.CustomersInstallment", "CustomersInstallment")
                         .WithMany()
                         .HasForeignKey("IdCustomersInstallment")
@@ -3849,7 +3931,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.OrdersAndPurchaces.Order", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Customers.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3858,7 +3940,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.OrdersAndPurchaces.OrderBack", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Customers.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("OrdersBack")
                         .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3873,7 +3955,7 @@ namespace SaleManagerPro.Migrations
                         .IsRequired();
 
                     b.HasOne("SaleManagerPro.Models.Products.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrdersBak")
                         .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3888,7 +3970,7 @@ namespace SaleManagerPro.Migrations
                         .IsRequired();
 
                     b.HasOne("SaleManagerPro.Models.Products.Product", "Product")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3915,7 +3997,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.OrdersAndPurchaces.PurchaseBackDetails", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Products.Product", "Product")
-                        .WithMany()
+                        .WithMany("PurchaseBack")
                         .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3930,7 +4012,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.OrdersAndPurchaces.PurchaseDetails", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Products.Product", "Product")
-                        .WithMany()
+                        .WithMany("Purchase")
                         .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3956,6 +4038,21 @@ namespace SaleManagerPro.Migrations
                     b.HasOne("SaleManagerPro.Models.Products.Catogry", "Catogry")
                         .WithMany()
                         .HasForeignKey("IdCatogry")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Products.ProductEquation", b =>
+                {
+                    b.HasOne("SaleManagerPro.Models.Products.Product", "Product")
+                        .WithMany("ProductEquations")
+                        .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

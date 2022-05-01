@@ -24,4 +24,5 @@ namespace SaleManagerPro.Assist
         Paid,
         InLowDepartment
     }
+   
 }

@@ -2,22 +2,21 @@
 
 namespace SaleManagerPro.Migrations
 {
-    public partial class editstartstocktoproduct : Migration
+    public partial class addbankbranch : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "StartStock",
-                table: "Products",
-                nullable: false,
-                defaultValue: 0);
+            migrationBuilder.AddColumn<string>(
+                name: "BankBranchName",
+                table: "CustomersBankAccounts",
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "StartStock",
-                table: "Products");
+                name: "BankBranchName",
+                table: "CustomersBankAccounts");
         }
     }
 }

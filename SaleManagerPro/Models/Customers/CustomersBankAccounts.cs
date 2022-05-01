@@ -17,5 +17,7 @@ namespace SaleManagerPro.Models.Customers
         public virtual Customer Customer { get; set; }
         public string BankName { get; set; }
         public string BankAccuntNumber { get; set; }
+
+        public string BankBranchName { get; set; }
     }
 }

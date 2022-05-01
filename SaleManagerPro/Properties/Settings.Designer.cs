@@ -58,5 +58,17 @@ namespace SaleManagerPro.Properties {
                 this["id_user_edit_roles"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int IdRole {
+            get {
+                return ((int)(this["IdRole"]));
+            }
+            set {
+                this["IdRole"] = value;
+            }
+        }
     }
 }

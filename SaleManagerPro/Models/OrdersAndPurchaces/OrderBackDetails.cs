@@ -12,7 +12,7 @@ namespace SaleManagerPro.Models.OrdersAndPurchaces
     public class OrderBackDetails
     {
         [Key]
-        public int IdOrderDetailsBack { get; set; }
+        public int IdOrderBackDetails { get; set; }
         public int IdOrderBack { get; set; }
         [ForeignKey("IdOrderBack")]
         public virtual OrderBack OrderBack { get; set; }

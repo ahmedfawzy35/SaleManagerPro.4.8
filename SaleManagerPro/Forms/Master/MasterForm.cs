@@ -2,6 +2,7 @@
 ////using SaleManagerPro.Forms.Test;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
+using SaleManagerPro.Forms.CustomersForms;
 using SaleManagerPro.Forms.ProductsForms;
 using SaleManagerPro.Forms.Security;
 using SaleManagerPro.Models.Roles;
@@ -424,7 +425,7 @@ namespace SaleManagerPro.Forms.Master
         private void button11_Click(object sender, EventArgs e)
         {
             
-            showform("إدارة الاجراءات الصلاحيه", new FormRoleClaimManager() { IdRole = 2 , RoleName = "Manager"});
+            showform("إدارة الاجراءات الصلاحيه", new FormRoleClaimManager() { IdRole = 1 , RoleName = "Admin"});
 
         }
 
@@ -438,6 +439,11 @@ namespace SaleManagerPro.Forms.Master
         {
             showform("ادراة الوحدات", FormUnitsAddEdit.GetFormUnitsAddEdit);
 
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            showform("ادراة العملاء", FormCustomerAddEdit.GetFormCustomerAddEdit);
         }
     }
 }

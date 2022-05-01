@@ -267,7 +267,17 @@ namespace SaleManagerPro.Forms.ProductsForms
                 IsEdit = ct.IsEdit,
                 DateEdit = ct.DateEdit,
                 DateCreated = ct.DateCreated,
-                UserName = ct.User.UserName
+                UserName = ct.User.UserName,
+                StartStock = ct.StartStock,
+                Process = new ProductProcess
+                {
+                    Orders = ct.Orders.Sum(x => x.Quantity),
+                    OrdersBak= ct.OrdersBak.Sum(x => x.Quantity),
+                    Purchase = ct.Purchase.Sum(x => x.Quantity),
+                    PurchaseBack = ct.PurchaseBack.Sum(x => x.Quantity),
+                    ProductEquationsAdd = ct.ProductEquations.Where(x=>x.Type == ProductEquationType.Add.ToString()).Sum(e=>e.Count),
+                    ProductEquationsDeduct= ct.ProductEquations.Where(x=>x.Type == ProductEquationType.Deduct.ToString()).Sum(e=>e.Count)
+                }
 
             }).Where(r=>r.Name.Contains(search)).ToList();
             dataGridProducts.DataSource = a;
@@ -528,7 +538,14 @@ namespace SaleManagerPro.Forms.ProductsForms
 
         private void textunit2count_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -536,7 +553,14 @@ namespace SaleManagerPro.Forms.ProductsForms
 
         private void textunit3count_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -623,9 +647,26 @@ namespace SaleManagerPro.Forms.ProductsForms
         [DisplayName("تاريخ الانشاء")]
 
         public DateTime DateCreated { get; set; }
+        [DisplayName("رصيد البدايه")]
+
+        public int StartStock { get; set; }
 
         [DisplayName("اسم اخر مستخدم")]
 
         public string UserName { get; set; }
+        public ProductProcess Process { get; set; }
+
+        [DisplayName("الرصيد الحالي")]
+        public int AccountBalance => StartStock + Process.Purchase + Process.OrdersBak + Process.ProductEquationsAdd - Process.Orders - Process.PurchaseBack - Process.ProductEquationsDeduct;
+    }
+    public class ProductProcess
+    {
+        public int Orders { get; set; }
+        public int OrdersBak { get; set; }
+        public int Purchase { get; set; }
+        public int PurchaseBack { get; set; }
+        public int ProductEquationsAdd { get; set; }
+        public int ProductEquationsDeduct { get; set; }
+
     }
 }

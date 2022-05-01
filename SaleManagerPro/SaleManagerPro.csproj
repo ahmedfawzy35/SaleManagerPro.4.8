@@ -166,6 +166,7 @@
     <Compile Include="Assist\InstallmentState.cs" />
     <Compile Include="Assist\OrderBy.cs" />
     <Compile Include="Assist\Permissions.cs" />
+    <Compile Include="Assist\ProductEquationType.cs" />
     <Compile Include="Assist\UserRoleManager.cs" />
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Form1.cs">
@@ -173,6 +174,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomersForms\FormCustomerAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomersForms\FormCustomerAddEdit.Designer.cs">
+      <DependentUpon>FormCustomerAddEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login\LoginForm.cs">
       <SubType>Form</SubType>
@@ -185,6 +192,12 @@
     </Compile>
     <Compile Include="Forms\Master\MasterForm.designer.cs">
       <DependentUpon>MasterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MultyStringBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\MultyStringBox.Designer.cs">
+      <DependentUpon>MultyStringBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProductsForms\FormUnitsAddEdit.cs">
       <SubType>Form</SubType>
@@ -222,29 +235,13 @@
     <Compile Include="Forms\Security\ModelRoleCard.Designer.cs">
       <DependentUpon>ModelRoleCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20220404151255_create-database.cs" />
-    <Compile Include="Migrations\20220404151255_create-database.designer.cs">
-      <DependentUpon>20220404151255_create-database.cs</DependentUpon>
+    <Compile Include="Migrations\20220424043246_AddDataBase.cs" />
+    <Compile Include="Migrations\20220424043246_AddDataBase.designer.cs">
+      <DependentUpon>20220424043246_AddDataBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20220408134004_add-fullname-to-user.cs" />
-    <Compile Include="Migrations\20220408134004_add-fullname-to-user.designer.cs">
-      <DependentUpon>20220408134004_add-fullname-to-user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220415015255_addedit_to_role.cs" />
-    <Compile Include="Migrations\20220415015255_addedit_to_role.designer.cs">
-      <DependentUpon>20220415015255_addedit_to_role.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220415172324_add-guid-to-product.cs" />
-    <Compile Include="Migrations\20220415172324_add-guid-to-product.designer.cs">
-      <DependentUpon>20220415172324_add-guid-to-product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220416173847_edit-guid-to-product.cs" />
-    <Compile Include="Migrations\20220416173847_edit-guid-to-product.designer.cs">
-      <DependentUpon>20220416173847_edit-guid-to-product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20220416194025_edit-startstock-to-product.cs" />
-    <Compile Include="Migrations\20220416194025_edit-startstock-to-product.designer.cs">
-      <DependentUpon>20220416194025_edit-startstock-to-product.cs</DependentUpon>
+    <Compile Include="Migrations\20220430081620_add-bank-branch.cs" />
+    <Compile Include="Migrations\20220430081620_add-bank-branch.designer.cs">
+      <DependentUpon>20220430081620_add-bank-branch.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
     <Compile Include="Models\Cash\BankAccount.cs" />
@@ -325,6 +322,7 @@
     <Compile Include="Models\OrdersAndPurchaces\PurchaseDetails.cs" />
     <Compile Include="Models\Products\Catogry.cs" />
     <Compile Include="Models\Products\Product.cs" />
+    <Compile Include="Models\Products\ProductEquation.cs" />
     <Compile Include="Models\Products\ProductUnits.cs" />
     <Compile Include="Models\Products\Units.cs" />
     <Compile Include="Models\Roles\Claime.cs" />
@@ -354,11 +352,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomersForms\FormCustomerAddEdit.resx">
+      <DependentUpon>FormCustomerAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\MasterForm.resx">
       <DependentUpon>MasterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MultyStringBox.resx">
+      <DependentUpon>MultyStringBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsForms\FormCatogryAddEdit.resx">
       <DependentUpon>FormCatogryAddEdit.cs</DependentUpon>

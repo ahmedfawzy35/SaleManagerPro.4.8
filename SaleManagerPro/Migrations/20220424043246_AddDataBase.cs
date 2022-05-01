@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SaleManagerPro.Migrations
 {
-    public partial class createdatabase : Migration
+    public partial class AddDataBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,7 +61,8 @@ namespace SaleManagerPro.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Adress = table.Column<string>(nullable: true),
-                    StartAccount = table.Column<double>(nullable: false)
+                    StartAccount = table.Column<double>(nullable: false),
+                    HideInOrders = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -145,6 +146,9 @@ namespace SaleManagerPro.Migrations
                 {
                     IdRole = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IsEdit = table.Column<bool>(nullable: false),
+                    DateEdit = table.Column<DateTime>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -191,6 +195,7 @@ namespace SaleManagerPro.Migrations
                     DateEdit = table.Column<DateTime>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     UserName = table.Column<string>(nullable: true),
+                    FullName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     Enable = table.Column<bool>(nullable: false)
                 },
@@ -239,7 +244,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -260,7 +265,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -284,7 +289,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -308,7 +313,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -338,7 +343,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoaner,
                         principalTable: "Loaners",
                         principalColumn: "IdLoaner",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -358,13 +363,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdClaime,
                         principalTable: "Claimes",
                         principalColumn: "IdClaime",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RoleClaimes_Roles_IdRole",
                         column: x => x.IdRole,
                         principalTable: "Roles",
                         principalColumn: "IdRole",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -388,7 +393,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -412,7 +417,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -433,7 +438,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -454,7 +459,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -483,13 +488,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_AddToSalaries_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -517,7 +522,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -542,13 +547,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromCus_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -580,13 +585,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromCusByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -618,13 +623,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdInComeItem,
                         principalTable: "InComeItems",
                         principalColumn: "IdInComeItem",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromInComeByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -649,13 +654,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdInComeItem,
                         principalTable: "InComeItems",
                         principalColumn: "IdInComeItem",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromInComes_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -687,13 +692,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromSalerByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -718,13 +723,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromSalers_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -749,13 +754,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToCuss_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -780,13 +785,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdOutComeItem,
                         principalTable: "OutComeItems",
                         principalColumn: "IdOutComeItem",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToOutComes_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -811,13 +816,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToSalers_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -841,7 +846,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -867,7 +872,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -892,13 +897,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeePromotions_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -923,13 +928,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeePunishments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -952,7 +957,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -977,13 +982,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdBankAccount,
                         principalTable: "BankAccounts",
                         principalColumn: "IdBankAccount",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_FromCashToBanks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1015,13 +1020,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdBankAccount,
                         principalTable: "BankAccounts",
                         principalColumn: "IdBankAccount",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_FromCheckToBanks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1052,7 +1057,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1075,7 +1080,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1099,7 +1104,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1127,7 +1132,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1156,13 +1161,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_LessToSalarys_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1194,13 +1199,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RePaidCheckToCuss_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1232,13 +1237,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdOutComeItem,
                         principalTable: "OutComeItems",
                         principalColumn: "IdOutComeItem",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RePaidCheckToOutComes_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1270,13 +1275,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RePaidCheckToSalers_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1302,13 +1307,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_SalaryAdds_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1334,13 +1339,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_SalaryLesses_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1360,13 +1365,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdRole,
                         principalTable: "Roles",
                         principalColumn: "IdRole",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_UserRoles_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1398,13 +1403,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToCusByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1436,13 +1441,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdOutComeItem,
                         principalTable: "OutComeItems",
                         principalColumn: "IdOutComeItem",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToOutComeByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1474,13 +1479,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToSalerByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1510,13 +1515,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomer,
                         principalTable: "Customers",
                         principalColumn: "IdCustomer",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_InstallmentOrders_Orders_IdOrder",
                         column: x => x.IdOrder,
                         principalTable: "Orders",
                         principalColumn: "IdOrder",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1548,13 +1553,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoan,
                         principalTable: "Loans",
                         principalColumn: "IdLoan",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromLoanByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1579,13 +1584,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoan,
                         principalTable: "Loans",
                         principalColumn: "IdLoan",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromLoans_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1609,7 +1614,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoan,
                         principalTable: "Loans",
                         principalColumn: "IdLoan",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1637,13 +1642,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdPurchase,
                         principalTable: "Purchases",
                         principalColumn: "IdPurchase",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_InstallmentPurchases_Salers_IdSaler",
                         column: x => x.IdSaler,
                         principalTable: "Salers",
                         principalColumn: "IdSaler",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1656,10 +1661,13 @@ namespace SaleManagerPro.Migrations
                     DateEdit = table.Column<DateTime>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     IdUser = table.Column<int>(nullable: false),
+                    guid = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<double>(nullable: false),
                     LastPurchasePrice = table.Column<double>(nullable: false),
+                    HideInOrders = table.Column<bool>(nullable: false),
                     LimitInStok = table.Column<int>(nullable: false),
+                    StartStock = table.Column<int>(nullable: false),
                     IdCatogry = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -1670,13 +1678,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCatogry,
                         principalTable: "Catogrys",
                         principalColumn: "IdCatogry",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Products_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1714,43 +1722,43 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdDepartment,
                         principalTable: "Departments",
                         principalColumn: "IdDepartment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_Employees_IdEmployee",
                         column: x => x.IdEmployee,
                         principalTable: "Employees",
                         principalColumn: "IdEmployee",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_FinancialDegrees_IdFinancialDegree",
                         column: x => x.IdFinancialDegree,
                         principalTable: "FinancialDegrees",
                         principalColumn: "IdFinancialDegree",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_JobDegrees_IdGobDegree",
                         column: x => x.IdGobDegree,
                         principalTable: "JobDegrees",
                         principalColumn: "IdGobDegree",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_Images_IdImages",
                         column: x => x.IdImages,
                         principalTable: "Images",
                         principalColumn: "IdImages",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_Jobs_IdJob",
                         column: x => x.IdJob,
                         principalTable: "Jobs",
                         principalColumn: "IdJob",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1782,13 +1790,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoansInstallment,
                         principalTable: "LoansInstallments",
                         principalColumn: "IdLoansInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToLoansInstallmentByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1813,13 +1821,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoansInstallment,
                         principalTable: "LoansInstallments",
                         principalColumn: "IdLoansInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToLoansInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1851,13 +1859,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdLoansInstallment,
                         principalTable: "LoansInstallments",
                         principalColumn: "IdLoansInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RePaidCheckToLoansInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1882,7 +1890,7 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdInstallmentOrder,
                         principalTable: "InstallmentOrders",
                         principalColumn: "IdInstallmentOrder",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CustomersInstallments_InstallmentPurchases_InstallmentPurchaseIdInstallmentPurchase",
                         column: x => x.InstallmentPurchaseIdInstallmentPurchase,
@@ -1912,14 +1920,14 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdInstallmentPurchase,
                         principalTable: "InstallmentPurchases",
                         principalColumn: "IdInstallmentPurchase",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
                 name: "OrderBackDetails",
                 columns: table => new
                 {
-                    IdOrderDetailsBack = table.Column<int>(nullable: false)
+                    IdOrderBackDetails = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdOrderBack = table.Column<int>(nullable: false),
                     IdProduct = table.Column<int>(nullable: false),
@@ -1932,19 +1940,19 @@ namespace SaleManagerPro.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderBackDetails", x => x.IdOrderDetailsBack);
+                    table.PrimaryKey("PK_OrderBackDetails", x => x.IdOrderBackDetails);
                     table.ForeignKey(
                         name: "FK_OrderBackDetails_OrderBacks_IdOrderBack",
                         column: x => x.IdOrderBack,
                         principalTable: "OrderBacks",
                         principalColumn: "IdOrderBack",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_OrderBackDetails_Products_IdProduct",
                         column: x => x.IdProduct,
                         principalTable: "Products",
                         principalColumn: "IdProduct",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1970,13 +1978,45 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdOrder,
                         principalTable: "Orders",
                         principalColumn: "IdOrder",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_OrderDetails_Products_IdProduct",
                         column: x => x.IdProduct,
                         principalTable: "Products",
                         principalColumn: "IdProduct",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductEquation",
+                columns: table => new
+                {
+                    IdProductEquation = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsEdit = table.Column<bool>(nullable: false),
+                    DateEdit = table.Column<DateTime>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    IdUser = table.Column<int>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false),
+                    Type = table.Column<string>(nullable: true),
+                    Count = table.Column<int>(nullable: false),
+                    IdProduct = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductEquation", x => x.IdProductEquation);
+                    table.ForeignKey(
+                        name: "FK_ProductEquation_Products_IdProduct",
+                        column: x => x.IdProduct,
+                        principalTable: "Products",
+                        principalColumn: "IdProduct",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_ProductEquation_Users_IdUser",
+                        column: x => x.IdUser,
+                        principalTable: "Users",
+                        principalColumn: "IdUser",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1985,10 +2025,11 @@ namespace SaleManagerPro.Migrations
                 {
                     IdProductUnits = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(nullable: false),
                     IdProduct = table.Column<int>(nullable: false),
                     IdUnit = table.Column<int>(nullable: false),
                     Rate = table.Column<int>(nullable: false),
-                    Count = table.Column<string>(nullable: true)
+                    Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -1998,13 +2039,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdProduct,
                         principalTable: "Products",
                         principalColumn: "IdProduct",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_ProductUnits_Units_IdUnit",
                         column: x => x.IdUnit,
                         principalTable: "Units",
                         principalColumn: "IdUnit",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2030,13 +2071,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdProduct,
                         principalTable: "Products",
                         principalColumn: "IdProduct",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_PurchaseBackDetails_PurchaseBacks_IdPurchaseBack",
                         column: x => x.IdPurchaseBack,
                         principalTable: "PurchaseBacks",
                         principalColumn: "IdPurchaseBack",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2062,13 +2103,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdProduct,
                         principalTable: "Products",
                         principalColumn: "IdProduct",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_PurchaseDetails_Purchases_IdPurchase",
                         column: x => x.IdPurchase,
                         principalTable: "Purchases",
                         principalColumn: "IdPurchase",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2084,7 +2125,8 @@ namespace SaleManagerPro.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false),
                     CheckNumber = table.Column<string>(nullable: true),
                     IdUser = table.Column<int>(nullable: false),
-                    IdCustomersInstallment = table.Column<int>(nullable: false)
+                    IdCustomersInstallment = table.Column<int>(nullable: false),
+                    CustomerIdCustomer = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -2096,17 +2138,23 @@ namespace SaleManagerPro.Migrations
                         principalColumn: "CheckNumber",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
+                        name: "FK_CashInFromCusInstallmentByChecks_Customers_CustomerIdCustomer",
+                        column: x => x.CustomerIdCustomer,
+                        principalTable: "Customers",
+                        principalColumn: "IdCustomer",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_CashInFromCusInstallmentByChecks_CustomersInstallments_IdCustomersInstallment",
                         column: x => x.IdCustomersInstallment,
                         principalTable: "CustomersInstallments",
                         principalColumn: "IdCustomersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromCusInstallmentByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2131,13 +2179,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomersInstallment,
                         principalTable: "CustomersInstallments",
                         principalColumn: "IdCustomersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromCusInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2153,7 +2201,8 @@ namespace SaleManagerPro.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false),
                     CheckNumber = table.Column<string>(nullable: true),
                     IdUser = table.Column<int>(nullable: false),
-                    IdCustomersInstallment = table.Column<int>(nullable: false)
+                    IdCustomersInstallment = table.Column<int>(nullable: false),
+                    CustomerIdCustomer = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -2165,17 +2214,23 @@ namespace SaleManagerPro.Migrations
                         principalColumn: "CheckNumber",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
+                        name: "FK_CashOutToCusInstallmentByChecks_Customers_CustomerIdCustomer",
+                        column: x => x.CustomerIdCustomer,
+                        principalTable: "Customers",
+                        principalColumn: "IdCustomer",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_CashOutToCusInstallmentByChecks_CustomersInstallments_IdCustomersInstallment",
                         column: x => x.IdCustomersInstallment,
                         principalTable: "CustomersInstallments",
                         principalColumn: "IdCustomersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToCusInstallmentByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2190,23 +2245,30 @@ namespace SaleManagerPro.Migrations
                     DateEdit = table.Column<DateTime>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     IdUser = table.Column<int>(nullable: false),
-                    IdCustomersInstallment = table.Column<int>(nullable: false)
+                    IdCustomersInstallment = table.Column<int>(nullable: false),
+                    CustomerIdCustomer = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CashOutToCusInstallments", x => x.IdCashOutToCusInstallment);
                     table.ForeignKey(
+                        name: "FK_CashOutToCusInstallments_Customers_CustomerIdCustomer",
+                        column: x => x.CustomerIdCustomer,
+                        principalTable: "Customers",
+                        principalColumn: "IdCustomer",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_CashOutToCusInstallments_CustomersInstallments_IdCustomersInstallment",
                         column: x => x.IdCustomersInstallment,
                         principalTable: "CustomersInstallments",
                         principalColumn: "IdCustomersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToCusInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2238,13 +2300,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdCustomersInstallment,
                         principalTable: "CustomersInstallments",
                         principalColumn: "IdCustomersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RePaidCheckToCusInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2276,13 +2338,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSalersInstallment,
                         principalTable: "SalersInstallments",
                         principalColumn: "IdSalersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromSalerInstallmentByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2297,23 +2359,30 @@ namespace SaleManagerPro.Migrations
                     DateEdit = table.Column<DateTime>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     IdUser = table.Column<int>(nullable: false),
-                    IdSalersInstallment = table.Column<int>(nullable: false)
+                    IdSalersInstallment = table.Column<int>(nullable: false),
+                    CustomerIdCustomer = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CashInFromSalerInstallments", x => x.IdCashInFromSalerInstallment);
                     table.ForeignKey(
+                        name: "FK_CashInFromSalerInstallments_Customers_CustomerIdCustomer",
+                        column: x => x.CustomerIdCustomer,
+                        principalTable: "Customers",
+                        principalColumn: "IdCustomer",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_CashInFromSalerInstallments_SalersInstallments_IdSalersInstallment",
                         column: x => x.IdSalersInstallment,
                         principalTable: "SalersInstallments",
                         principalColumn: "IdSalersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashInFromSalerInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2345,13 +2414,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSalersInstallment,
                         principalTable: "SalersInstallments",
                         principalColumn: "IdSalersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToSalerInstallmentByChecks_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2376,13 +2445,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSalersInstallment,
                         principalTable: "SalersInstallments",
                         principalColumn: "IdSalersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CashOutToSalerInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -2414,13 +2483,13 @@ namespace SaleManagerPro.Migrations
                         column: x => x.IdSalersInstallment,
                         principalTable: "SalersInstallments",
                         principalColumn: "IdSalersInstallment",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RePaidCheckToSalerInstallments_Users_IdUser",
                         column: x => x.IdUser,
                         principalTable: "Users",
                         principalColumn: "IdUser",
-                       onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -2467,6 +2536,11 @@ namespace SaleManagerPro.Migrations
                 name: "IX_CashInFromCusInstallmentByChecks_CheckNumber",
                 table: "CashInFromCusInstallmentByChecks",
                 column: "CheckNumber");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CashInFromCusInstallmentByChecks_CustomerIdCustomer",
+                table: "CashInFromCusInstallmentByChecks",
+                column: "CustomerIdCustomer");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CashInFromCusInstallmentByChecks_IdCustomersInstallment",
@@ -2569,6 +2643,11 @@ namespace SaleManagerPro.Migrations
                 column: "IdUser");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CashInFromSalerInstallments_CustomerIdCustomer",
+                table: "CashInFromSalerInstallments",
+                column: "CustomerIdCustomer");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CashInFromSalerInstallments_IdSalersInstallment",
                 table: "CashInFromSalerInstallments",
                 column: "IdSalersInstallment");
@@ -2609,6 +2688,11 @@ namespace SaleManagerPro.Migrations
                 column: "CheckNumber");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CashOutToCusInstallmentByChecks_CustomerIdCustomer",
+                table: "CashOutToCusInstallmentByChecks",
+                column: "CustomerIdCustomer");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CashOutToCusInstallmentByChecks_IdCustomersInstallment",
                 table: "CashOutToCusInstallmentByChecks",
                 column: "IdCustomersInstallment");
@@ -2617,6 +2701,11 @@ namespace SaleManagerPro.Migrations
                 name: "IX_CashOutToCusInstallmentByChecks_IdUser",
                 table: "CashOutToCusInstallmentByChecks",
                 column: "IdUser");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CashOutToCusInstallments_CustomerIdCustomer",
+                table: "CashOutToCusInstallments",
+                column: "CustomerIdCustomer");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CashOutToCusInstallments_IdCustomersInstallment",
@@ -2954,6 +3043,16 @@ namespace SaleManagerPro.Migrations
                 column: "IdCustomer");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductEquation_IdProduct",
+                table: "ProductEquation",
+                column: "IdProduct");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductEquation_IdUser",
+                table: "ProductEquation",
+                column: "IdUser");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_IdCatogry",
                 table: "Products",
                 column: "IdCatogry");
@@ -3264,6 +3363,9 @@ namespace SaleManagerPro.Migrations
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");
+
+            migrationBuilder.DropTable(
+                name: "ProductEquation");
 
             migrationBuilder.DropTable(
                 name: "ProductUnits");

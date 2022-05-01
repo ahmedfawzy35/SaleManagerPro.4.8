@@ -8,7 +8,7 @@ namespace SaleManagerPro.Assist
 {
     public static class Permissions
     {
-        public static string PermessionType = "Permession";
+        public static string PermessionType = "التصريح";
 
 
         public static List<string> Models = ModulsName.Modules();
@@ -16,10 +16,10 @@ namespace SaleManagerPro.Assist
         {
             return new List<string>()
             {
-                $"{PermessionType}.{module}.View",
-                $"{PermessionType}.{module}.Creat",
-                $"{PermessionType}.{module}.Edit",
-                $"{PermessionType}.{module}.Delete",
+                $"{PermessionType}.بعرض.{module}",
+                $"{PermessionType}.بإضافة.{module}",
+                $"{PermessionType}.بتعديل.{module}",
+                $"{PermessionType}.بحذف.{module}",
 
             };
         }
@@ -27,9 +27,9 @@ namespace SaleManagerPro.Assist
         {
             List<string> list = new List<string>();
 
-            foreach (string permission in Models)
+            foreach (string model in Models)
             {
-                list.AddRange(GenrateModulePermissionsList(permission));
+                list.AddRange(GenrateModulePermissionsList(model));
             }
 
             return list;
@@ -38,40 +38,40 @@ namespace SaleManagerPro.Assist
         #region ارجاع وظيفه واحده لكل مديول
         public static string View(string module)
         {
-            return  string.Format($"{PermessionType}.{module}.View");
+            return  string.Format($"{PermessionType}.بعرض.{module}");
         }
         public static string Creat(string module)
         {
-            return  string.Format($"{PermessionType}.{module}.Creat");
+            return  string.Format($"{PermessionType}.بإضافة.{module}");
         }
         public static string Edit(string module)
         {
-            return  string.Format($"{PermessionType}.{module}.Edit");
+            return  string.Format($"{PermessionType}.بتعديل.{module}");
         }
         public static string Delete(string module)
         {
-            return  string.Format($"{PermessionType}.{module}.Delete");
+            return  string.Format($"{PermessionType}.بحذف.{module}");
         }
         #endregion
         public static class ModulsName
 
         {
 
-            public static string Product = "Product";
-            public static string Catogry = "Catogry";
-            public static string Order = "Order";
-            public static string OrderDetail = "OrderDetail";
-            public static string Purchase = "Purchase";
-            public static string PurchaseDetails = "PurchaseDetails";
-            public static string Customer = "Customer";
-            public static string Suppliers = "Suppliers";
-            public static string User = "User";
-            public static string Role = "Role";
-            public static string Claime = "Claime";
-            public static string Employee = "Employee";
-            public static string Job = "Job";
-            public static string Units = "Units";
-            public static string ProductUnits = "ProductUnits";
+            public static string Product = "المنتجات";
+            public static string Catogry = "الاصناف";
+            public static string Order = "فواتير البيع";
+            //public static string OrderDetail = "OrderDetail";
+            public static string Purchase = "فواتير الشراء";
+            //public static string PurchaseDetails = "PurchaseDetails";
+            public static string Customer = "العملاء";
+            public static string Suppliers = "الموردين";
+            public static string User = "المستخدمين";
+            public static string Role = "الصلاحيات";
+            public static string Claime = "الإجراءات";
+            public static string Employee = "الموظفين";
+            public static string Job = "الوظائف";
+            public static string Units = "الوحدات";
+            //public static string ProductUnits = "ProductUnits";
 
             // you will add new module here as static parameter
 
@@ -81,7 +81,7 @@ namespace SaleManagerPro.Assist
 
                 return new List<string>
                 {
-                    Product, Catogry, Order,OrderDetail, Purchase, PurchaseDetails, Customer, Suppliers,User,Role,Claime,Employee,Job,Units,ProductUnits
+                    Product, Catogry, Order, Purchase, Customer, Suppliers,User,Role,Claime,Employee,Job,Units
 
                 };
 
