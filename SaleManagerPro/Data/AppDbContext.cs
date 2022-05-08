@@ -109,6 +109,8 @@ namespace SaleManagerPro.Data
         public  DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeDetails> EmployeeDetails { get; set; }
+        public DbSet<EmployeeDocuments> EmployeeDocuments { get; set; }
+        public DbSet<EmployeeDocumentsDetails> EmployeeDocumentsDetails { get; set; }
         public  DbSet<EmployeePromotion> EmployeePromotions { get; set; }
         public  DbSet<EmployeePunishment> EmployeePunishments { get; set; }
         public  DbSet<FinancialDegree> FinancialDegrees { get; set; }

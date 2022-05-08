@@ -1,6 +1,7 @@
 ﻿using SaleManagerPro.Assist;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,49 +15,47 @@ namespace SaleManagerPro.Models.Employees
         // بيانات الموظفين
 
         [Key]
+        [DisplayName("كود تفاصيل الموظف")]
+
         public int IdEmployeeDetails { get; set; }
+        [DisplayName("رقم الموظف")]
 
         public int IdEmployee { get; set; }
         [ForeignKey("IdEmployee")]
         public virtual Employee Employee { get; set; }
         [Required]
+        [DisplayName("تاريخ التعيين")]
+
         public DateTime DateStart { get; set; }
+        [DisplayName("الرقم القومي")]
+
         public string NationalNumber { get; set; }
         [DataType(DataType.Date)]
+        [DisplayName("تاريخ الميلاد")]
+
         public DateTime DateOfBirth { get; set; }
         [Required]
+        [DisplayName("العنوان")]
+
         public string Adress { get; set; }
         [Required]
+        [DisplayName("رقم الهاتف")]
+
         public string Phone { get; set; }
+        [DisplayName("النوع ")]
+
         public string Gender { get; set; }
+        [DisplayName("الحاله الاجتماعيه")]
+
         public string IsMaried { get; set; }
-        public double Salary { get; set; }
+      
+        [DisplayName("الدرجه العلميه")]
 
         public string ScientificDegree { get; set; }
+        [DisplayName("المؤهل الدراسي")]
+
         public string EducationalQualification { get; set; }
 
-        public int IdDepartment { get; set; }
-        [ForeignKey("IdDepartment")]
-        public virtual Department Department { get; set; }
 
-        public int IdJob { get; set; }
-        [ForeignKey("IdJob")]
-        public virtual Job Job { get; set; }
-
-        public int IdGobDegree { get; set; }
-        [ForeignKey("IdGobDegree")]
-        public virtual JobDegree JobDegree { get; set; }
-
-        public int IdFinancialDegree { get; set; }
-        [ForeignKey("IdFinancialDegree")]
-        public virtual FinancialDegree FinancialDegree { get; set; }
-
-        public int IdImages { get; set; }
-        [ForeignKey("IdImages")]
-        public virtual Images Images { get; set; }
-        //IdImages
-
-        //public Job Job { get; set; }
-        //public JobDegree JobDegree { get; set; }
     }
 }

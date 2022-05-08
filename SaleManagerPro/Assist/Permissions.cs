@@ -71,6 +71,9 @@ namespace SaleManagerPro.Assist
             public static string Employee = "الموظفين";
             public static string Job = "الوظائف";
             public static string Units = "الوحدات";
+            public static string Department = "الاقسام";
+            public static string FinancialDegree = "الدرجات الماليه";
+            public static string JobDegree = "الدرجات الوظيفيه";
             //public static string ProductUnits = "ProductUnits";
 
             // you will add new module here as static parameter
@@ -81,7 +84,7 @@ namespace SaleManagerPro.Assist
 
                 return new List<string>
                 {
-                    Product, Catogry, Order, Purchase, Customer, Suppliers,User,Role,Claime,Employee,Job,Units
+                    Product, Catogry, Order, Purchase, Customer, Suppliers,User,Role,Claime,Employee,Job,Units,JobDegree,FinancialDegree,Department
 
                 };
 

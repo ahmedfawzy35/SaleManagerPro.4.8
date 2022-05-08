@@ -83,10 +83,18 @@ namespace SaleManagerPro.Forms.ProductsForms
 
                     return;
                 }
+                if (isexits(textName.Texts))
+                {
+                    textName.BackColor = Color.Orange;
+                    CustomMessageBox.show("أسم التصنيف موجود بالفعل", CustomMessageBox.enmType.Warning);
+
+                    labeNamelError.Text = "أسم التصنيف موجود بالفعل";
+                    return;
+                }
                 Catogry cat = new Catogry();
                 cat.Name = textName.Texts;
                 cat.Details = textDetails.Texts;
-                cat.IdUser = 1;
+                cat.IdUser = Properties.Settings.Default.UserId;
                 cat.DateCreated = DateTime.Now;
                 db.Catogrys.Add(cat);
 

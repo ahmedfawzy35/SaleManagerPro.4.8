@@ -815,8 +815,9 @@ namespace SaleManagerPro.Forms.Master
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(201, 41);
             this.button13.TabIndex = 4;
-            this.button13.Text = "button13";
+            this.button13.Text = "الموظفين";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -884,7 +885,7 @@ namespace SaleManagerPro.Forms.Master
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(201, 41);
             this.button11.TabIndex = 5;
-            this.button11.Text = "button11";
+            this.button11.Text = "الاقسام";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 

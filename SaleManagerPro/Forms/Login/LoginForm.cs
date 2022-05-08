@@ -31,6 +31,18 @@ namespace SaleManagerPro.Forms.Login
                 await DefualtUser.AddDefualtClaims();
                 await DefualtUser.AddDefualtToRoleClaim();
 
+            });
+
+
+            
+
+        }
+        public static async Task AddDefualtDepartment()
+        {
+            await Task.Run(async () => {
+
+
+                await DefualtDepartment.AddDefualtDepartment();
 
             });
 
@@ -38,6 +50,8 @@ namespace SaleManagerPro.Forms.Login
             
 
         }
+
+
         public async Task Login(string username, string pass)
         {
 
@@ -150,9 +164,10 @@ namespace SaleManagerPro.Forms.Login
             }
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private async void  LoginForm_Load(object sender, EventArgs e)
         {
-            AddDefualtUser();
+          await  AddDefualtUser();
+           await AddDefualtDepartment();
         }
     }
 }

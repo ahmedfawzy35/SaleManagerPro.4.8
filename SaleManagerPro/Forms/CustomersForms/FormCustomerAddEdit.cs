@@ -18,7 +18,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace SaleManagerPro.Forms.CustomersForms
 {
-    public partial class FormCustomerAddEdit : Form
+    public partial class FormCustomerAddEdit :Form
     {
         #region getter
 

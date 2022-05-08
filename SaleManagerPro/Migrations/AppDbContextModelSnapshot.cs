@@ -1521,7 +1521,35 @@ namespace SaleManagerPro.Migrations
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("IdDepartment")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdFinancialDegree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGobDegree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdImages")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdJob")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Salary")
+                        .HasColumnType("float");
+
                     b.HasKey("IdEmployee");
+
+                    b.HasIndex("IdDepartment");
+
+                    b.HasIndex("IdFinancialDegree");
+
+                    b.HasIndex("IdGobDegree");
+
+                    b.HasIndex("IdImages");
+
+                    b.HasIndex("IdJob");
 
                     b.ToTable("Employees");
                 });
@@ -1560,9 +1588,18 @@ namespace SaleManagerPro.Migrations
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsFixedSalary")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersent")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Persent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -1607,9 +1644,18 @@ namespace SaleManagerPro.Migrations
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsFixedSalary")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersent")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Persent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -1637,6 +1683,9 @@ namespace SaleManagerPro.Migrations
                     b.Property<DateTime>("DateEdit")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Father")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
@@ -1648,9 +1697,6 @@ namespace SaleManagerPro.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Root")
                         .HasColumnType("int");
 
                     b.HasKey("IdDepartment");
@@ -1689,22 +1735,7 @@ namespace SaleManagerPro.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdDepartment")
-                        .HasColumnType("int");
-
                     b.Property<int>("IdEmployee")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdFinancialDegree")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdGobDegree")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdImages")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdJob")
                         .HasColumnType("int");
 
                     b.Property<int>("IdUser")
@@ -1723,29 +1754,88 @@ namespace SaleManagerPro.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Salary")
-                        .HasColumnType("float");
-
                     b.Property<string>("ScientificDegree")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdEmployeeDetails");
 
-                    b.HasIndex("IdDepartment");
-
                     b.HasIndex("IdEmployee");
-
-                    b.HasIndex("IdFinancialDegree");
-
-                    b.HasIndex("IdGobDegree");
-
-                    b.HasIndex("IdImages");
-
-                    b.HasIndex("IdJob");
 
                     b.HasIndex("IdUser");
 
                     b.ToTable("EmployeeDetails");
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeeDocuments", b =>
+                {
+                    b.Property<int>("IdEmployeeDocument")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateEdit")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdEmployee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUser")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsEdit")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdEmployeeDocument");
+
+                    b.HasIndex("IdEmployee");
+
+                    b.HasIndex("IdUser");
+
+                    b.ToTable("EmployeeDocuments");
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeeDocumentsDetails", b =>
+                {
+                    b.Property<int>("IdEmployeeDocumentsDetails")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateEdit")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdEmployeeDocument")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUser")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("IsEdit")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PageNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdEmployeeDocumentsDetails");
+
+                    b.HasIndex("IdEmployeeDocument");
+
+                    b.HasIndex("IdUser");
+
+                    b.ToTable("EmployeeDocumentsDetails");
                 });
 
             modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeePromotion", b =>
@@ -1754,6 +1844,9 @@ namespace SaleManagerPro.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("AddToSalary")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -1770,6 +1863,12 @@ namespace SaleManagerPro.Migrations
                     b.Property<int>("IdEmployee")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdFinancialDegree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGobDegree")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
@@ -1779,6 +1878,10 @@ namespace SaleManagerPro.Migrations
                     b.HasKey("IdEmployeePromotion");
 
                     b.HasIndex("IdEmployee");
+
+                    b.HasIndex("IdFinancialDegree");
+
+                    b.HasIndex("IdGobDegree");
 
                     b.HasIndex("IdUser");
 
@@ -1807,15 +1910,28 @@ namespace SaleManagerPro.Migrations
                     b.Property<int>("IdEmployee")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdFinancialDegree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGobDegree")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
 
+                    b.Property<double>("LessFromSalary")
+                        .HasColumnType("float");
+
                     b.HasKey("IdEmployeePunishment");
 
                     b.HasIndex("IdEmployee");
+
+                    b.HasIndex("IdFinancialDegree");
+
+                    b.HasIndex("IdGobDegree");
 
                     b.HasIndex("IdUser");
 
@@ -1834,6 +1950,9 @@ namespace SaleManagerPro.Migrations
 
                     b.Property<DateTime>("DateEdit")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
@@ -1898,6 +2017,9 @@ namespace SaleManagerPro.Migrations
                     b.Property<DateTime>("DateEdit")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
@@ -1949,9 +2071,18 @@ namespace SaleManagerPro.Migrations
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsFixedSalary")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersent")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Persent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -1996,9 +2127,18 @@ namespace SaleManagerPro.Migrations
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsFixedSalary")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersent")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Persent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -2037,6 +2177,12 @@ namespace SaleManagerPro.Migrations
 
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersent")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Persent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -2077,6 +2223,12 @@ namespace SaleManagerPro.Migrations
 
                     b.Property<bool>("IsEdit")
                         .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersent")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Persent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -3670,10 +3822,43 @@ namespace SaleManagerPro.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SaleManagerPro.Models.Employee", b =>
+                {
+                    b.HasOne("SaleManagerPro.Models.Employees.Department", "Department")
+                        .WithMany("Employees")
+                        .HasForeignKey("IdDepartment")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.Employees.FinancialDegree", "FinancialDegree")
+                        .WithMany("Employees")
+                        .HasForeignKey("IdFinancialDegree")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.Employees.JobDegree", "JobDegree")
+                        .WithMany("Employees")
+                        .HasForeignKey("IdGobDegree")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.Images", "Images")
+                        .WithMany()
+                        .HasForeignKey("IdImages")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.Employees.Job", "Job")
+                        .WithMany("Employees")
+                        .HasForeignKey("IdJob")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SaleManagerPro.Models.Employees.AddToSalary", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("AddsToSalary")
                         .HasForeignKey("IdEmployee")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3705,14 +3890,53 @@ namespace SaleManagerPro.Migrations
 
             modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeeDetails", b =>
                 {
-                    b.HasOne("SaleManagerPro.Models.Employees.Department", "Department")
+                    b.HasOne("SaleManagerPro.Models.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("IdDepartment")
+                        .HasForeignKey("IdEmployee")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SaleManagerPro.Models.Employee", "Employee")
+                    b.HasOne("SaleManagerPro.Models.User", "User")
                         .WithMany()
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeeDocuments", b =>
+                {
+                    b.HasOne("SaleManagerPro.Models.Employee", "Employee")
+                        .WithMany("EmployeeDocuments")
+                        .HasForeignKey("IdEmployee")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeeDocumentsDetails", b =>
+                {
+                    b.HasOne("SaleManagerPro.Models.Employees.EmployeeDocuments", "EmployeeDocuments")
+                        .WithMany("Pages")
+                        .HasForeignKey("IdEmployeeDocument")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeePromotion", b =>
+                {
+                    b.HasOne("SaleManagerPro.Models.Employee", "Employee")
+                        .WithMany("EmployeePromotions")
                         .HasForeignKey("IdEmployee")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3729,33 +3953,6 @@ namespace SaleManagerPro.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SaleManagerPro.Models.Images", "Images")
-                        .WithMany()
-                        .HasForeignKey("IdImages")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SaleManagerPro.Models.Employees.Job", "Job")
-                        .WithMany()
-                        .HasForeignKey("IdJob")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SaleManagerPro.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("IdUser")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeePromotion", b =>
-                {
-                    b.HasOne("SaleManagerPro.Models.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("IdEmployee")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SaleManagerPro.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("IdUser")
@@ -3766,8 +3963,20 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.Employees.EmployeePunishment", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("EmployeePunishments")
                         .HasForeignKey("IdEmployee")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.Employees.FinancialDegree", "FinancialDegree")
+                        .WithMany()
+                        .HasForeignKey("IdFinancialDegree")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SaleManagerPro.Models.Employees.JobDegree", "JobDegree")
+                        .WithMany()
+                        .HasForeignKey("IdGobDegree")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -3808,7 +4017,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.Employees.LessToSalary", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("LessesToSalary")
                         .HasForeignKey("IdEmployee")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3832,7 +4041,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.Employees.SalaryAdd", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("SalaryAdds")
                         .HasForeignKey("IdEmployee")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3847,7 +4056,7 @@ namespace SaleManagerPro.Migrations
             modelBuilder.Entity("SaleManagerPro.Models.Employees.SalaryLess", b =>
                 {
                     b.HasOne("SaleManagerPro.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("SalaryLesses")
                         .HasForeignKey("IdEmployee")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

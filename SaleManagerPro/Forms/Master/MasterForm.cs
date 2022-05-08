@@ -3,6 +3,7 @@
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
 using SaleManagerPro.Forms.CustomersForms;
+using SaleManagerPro.Forms.EmployeeForms;
 using SaleManagerPro.Forms.ProductsForms;
 using SaleManagerPro.Forms.Security;
 using SaleManagerPro.Models.Roles;
@@ -130,6 +131,7 @@ namespace SaleManagerPro.Forms.Master
                 frm.Visible = true;
                 frm.FormBorderStyle = FormBorderStyle.None;
                 frm.Dock = DockStyle.Fill;
+                frm.BackColor = Color.Orange;
                 //Label adress = new Label();
                 //adress.Location = new Point(0, 0);
                 //adress.Size = new Size(200, 15);
@@ -425,7 +427,8 @@ namespace SaleManagerPro.Forms.Master
         private void button11_Click(object sender, EventArgs e)
         {
             
-            showform("إدارة الاجراءات الصلاحيه", new FormRoleClaimManager() { IdRole = 1 , RoleName = "Admin"});
+            //showform("إدارة الاجراءات الصلاحيه", new FormRoleClaimManager() { IdRole = 1 , RoleName = "Admin"});
+            showform("إدارة الاقسام", FormDepartmentAddEdit.GetFormDepartmentAddEdit );
 
         }
 
@@ -444,6 +447,13 @@ namespace SaleManagerPro.Forms.Master
         private void button12_Click(object sender, EventArgs e)
         {
             showform("ادراة العملاء", FormCustomerAddEdit.GetFormCustomerAddEdit);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            
+             showform("ادراة الموظفين", FormEmployeeAddEdit.GetFormProductAddEdit);
+
         }
     }
 }
