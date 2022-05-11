@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             EmployeeAddEdit = null;
         }
-        public static FormEmployeeAddEdit GetFormProductAddEdit
+        public static FormEmployeeAddEdit GetFormEmployeeAddEdit
         {
             get
             {
@@ -80,8 +81,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
           if (string.IsNullOrEmpty(textSalary.Texts))
             {
-                textPhone.BackColor = Color.Red;
-                lablePhoneerror.Text = "مرتب الموظف  مطلوب";
+                textSalary.BackColor = Color.Red;
+                lableSalaryError.Text = "مرتب الموظف  مطلوب";
                 error++;
             }
            if (lblIdDepartment.Text == "0")
@@ -144,6 +145,36 @@ namespace SaleManagerPro.Forms.EmployeeForms
             return employeeyd;
         }
 
+        public void GetComboBoxDat()
+        {
+            List<Job> jobs = new List<Job>();
+            jobs.Add(new Job { Name = " ", IdJob = 0 });
+            jobs.AddRange(db.Jobs.ToList());
+            comboJob.DataSource = jobs;
+            comboJob.DisplayMember = "Name";
+            comboJob.ValueMember = "IdJob";
+
+            List<JobDegree> jobDegree = new List<JobDegree>();
+            jobDegree.Add(new JobDegree { Name = " ", IdGobDegree = 0 });
+            jobDegree.AddRange(db.JobDegrees.ToList());
+            comboJobDegree.DataSource = jobDegree;
+            comboJobDegree.DisplayMember = "Name";
+            comboJobDegree.ValueMember = "IdGobDegree";
+
+            List<Department> department = new List<Department>();
+            department.Add(new Department { Name = " ", IdDepartment = 0 });
+            department.AddRange(db.Departments.ToList());
+            comboDepartment.DataSource = department;
+            comboDepartment.DisplayMember = "Name";
+            comboDepartment.ValueMember = "IdDepartment";
+
+            List<FinancialDegree> financialDegree = new List<FinancialDegree>();
+            financialDegree.Add(new FinancialDegree { Nmae = " ", IdFinancialDegree = 0 });
+            financialDegree.AddRange(db.FinancialDegrees.ToList());
+            comboFinancialDegree.DataSource = financialDegree;
+            comboFinancialDegree.DisplayMember = "Nmae";
+            comboFinancialDegree.ValueMember = "IdFinancialDegree";
+        }
 
         private void Add()
         {
@@ -178,13 +209,43 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
 
             Employee employeetoadd = new Employee();
+            employeetoadd.Guid = Guid.NewGuid();
             employeetoadd.FullName = textName.Texts;
             employeetoadd.Salary =double.Parse( textSalary.Texts);
             employeetoadd.IdJob =int.Parse(lblIdJob.Text);
-            employeetoadd.IdGobDegree = int.Parse(lblIdJobDegree.Text);
+            employeetoadd.IdJobDegree = int.Parse(lblIdJobDegree.Text);
             employeetoadd.IdDepartment = int.Parse(lblIdDepartment.Text);
             employeetoadd.IdFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
-            
+            employeetoadd.ISOnWork = true;
+            employeetoadd.StartSalary =double.Parse( textSalary.Texts);
+            employeetoadd.StartJob = int.Parse(lblIdJob.Text);
+            employeetoadd.StartJobDegree = int.Parse(lblIdJobDegree.Text);
+            employeetoadd.StartDepartment = int.Parse(lblIdDepartment.Text);
+            employeetoadd.StartFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
+            if (lblDefualtImage.Text == "DefualtImage")
+            {
+                var img = db.Images.Where(x => x.Name == "DefualtEmployee").FirstOrDefault();
+                if (img != null)
+                {
+                    employeetoadd.IdImages = img.IdImages;
+                }else
+                {
+                    byte[] imagebyte = ConvertImageToBinary(Properties.Resources.DefualyEmployee);
+                    Images image = new Images { Guid = Guid.NewGuid(), Name = "DefualyEmployee", Image = imagebyte };
+                    db.Images.Add(image);
+                    db.SaveChanges();
+                    employeetoadd.IdImages = image.IdImages;
+                }
+            }else
+            {
+                byte[] imagebyte = ConvertImageToBinary(pictureImage.Image);
+                Images image = new Images { Guid = Guid.NewGuid(), Name = employeetoadd.FullName, Image = imagebyte };
+                db.Images.Add(image);
+                db.SaveChanges();
+                employeetoadd.IdImages = image.IdImages;
+
+            }
+
             db.Employees.Add(employeetoadd);
             db.SaveChanges();
 
@@ -200,101 +261,171 @@ namespace SaleManagerPro.Forms.EmployeeForms
             details.IsMaried = comboIsMarid.Text;
             details.ScientificDegree = comboScientificDegree.Text;
             details.EducationalQualification = textEducationalQualification.Texts;
+            details.DateCreated = DateTime.Now;
             details.IdUser = Properties.Settings.Default.UserId;
+
+            db.EmployeeDetails.Add(details);
+            db.SaveChanges();
             CustomMessageBox.show("تم اضافة الموظف", CustomMessageBox.enmType.Success);
             cleartext();
             search();
         }
+        Byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
         private void Edit()
         {
-
-            var product = db.Products.Include(p => p.Units).Where(x => x.IdProduct == int.Parse(labelId.Text)).FirstOrDefault();
-            if (product == null)
-            {
-                CustomMessageBox.dialog("قم بإختيار المنتج مجددا");
-                return;
-            }
             if (!canedit)
             {
                 CustomMessageBox.dialog("غير مرخص بالتعديل");
                 return;
             }
+            var employeetoedit = db.EmployeeDetails.Include(p => p.Employee).Where(x => x.IdEmployee == int.Parse(labelId.Text)).FirstOrDefault();
+            var emptoedit = employeetoedit.Employee;
+            if (employeetoedit == null)
+            {
+                CustomMessageBox.dialog("قم بإختيار الموظف مجددا");
+                return;
+            }
+
             if (validations() > 0)
             {
                 return;
 
             }
-            if (product.Name != textName.Texts)
+            if (employeetoedit.Employee.FullName != textName.Texts)
             {
                 if (IsExitsName())
                 {
-                    CustomMessageBox.show("اسم المنتج موجود بالفعل", CustomMessageBox.enmType.Error);
+                    CustomMessageBox.show("اسم الموظف موجود بالفعل", CustomMessageBox.enmType.Error);
+                    return;
+                }
+            }
+             if (employeetoedit.NationalNumber != textNationalNumber.Texts)
+            {
+                if (IsExitsNationalNumber() > 0)
+                {
+                    CustomMessageBox.show($"الرقم القومي مسجل باسم  {employeetoedit.Employee.FullName}", CustomMessageBox.enmType.Error);
+                    return;
+                }
+            }
+             if (employeetoedit.Phone != textPhone.Texts)
+            {
+                if (IsExitsPhonee() >0)
+                {
+                    CustomMessageBox.show($"رقم الهاتف مسجل باسم  {employeetoedit.Employee.FullName}", CustomMessageBox.enmType.Error);
                     return;
                 }
             }
 
-            product.Name = textName.Texts;
-            product.Price = double.Parse(textAdress.Texts);
-            product.LastPurchasePrice = double.Parse(textPhone.Texts);
-            product.LimitInStok = !string.IsNullOrEmpty(textSalary.Texts) ? int.Parse(textSalary.Texts) : 1;
-            product.StartStock = !string.IsNullOrEmpty(textNationalNumber.Texts) ? int.Parse(textNationalNumber.Texts) : 1;
-            product.IdCatogry = int.Parse(comboJob.SelectedValue.ToString());
-            product.DateCreated = DateTime.Now;
-            product.IdUser = Properties.Settings.Default.UserId;
+            employeetoedit.DateOfBirth = dateOfBirth.Value;
+            employeetoedit.NationalNumber = textNationalNumber.Texts;
+            employeetoedit.Adress =textAdress.Texts;
+            employeetoedit.Phone = textPhone.Texts;
+            employeetoedit.Gender = comboGender.Text;
+            employeetoedit.IsMaried = comboIsMarid.Text;
+            employeetoedit.ScientificDegree = comboScientificDegree.Text;
+            employeetoedit.EducationalQualification = textEducationalQualification.Texts;
+            employeetoedit.IsEdit = true;
+            employeetoedit.IdUser = Properties.Settings.Default.UserId;
 
-            db.Products.Update(product);
+            emptoedit.FullName = textName.Texts;
+            emptoedit.IdJob =int.Parse( lblIdJob.Text);
+
+            if (lblDefualtImage.Text != employeetoedit.Employee.FullName)
+            {
+
+                byte[] imagebyte = ConvertImageToBinary(pictureImage.Image);
+                Images image = new Images { Guid = Guid.NewGuid(), Name = employeetoedit.Employee.FullName, Image = imagebyte };
+                db.Images.Add(image);
+                db.SaveChanges();
+                emptoedit.IdImages = image.IdImages;
+            }
+            db.EmployeeDetails.Update(employeetoedit);
+            db.Employees.Update(emptoedit);
             db.SaveChanges();
 
 
 
-            CustomMessageBox.show("تم تعديل المنتج", CustomMessageBox.enmType.Success);
+            CustomMessageBox.show("تم تعديل الموظف", CustomMessageBox.enmType.Success);
             cleartext();
 
         }
         private void search()
         {
             string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
-            var a = db.Products.Include(x => x.User).Include(x => x.Catogry).Select(ct => new ProductyDto
-            {
-                IdProduct = ct.IdProduct,
-                Name = ct.Name,
-                Price = ct.Price,
-                LastPurchasePrice = ct.LastPurchasePrice,
-                LimitInStok = ct.LimitInStok,
-                CatogryName = ct.Catogry.Name,
-                IsEdit = ct.IsEdit,
-                DateEdit = ct.DateEdit,
-                DateCreated = ct.DateCreated,
-                UserName = ct.User.UserName,
-                StartStock = ct.StartStock,
-                Process = new ProductProcess
-                {
-                    Orders = ct.Orders.Sum(x => x.Quantity),
-                    OrdersBak = ct.OrdersBak.Sum(x => x.Quantity),
-                    Purchase = ct.Purchase.Sum(x => x.Quantity),
-                    PurchaseBack = ct.PurchaseBack.Sum(x => x.Quantity),
-                    ProductEquationsAdd = ct.ProductEquations.Where(x => x.Type == ProductEquationType.Add.ToString()).Sum(e => e.Count),
-                    ProductEquationsDeduct = ct.ProductEquations.Where(x => x.Type == ProductEquationType.Deduct.ToString()).Sum(e => e.Count)
-                }
-
-            }).Where(r => r.Name.Contains(search)).ToList();
+            var a = db.Employees.Where(r => r.FullName.Contains(search)).ToList();
             dataGridEmployee.DataSource = a;
+            dataGridEmployee.Columns[1].Visible = false;
+            dataGridEmployee.Columns[3].Visible = false;
+            dataGridEmployee.Columns[4].Visible = false;
+            dataGridEmployee.Columns[5].Visible = false;
+            dataGridEmployee.Columns[6].Visible = false;
+            dataGridEmployee.Columns[7].Visible = false;
+            dataGridEmployee.Columns[8].Visible = false;
+            dataGridEmployee.Columns[9].Visible = false;
+            dataGridEmployee.Columns[10].Visible = false;
+            dataGridEmployee.Columns[11].Visible = false;
+            dataGridEmployee.Columns[12].Visible = false;
+            dataGridEmployee.Columns[13].Visible = false;
+            dataGridEmployee.Columns[14].Visible = false;
+            dataGridEmployee.Columns[15].Visible = false;
+             dataGridEmployee.Columns[16].Visible = false;
+            dataGridEmployee.Columns[17].Visible = false;
+            dataGridEmployee.Columns[18].Visible = false;
+            dataGridEmployee.Columns[19].Visible = false;
+            dataGridEmployee.Columns[20].Visible = false; 
+            dataGridEmployee.Columns[21].Visible = false;
+            dataGridEmployee.Columns[22].Visible = false;
+             dataGridEmployee.Columns[23].Visible = false;
+            dataGridEmployee.Columns[24].Visible = false;
+            dataGridEmployee.Columns[25].Visible = false;
+            dataGridEmployee.Columns[26].Visible = false;
+            dataGridEmployee.Columns[27].Visible = false;
+
         }
 
         void cleartext()
         {
             textName.Texts = "";
             textAdress.Texts = "";
-            textPhone.Texts = "0";
+            textPhone.Texts = "";
             textSalary.Texts = "";
-            comboJobDegree.Enabled = true;
+            textEducationalQualification.Texts = "";
+            textNationalNumber.Texts = "";
+            lblIdDepartment.Text = "0";
+            lblDefualtImage.Text = "DefualtImage";
+            pictureImage.Image = Properties.Resources.DefualyEmployee;
+            lblIdJob.Text = "0";
 
+            lblIdJobDegree.Text = "0";
+
+            lblbIdFinancialDegree.Text = "0";
+
+            comboGender.Text = "";
+
+            comboIsMarid.Text = "";
+
+            comboScientificDegree.Text = "";
+
+            labelId.Text ="0";
+
+            textSalary.Enabled = true;
+            dateStart.Enabled = true;
+            comboDepartment.Enabled = true;
+            //comboJob.Enabled = true;
+            comboJobDegree.Enabled = true;
+            comboFinancialDegree.Enabled = true;
             btnSave.Text = "إضافه";
             IsNew = true;
 
-         
 
-            panelunit2.Enabled = true;
+            GetComboBoxDat();
             search();
         }
         #endregion
@@ -326,6 +457,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         private void textName__TextChanged(object sender, EventArgs e)
         {
+
             Textchange(textName, labeNamelError);
             search();
         }
@@ -342,41 +474,69 @@ namespace SaleManagerPro.Forms.EmployeeForms
             if (!string.IsNullOrEmpty(dataGridEmployee.CurrentRow.Cells[0].Value.ToString()))
             {
                 int id = int.Parse(dataGridEmployee.CurrentRow.Cells[0].Value.ToString());
-                var product = await db.Products.Include(p => p.Units).Where(x => x.IdProduct == id).FirstOrDefaultAsync();
+                var emp = await db.EmployeeDetails.
+                    Include(p => p.Employee).
+                    Include(j=> j.Employee.Job).
+                    Include(jd => jd.Employee.JobDegree).
+                    Include(f=> f.Employee.FinancialDegree).
+                    Include(i=> i.Employee.Images).
+                    Include(d=>d.Employee.Department).Where(x => x.IdEmployee == id).FirstOrDefaultAsync();
 
 
 
 
                 cleartext();
-                int idunit1 = product.Units.Where(x => x.Rate == 1).FirstOrDefault().IdUnit;
-                comboJobDegree.Text = db.Units.Find(idunit1).Name;
-                comboJobDegree.Enabled = false;
-                if (product.Units.Count() < 3)
+               
+
+
+                labelId.Text = emp.IdEmployee.ToString();
+                textName.Texts = emp.Employee.FullName;
+                textAdress.Texts = emp.Adress;
+                textPhone.Texts = emp.Phone;
+                textSalary.Texts = emp.Employee.Salary.ToString();
+                textNationalNumber.Texts = emp.NationalNumber;
+                textEducationalQualification.Texts = emp.EducationalQualification;
+                dateStart.Value = emp.DateStart;
+                dateOfBirth.Value = emp.DateOfBirth;
+                comboDepartment.Text = emp.Employee.Department.Name;
+                lblIdDepartment.Text = emp.Employee.IdDepartment.ToString();
+
+                comboJob.Text = emp.Employee.Job.Name;
+                lblIdJob.Text = emp.Employee.IdJob.ToString();
+
+                comboJobDegree.Text = emp.Employee.JobDegree.Name;
+                lblIdJobDegree.Text = emp.Employee.IdJobDegree.ToString();
+
+                comboFinancialDegree.Text = emp.Employee.FinancialDegree.Nmae;
+                lblbIdFinancialDegree.Text = emp.Employee.IdFinancialDegree.ToString();
+
+                comboGender.Text = emp.Gender;
+
+                comboIsMarid.Text = emp.IsMaried;
+                comboScientificDegree.Text = emp.ScientificDegree;
+                Image NewImage;
+                using (MemoryStream MS = new MemoryStream(emp.Employee.Images.Image, 0, emp.Employee.Images.Image.Length))
                 {
-                    //editproductunitcount = product.Units.Count();
-
+                    MS.Write(emp.Employee.Images.Image, 0, emp.Employee.Images.Image.Length);
+                    NewImage = Image.FromStream(MS, true);
                 }
-                if (product.Units.Count() == 2)
-                {
-                    int idunit2 = product.Units.Where(x => x.Rate == 2).FirstOrDefault().IdUnit;
-                    comboDepartment.Text = db.Units.Find(idunit2).Name;
-                    panelunit2.Enabled = false;
-                }
-
-
-                labelId.Text = product.IdProduct.ToString();
-                textName.Texts = product.Name;
-                textAdress.Texts = product.Price.ToString();
-                textPhone.Texts = product.LastPurchasePrice.ToString();
-                textSalary.Texts = product.LimitInStok.ToString();
-                textNationalNumber.Texts = product.StartStock.ToString();
+                pictureImage.Image = NewImage;
+                lblDefualtImage.Text = emp.Employee.Images.Name;
                 btnSave.Text = "تعديل";
                 IsNew = false;
+
+                textSalary.Enabled = false;
+                dateStart.Enabled = false;
+                comboDepartment.Enabled = false;
+                //comboJob.Enabled = false;
+                comboJobDegree.Enabled = false;
+                comboFinancialDegree.Enabled = false;
+
 
             }
             else
             {
-                MessageBox.Show("قم بإختيار تصنيف");
+                MessageBox.Show("قم بإختيارموظف");
             }
         }
 
@@ -502,43 +662,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         }
 
-        private void textStartStock_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
-        private void textunit2count_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
 
-        private void textunit3count_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-         (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void عرضمستنداتالموظفToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -551,10 +678,114 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            Master.MasterForm.GetFormMasterForm.showform($"", new FormDepartmentAddEdit());
 
+        private void pictureAddDepartment_Click_1(object sender, EventArgs e)
+        {
+            //Master.MasterForm.GetFormMasterForm.showform($"اضافة قسم", new FormDepartmentAddEdit());
+
+            SubFormAddNames frm = new SubFormAddNames();
+            frm.Text = "اضافة قسم جديد";
+            frm.Type = SubFormAddNames.Types.Department.ToString();
+            frm.PlaceHolder = "اسم القسم";
+            frm.ShowDialog();
+
+        }
+
+        private void textEducationalQualification__TextChanged(object sender, EventArgs e)
+        {
+
+            Textchange(textEducationalQualification, labelEducationalQualificationError);
+            search();
+        }
+
+        private void textNationalNumber__TextChanged(object sender, EventArgs e)
+        {
+            Textchange(textNationalNumber, labelNationalNumberError);
+
+        }
+
+        private void pictureAddJob_Click(object sender, EventArgs e)
+        {
+            //Master.MasterForm.GetFormMasterForm.showform($"اضافة وظيفه", new FormJobAddEdit());
+            SubFormAddNames frm = new SubFormAddNames();
+            frm.Text = "اضافة وظيفه جديده";
+            frm.Type = SubFormAddNames.Types.Job.ToString();
+            frm.PlaceHolder = "اسم الوظيفه";
+            frm.ShowDialog();
+        }
+
+        private void pictureAddJobDegree_Click(object sender, EventArgs e)
+        {
+            //Master.MasterForm.GetFormMasterForm.showform($"اضافة درجة وظيفيه", new FormJobDegreeAddEdit());
+            SubFormAddNames frm = new SubFormAddNames();
+            frm.Text = "اضافة درجه وظيفيه جديده";
+            frm.Type = SubFormAddNames.Types.JobDegree.ToString();
+            frm.PlaceHolder = "اسم الدرجه الوظيفيه";
+            frm.ShowDialog();
+        }
+
+        private void pictureAddFinancialDegree_Click(object sender, EventArgs e)
+        {
+            //Master.MasterForm.GetFormMasterForm.showform($"اضافة درجة ماليه", new FormFinancialDegreeAddEdit());
+            SubFormAddNames frm = new SubFormAddNames();
+            frm.Text = "اضافة درجه ماليه جديده";
+            frm.Type = SubFormAddNames.Types.FinancialDegree.ToString();
+            frm.PlaceHolder = "اسم الدرجه الماليه";
+            frm.ShowDialog();
+        }
+
+        private void comboDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblIdDepartment.Text = comboDepartment.SelectedValue.ToString();
+        }
+
+        private void comboJob_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblIdJob.Text = comboJob.SelectedValue.ToString();
+
+        }
+
+        private void comboJobDegree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblIdJobDegree.Text = comboJobDegree.SelectedValue.ToString();
+
+        }
+
+        private void comboFinancialDegree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblbIdFinancialDegree.Text = comboFinancialDegree.SelectedValue.ToString();
+
+        }
+
+        private void btnChooseImage_Click(object sender, EventArgs e)
+        {
+            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                // Read the files
+                pictureImage.Image = Image.FromFile(openFileDialog1.FileName);
+                lblDefualtImage.Text = openFileDialog1.FileName;
+                //List<EmployeeDocumentsDetails> imgList = new List<EmployeeDocumentsDetails>();
+                //int page = 0;
+                //foreach (String file in openFileDialog1.FileNames)
+                //{
+
+                //    byte[] imagebyte = ConvertImageToBinary(Image.FromFile(file));
+                //    images.Add(imagebyte);
+
+                //    imgList.Add(new EmployeeDocumentsDetails
+                //    {
+                //        IdEmployeeDocument = decumentId,
+                //        IdUser = Properties.Settings.Default.UserId,
+                //        DateCreated = DateTime.Now,
+                //        Image = imagebyte,
+                //        PageNumber = page++
+                //    });
+
+
+
+                //}
+            }
         }
 
         private void textPricePurchase__TextChanged(object sender, EventArgs e)
@@ -573,10 +804,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private void FormProductAddEdit_Load(object sender, EventArgs e)
         {
             #region permetions
-            canview = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.View(Permissions.ModulsName.Product));
-            cancreat = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.Creat(Permissions.ModulsName.Product));
-            canedit = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.Edit(Permissions.ModulsName.Product));
-            candelete = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.Delete(Permissions.ModulsName.Product));
+            canview = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.View(Permissions.ModulsName.Employee));
+            cancreat = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.Creat(Permissions.ModulsName.Employee));
+            canedit = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.Edit(Permissions.ModulsName.Employee));
+            candelete = Master.MasterForm.GetFormMasterForm.userClaims.Any(x => x.Value == Permissions.Delete(Permissions.ModulsName.Employee));
             if (!canview)
             {
                 dataGridEmployee.Visible = false;
@@ -584,18 +815,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
             #endregion
             // combo box load data
-            comboJob.DataSource = db.Jobs.ToList();
-            comboJob.DisplayMember = "Name";
-            comboJob.ValueMember = "IdJob";
-            //var allunits = db.Units.ToList();
-
-            comboJobDegree.DataSource = db.JobDegrees.ToList();
-            comboJobDegree.DisplayMember = "Name";
-            comboJobDegree.ValueMember = "IdGobDegree";
-
-            comboDepartment.DataSource = db.Departments.ToList();
-            comboDepartment.DisplayMember = "Name";
-            comboDepartment.ValueMember = "IdDepartment";
+            GetComboBoxDat();
 
             comboScientificDegree.DataSource = Enum.GetValues(typeof(ScientificDegree));
 
@@ -603,66 +823,67 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
             comboIsMarid.DataSource = Enum.GetValues(typeof(IsMaried));
 
-
+            cleartext();
            
 
 
             search();
 
         }
+
         #endregion
     }
 
-    public class ProductyDto
+    public class EmployeetyDto
     {
 
-        [DisplayName("رقم المنتج")]
-        public int IdProduct { get; set; }
-        [DisplayName("اسم المنتج")]
+        [DisplayName("رقم الموظف")]
+        public int IdEmployee { get; set; }
+        [DisplayName("اسم الموظف")]
 
-        public string Name { get; set; }
-        [DisplayName("سعر البيع")]
+        public string FullName { get; set; }
+        [DisplayName("المرتب الاساسي")]
 
-        public double Price { get; set; }
-        [DisplayName("اخر سعر شراء")]
+        public double Salary { get; set; }
+        [DisplayName("تاريخ التعيين")]
 
-        public double LastPurchasePrice { get; set; }
-        [DisplayName("حد المخزون")]
+        public DateTime DateStart { get; set; }
+        [DisplayName("الرقم القومي")]
 
-        public int LimitInStok { get; set; }
+        public string NationalNumber { get; set; }
+        [DisplayName("تاريخ الميلاد")]
 
-        [DisplayName("اسم التصنيف ")]
+        public DateTime DateOfBirth { get; set; }
+        [DisplayName("العنوان")]
 
-        public string CatogryName { get; set; }
-        [DisplayName("تم التعديل")]
+        public string Adress { get; set; }
+        [DisplayName("رقم الهاتف")]
 
-        public bool IsEdit { get; set; }
-        [DisplayName("تاريخ التعديل")]
+        public string Phone { get; set; }
+        [DisplayName("النوع ")]
 
-        public DateTime DateEdit { get; set; }
-        [DisplayName("تاريخ الانشاء")]
+        public string Gender { get; set; }
+        [DisplayName("الحاله الاجتماعيه")]
 
-        public DateTime DateCreated { get; set; }
-        [DisplayName("رصيد البدايه")]
+        public string IsMaried { get; set; }
 
-        public int StartStock { get; set; }
+        [DisplayName("الدرجه العلميه")]
 
-        [DisplayName("اسم اخر مستخدم")]
+        public string ScientificDegree { get; set; }
+        [DisplayName("المؤهل الدراسي")]
 
-        public string UserName { get; set; }
-        public ProductProcess Process { get; set; }
+        public string EducationalQualification { get; set; }
+        public EmployeeSalaryProcess SalaryProcess { get; set; }
 
         [DisplayName("الرصيد الحالي")]
-        public int AccountBalance => StartStock + Process.Purchase + Process.OrdersBak + Process.ProductEquationsAdd - Process.Orders - Process.PurchaseBack - Process.ProductEquationsDeduct;
+        public double TotalSalary => Salary + SalaryProcess.AddToSalary - SalaryProcess.LessToSalary ;
     }
-    public class ProductProcess
+    public class EmployeeSalaryProcess
     {
-        public int Orders { get; set; }
-        public int OrdersBak { get; set; }
-        public int Purchase { get; set; }
-        public int PurchaseBack { get; set; }
-        public int ProductEquationsAdd { get; set; }
-        public int ProductEquationsDeduct { get; set; }
+        //public double Salary { get; set; }
+        public double AddToSalary { get; set; }
+        public double LessToSalary { get; set; }
+
 
     }
 }

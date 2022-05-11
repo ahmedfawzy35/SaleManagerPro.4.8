@@ -43,6 +43,7 @@ namespace SaleManagerPro.Forms.Login
 
 
                 await DefualtDepartment.AddDefualtDepartment();
+                await DefualtDepartment.AddDefaultPicture();
 
             });
 

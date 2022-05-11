@@ -36,6 +36,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.panelunit2 = new System.Windows.Forms.Panel();
+            this.pictureImage = new System.Windows.Forms.PictureBox();
+            this.btnChooseImage = new CustomControls.Controls.RJButton();
             this.pictureAddFinancialDegree = new System.Windows.Forms.PictureBox();
             this.pictureAddJobDegree = new System.Windows.Forms.PictureBox();
             this.pictureAddJob = new System.Windows.Forms.PictureBox();
@@ -100,8 +102,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.تعديلالمنتجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حذفالمنتجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.عرضمستنداتالموظفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblDefualtImage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelunit2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAddFinancialDegree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAddJobDegree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAddJob)).BeginInit();
@@ -154,10 +159,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.dateStart.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateStart.Location = new System.Drawing.Point(456, 652);
+            this.dateStart.Location = new System.Drawing.Point(456, 649);
             this.dateStart.Name = "dateStart";
             this.dateStart.RightToLeftLayout = true;
-            this.dateStart.Size = new System.Drawing.Size(292, 29);
+            this.dateStart.Size = new System.Drawing.Size(301, 29);
             this.dateStart.TabIndex = 7;
             // 
             // dateOfBirth
@@ -165,7 +170,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.dateOfBirth.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.dateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOfBirth.Location = new System.Drawing.Point(456, 582);
+            this.dateOfBirth.Location = new System.Drawing.Point(461, 578);
             this.dateOfBirth.Name = "dateOfBirth";
             this.dateOfBirth.RightToLeftLayout = true;
             this.dateOfBirth.Size = new System.Drawing.Size(292, 29);
@@ -174,6 +179,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // panelunit2
             // 
             this.panelunit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelunit2.Controls.Add(this.pictureImage);
+            this.panelunit2.Controls.Add(this.btnChooseImage);
             this.panelunit2.Controls.Add(this.pictureAddFinancialDegree);
             this.panelunit2.Controls.Add(this.pictureAddJobDegree);
             this.panelunit2.Controls.Add(this.pictureAddJob);
@@ -199,6 +206,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panelunit2.Controls.Add(this.comboDepartment);
             this.panelunit2.Controls.Add(this.label15);
             this.panelunit2.Controls.Add(this.label4);
+            this.panelunit2.Controls.Add(this.lblDefualtImage);
             this.panelunit2.Controls.Add(this.label32);
             this.panelunit2.Controls.Add(this.label31);
             this.panelunit2.Controls.Add(this.label30);
@@ -211,6 +219,36 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panelunit2.Size = new System.Drawing.Size(427, 764);
             this.panelunit2.TabIndex = 22;
             // 
+            // pictureImage
+            // 
+            this.pictureImage.Image = global::SaleManagerPro.Properties.Resources.DefualyEmployee;
+            this.pictureImage.Location = new System.Drawing.Point(165, 429);
+            this.pictureImage.Name = "pictureImage";
+            this.pictureImage.Size = new System.Drawing.Size(101, 113);
+            this.pictureImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureImage.TabIndex = 22;
+            this.pictureImage.TabStop = false;
+            // 
+            // btnChooseImage
+            // 
+            this.btnChooseImage.BackColor = System.Drawing.Color.Black;
+            this.btnChooseImage.BackgroundColor = System.Drawing.Color.Black;
+            this.btnChooseImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnChooseImage.BorderRadius = 15;
+            this.btnChooseImage.BorderSize = 0;
+            this.btnChooseImage.FlatAppearance.BorderSize = 0;
+            this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseImage.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnChooseImage.ForeColor = System.Drawing.Color.White;
+            this.btnChooseImage.Location = new System.Drawing.Point(165, 553);
+            this.btnChooseImage.Name = "btnChooseImage";
+            this.btnChooseImage.Size = new System.Drawing.Size(101, 29);
+            this.btnChooseImage.TabIndex = 15;
+            this.btnChooseImage.Text = "اختار صوره";
+            this.btnChooseImage.TextColor = System.Drawing.Color.White;
+            this.btnChooseImage.UseVisualStyleBackColor = false;
+            this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
+            // 
             // pictureAddFinancialDegree
             // 
             this.pictureAddFinancialDegree.Image = global::SaleManagerPro.Properties.Resources.icon_add_48px;
@@ -220,6 +258,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.pictureAddFinancialDegree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureAddFinancialDegree.TabIndex = 22;
             this.pictureAddFinancialDegree.TabStop = false;
+            this.pictureAddFinancialDegree.Click += new System.EventHandler(this.pictureAddFinancialDegree_Click);
             // 
             // pictureAddJobDegree
             // 
@@ -230,6 +269,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.pictureAddJobDegree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureAddJobDegree.TabIndex = 22;
             this.pictureAddJobDegree.TabStop = false;
+            this.pictureAddJobDegree.Click += new System.EventHandler(this.pictureAddJobDegree_Click);
             // 
             // pictureAddJob
             // 
@@ -240,6 +280,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.pictureAddJob.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureAddJob.TabIndex = 22;
             this.pictureAddJob.TabStop = false;
+            this.pictureAddJob.Click += new System.EventHandler(this.pictureAddJob_Click);
             // 
             // pictureAddDepartment
             // 
@@ -250,7 +291,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.pictureAddDepartment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureAddDepartment.TabIndex = 22;
             this.pictureAddDepartment.TabStop = false;
-            this.pictureAddDepartment.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            this.pictureAddDepartment.Click += new System.EventHandler(this.pictureAddDepartment_Click_1);
             // 
             // labelScientificDegreeError
             // 
@@ -352,9 +393,9 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(340, 150);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 21;
-            this.label1.Text = "الدرجه الاداريه";
+            this.label1.Text = "الدرجه الوظيفيه";
             // 
             // label13
             // 
@@ -423,6 +464,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.comboJob.Name = "comboJob";
             this.comboJob.Size = new System.Drawing.Size(253, 32);
             this.comboJob.TabIndex = 9;
+            this.comboJob.SelectedIndexChanged += new System.EventHandler(this.comboJob_SelectedIndexChanged);
             // 
             // comboJobDegree
             // 
@@ -436,6 +478,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.comboJobDegree.Name = "comboJobDegree";
             this.comboJobDegree.Size = new System.Drawing.Size(252, 32);
             this.comboJobDegree.TabIndex = 10;
+            this.comboJobDegree.SelectedIndexChanged += new System.EventHandler(this.comboJobDegree_SelectedIndexChanged);
             // 
             // comboFinancialDegree
             // 
@@ -449,6 +492,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.comboFinancialDegree.Name = "comboFinancialDegree";
             this.comboFinancialDegree.Size = new System.Drawing.Size(253, 32);
             this.comboFinancialDegree.TabIndex = 11;
+            this.comboFinancialDegree.SelectedIndexChanged += new System.EventHandler(this.comboFinancialDegree_SelectedIndexChanged);
             // 
             // comboDepartment
             // 
@@ -461,6 +505,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.comboDepartment.Name = "comboDepartment";
             this.comboDepartment.Size = new System.Drawing.Size(253, 32);
             this.comboDepartment.TabIndex = 8;
+            this.comboDepartment.SelectedIndexChanged += new System.EventHandler(this.comboDepartment_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -492,7 +537,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label32.Size = new System.Drawing.Size(13, 48);
             this.label32.TabIndex = 5;
             this.label32.Text = "0";
-            this.label32.Visible = false;
             // 
             // label31
             // 
@@ -506,7 +550,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label31.Size = new System.Drawing.Size(13, 48);
             this.label31.TabIndex = 5;
             this.label31.Text = "0";
-            this.label31.Visible = false;
             // 
             // label30
             // 
@@ -520,7 +563,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label30.Size = new System.Drawing.Size(13, 48);
             this.label30.TabIndex = 5;
             this.label30.Text = "0";
-            this.label30.Visible = false;
             // 
             // lblbIdFinancialDegree
             // 
@@ -534,7 +576,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.lblbIdFinancialDegree.Size = new System.Drawing.Size(13, 48);
             this.lblbIdFinancialDegree.TabIndex = 5;
             this.lblbIdFinancialDegree.Text = "0";
-            this.lblbIdFinancialDegree.Visible = false;
             // 
             // lblIdJobDegree
             // 
@@ -548,7 +589,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.lblIdJobDegree.Size = new System.Drawing.Size(13, 48);
             this.lblIdJobDegree.TabIndex = 5;
             this.lblIdJobDegree.Text = "0";
-            this.lblIdJobDegree.Visible = false;
             // 
             // lblIdJob
             // 
@@ -562,7 +602,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.lblIdJob.Size = new System.Drawing.Size(13, 48);
             this.lblIdJob.TabIndex = 5;
             this.lblIdJob.Text = "0";
-            this.lblIdJob.Visible = false;
             // 
             // lblIdDepartment
             // 
@@ -576,7 +615,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.lblIdDepartment.Size = new System.Drawing.Size(13, 48);
             this.lblIdDepartment.TabIndex = 5;
             this.lblIdDepartment.Text = "0";
-            this.lblIdDepartment.Visible = false;
             // 
             // label12
             // 
@@ -656,9 +694,9 @@ namespace SaleManagerPro.Forms.EmployeeForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(473, 652);
+            this.label9.Location = new System.Drawing.Point(473, 649);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(433, 25);
+            this.label9.Size = new System.Drawing.Size(442, 25);
             this.label9.TabIndex = 13;
             // 
             // textNationalNumber
@@ -682,8 +720,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textNationalNumber.TabIndex = 5;
             this.textNationalNumber.Texts = "";
             this.textNationalNumber.UnderlinedStyle = false;
-            this.textNationalNumber._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
-            this.textNationalNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textStartStock_KeyPress);
+            this.textNationalNumber._TextChanged += new System.EventHandler(this.textNationalNumber__TextChanged);
+            this.textNationalNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
             // 
             // label10
             // 
@@ -693,7 +731,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label10.ForeColor = System.Drawing.Color.Red;
             this.label10.Location = new System.Drawing.Point(473, 582);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(433, 25);
+            this.label10.Size = new System.Drawing.Size(275, 25);
             this.label10.TabIndex = 13;
             // 
             // textEducationalQualification
@@ -717,8 +755,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textEducationalQualification.TabIndex = 4;
             this.textEducationalQualification.Texts = "";
             this.textEducationalQualification.UnderlinedStyle = false;
-            this.textEducationalQualification._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
-            this.textEducationalQualification.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
+            this.textEducationalQualification._TextChanged += new System.EventHandler(this.textEducationalQualification__TextChanged);
             // 
             // labelNationalNumberError
             // 
@@ -764,7 +801,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textSalary.Texts = "";
             this.textSalary.UnderlinedStyle = false;
             this.textSalary._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
-            this.textSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
+            this.textSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
             // 
             // lableSalaryError
             // 
@@ -799,7 +836,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textPhone.Texts = "";
             this.textPhone.UnderlinedStyle = false;
             this.textPhone._TextChanged += new System.EventHandler(this.textPricePurchase__TextChanged);
-            this.textPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
+            this.textPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
             // 
             // lablePhoneerror
             // 
@@ -834,7 +871,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textAdress.Texts = "";
             this.textAdress.UnderlinedStyle = false;
             this.textAdress._TextChanged += new System.EventHandler(this.textPriceSale__TextChanged);
-            this.textAdress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPriceSale_KeyPress);
             // 
             // lableAdressError
             // 
@@ -1015,6 +1051,23 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.عرضمستنداتالموظفToolStripMenuItem.Text = "عرض مستندات الموظف";
             this.عرضمستنداتالموظفToolStripMenuItem.Click += new System.EventHandler(this.عرضمستنداتالموظفToolStripMenuItem_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lblDefualtImage
+            // 
+            this.lblDefualtImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDefualtImage.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblDefualtImage.ForeColor = System.Drawing.Color.Red;
+            this.lblDefualtImage.Location = new System.Drawing.Point(58, 472);
+            this.lblDefualtImage.Name = "lblDefualtImage";
+            this.lblDefualtImage.Size = new System.Drawing.Size(76, 21);
+            this.lblDefualtImage.TabIndex = 5;
+            this.lblDefualtImage.Text = "DefualtImage";
+            // 
             // FormEmployeeAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,6 +1085,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panel1.PerformLayout();
             this.panelunit2.ResumeLayout(false);
             this.panelunit2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAddFinancialDegree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAddJobDegree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAddJob)).EndInit();
@@ -1113,5 +1167,9 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private PictureBox pictureAddJob;
         private PictureBox pictureAddDepartment;
         private ToolStripMenuItem عرضمستنداتالموظفToolStripMenuItem;
+        private PictureBox pictureImage;
+        private CustomControls.Controls.RJButton btnChooseImage;
+        private OpenFileDialog openFileDialog1;
+        public Label lblDefualtImage;
     }
 }

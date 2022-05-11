@@ -27,6 +27,14 @@ namespace SaleManagerPro.Models.Employees
         [DisplayName("تاريخ تسجيل الترقيه")]
 
         public DateTime Date { get; set; }
+
+         [DataType(DataType.Date)]
+        [Required]
+        [DisplayName("تاريخ تطبيق الترقيه")]
+
+        public DateTime DateStart { get; set; }
+
+
         [Required]
 
         [DataType(DataType.Currency)]

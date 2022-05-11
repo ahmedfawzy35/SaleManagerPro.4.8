@@ -83,6 +83,16 @@ namespace SaleManagerPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DefualyEmployee {
+            get {
+                object obj = ResourceManager.GetObject("DefualyEmployee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_add_48px {
             get {
                 object obj = ResourceManager.GetObject("icon_add_48px", resourceCulture);

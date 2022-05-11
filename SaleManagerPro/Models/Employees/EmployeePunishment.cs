@@ -26,6 +26,12 @@ namespace SaleManagerPro.Models.Employees
         [DisplayName("تاريخ تسجيل الجزاء")]
 
         public DateTime Date { get; set; }
+        [DataType(DataType.Date)]
+        [Required]
+        [DisplayName("تاريخ تنفيذ الجزاء")]
+
+        public DateTime DateStart { get; set; }
+        
         [Required]
 
         [DataType(DataType.Currency)]

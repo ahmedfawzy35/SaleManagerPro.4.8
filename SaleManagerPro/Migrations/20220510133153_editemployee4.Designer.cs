@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaleManagerPro.Data;
 
 namespace SaleManagerPro.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220510133153_editemployee4")]
+    partial class editemployee4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1987,9 +1989,6 @@ namespace SaleManagerPro.Migrations
                     b.Property<int>("IdEmployee")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdJob")
-                        .HasColumnType("int");
-
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
@@ -1999,8 +1998,6 @@ namespace SaleManagerPro.Migrations
                     b.HasKey("IdEmployeeTransfer");
 
                     b.HasIndex("IdEmployee");
-
-                    b.HasIndex("IdJob");
 
                     b.HasIndex("IdUser");
 
@@ -2323,9 +2320,6 @@ namespace SaleManagerPro.Migrations
 
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdImages");
 
@@ -4064,12 +4058,6 @@ namespace SaleManagerPro.Migrations
                     b.HasOne("SaleManagerPro.Models.Employee", "Employee")
                         .WithMany("EmployeeTransfers")
                         .HasForeignKey("IdEmployee")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SaleManagerPro.Models.Employees.Job", "Job")
-                        .WithMany()
-                        .HasForeignKey("IdJob")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

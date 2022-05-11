@@ -251,6 +251,12 @@
     <Compile Include="Forms\EmployeeForms\LabelAdress.Designer.cs">
       <DependentUpon>LabelAdress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EmployeeForms\SubFormAddNames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmployeeForms\SubFormAddNames.Designer.cs">
+      <DependentUpon>SubFormAddNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormMasterProberties.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,22 @@
     <Compile Include="Migrations\20220505104144_edit-im_emp.designer.cs">
       <DependentUpon>20220505104144_edit-im_emp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220510132819_editemployee3.cs" />
+    <Compile Include="Migrations\20220510132819_editemployee3.designer.cs">
+      <DependentUpon>20220510132819_editemployee3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220510133153_editemployee4.cs" />
+    <Compile Include="Migrations\20220510133153_editemployee4.designer.cs">
+      <DependentUpon>20220510133153_editemployee4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220510133359_editemployee5.cs" />
+    <Compile Include="Migrations\20220510133359_editemployee5.designer.cs">
+      <DependentUpon>20220510133359_editemployee5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20220511151440_editimage.cs" />
+    <Compile Include="Migrations\20220511151440_editimage.designer.cs">
+      <DependentUpon>20220511151440_editimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
     <Compile Include="Models\Cash\BankAccount.cs" />
     <Compile Include="Models\Cash\CashIns\CashInByCheck\CashFromByCheck.cs" />
@@ -405,6 +427,7 @@
     <Compile Include="Models\Employees\EmployeeDocumentsDetails.cs" />
     <Compile Include="Models\Employees\EmployeePromotion.cs" />
     <Compile Include="Models\Employees\EmployeePunishment.cs" />
+    <Compile Include="Models\Employees\EmployeeTransfer.cs" />
     <Compile Include="Models\Employees\FinancialDegree.cs" />
     <Compile Include="Models\Employees\Job.cs" />
     <Compile Include="Models\Employees\JobDegree.cs" />
@@ -493,6 +516,9 @@
     <EmbeddedResource Include="Forms\EmployeeForms\LabelAdress.resx">
       <DependentUpon>LabelAdress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeeForms\SubFormAddNames.resx">
+      <DependentUpon>SubFormAddNames.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMasterProberties.resx">
       <DependentUpon>FormMasterProberties.cs</DependentUpon>
     </EmbeddedResource>
@@ -578,6 +604,7 @@
     <None Include="Resources\menu_50px.png" />
     <None Include="Resources\icon_add_48px.png" />
     <None Include="Resources\icons8_add_120px.png" />
+    <None Include="Resources\DefualyEmployee.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

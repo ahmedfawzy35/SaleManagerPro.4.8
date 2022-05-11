@@ -14,6 +14,7 @@ namespace SaleManagerPro.Models
         [Required]
         public Guid Guid { get; set; }
 
+        public string Name { get; set; }
         public byte[] Image { get; set; }
     }
 }

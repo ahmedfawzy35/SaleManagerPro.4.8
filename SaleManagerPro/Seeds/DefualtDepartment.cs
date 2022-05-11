@@ -1,7 +1,10 @@
 ﻿using SaleManagerPro.Data;
+using SaleManagerPro.Models;
 using SaleManagerPro.Models.Employees;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +36,31 @@ namespace SaleManagerPro.Seeds
                 await db.SaveChangesAsync();
             }
 
+        }
+
+        public static async Task AddDefaultPicture()
+        {
+            var employeeimage = db.Images.Where(u => u.Name =="DefualtEmployee").FirstOrDefault();
+            if (employeeimage == null)
+            {
+                byte[] imagebyte = ConvertImageToBinary(Properties.Resources.DefualyEmployee);
+                Images img = new Images();
+                img.Image = imagebyte;
+                img.Name = "DefualtEmployee";
+                img.Guid = Guid.NewGuid();
+                await db.Images.AddAsync(img);
+                await db.SaveChangesAsync();
+
+            }
+        }
+
+        static  Byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
         }
     }
 }

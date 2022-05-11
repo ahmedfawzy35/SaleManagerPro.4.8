@@ -178,5 +178,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             //textBox1.Text == "مستند جديد للتجربه "
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

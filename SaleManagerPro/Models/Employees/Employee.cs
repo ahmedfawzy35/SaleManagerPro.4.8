@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SaleManagerPro.Models
 {
-    public class Employee
+    public class Employee 
     {
         [Key]
         [DisplayName("رقم الموظف")]
@@ -40,8 +40,8 @@ namespace SaleManagerPro.Models
         public virtual Job Job { get; set; }
         [DisplayName("الدرجه الوظيفيه")]
 
-        public int IdGobDegree { get; set; }
-        [ForeignKey("IdGobDegree")]
+        public int IdJobDegree { get; set; }
+        [ForeignKey("IdJobDegree")]
         public virtual JobDegree JobDegree { get; set; }
         [DisplayName("الدرجه الماليه")]
 
@@ -51,6 +51,12 @@ namespace SaleManagerPro.Models
         [DisplayName("صورة الموظف")]
 
         public int IdImages { get; set; }
+        public bool ISOnWork { get; set; }
+        public double StartSalary { get; set; }
+        public int StartDepartment { get; set; }
+        public int StartJob { get; set; }
+        public int StartJobDegree { get; set; }
+        public int StartFinancialDegree { get; set; }
         [ForeignKey("IdImages")]
         public virtual Images Images { get; set; }
         public virtual IEnumerable<AddToSalary> AddsToSalary { get; set; }
@@ -60,6 +66,8 @@ namespace SaleManagerPro.Models
         public virtual IEnumerable<EmployeePromotion> EmployeePromotions { get; set; }
         public virtual IEnumerable<EmployeePunishment> EmployeePunishments { get; set; }
         public virtual IEnumerable<EmployeeDocuments> EmployeeDocuments { get; set; }
+        public virtual IEnumerable<EmployeeTransfer> EmployeeTransfers { get; set; }
+
 
     }
 }
