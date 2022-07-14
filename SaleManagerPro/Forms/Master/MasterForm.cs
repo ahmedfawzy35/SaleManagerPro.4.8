@@ -452,8 +452,14 @@ namespace SaleManagerPro.Forms.Master
         private void button13_Click(object sender, EventArgs e)
         {
             
-             showform("ادراة الموظفين", FormEmployeeAddEdit.GetFormEmployeeAddEdit);
+             showform("ادراة الموظفين",new  FormEmployeeAddEdit());
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //EmployeePromotionAddEdit
+            showform("ادراة الترقيات", EmployeePromotionAddEdit.GetFormEmployeePromotionAddEdit);
         }
     }
 }

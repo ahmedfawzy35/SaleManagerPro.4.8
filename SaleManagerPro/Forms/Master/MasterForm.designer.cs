@@ -801,8 +801,9 @@ namespace SaleManagerPro.Forms.Master
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(201, 41);
             this.button14.TabIndex = 5;
-            this.button14.Text = "button14";
+            this.button14.Text = "الترقيات";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 

@@ -24,7 +24,7 @@ namespace SaleManagerPro.Models.Employees
         public string Details { get; set; }
         [DataType(DataType.Date)]
         [Required]
-        [DisplayName("تاريخ تسجيل الترقيه")]
+        [DisplayName("تاريخ قرار الترقيه")]
 
         public DateTime Date { get; set; }
 

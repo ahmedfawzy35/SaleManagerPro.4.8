@@ -356,7 +356,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             cleartext();
 
         }
-        private void search()
+        public void search()
         {
             string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
             var a = db.Employees.Where(r => r.FullName.Contains(search)).ToList();
@@ -672,8 +672,9 @@ namespace SaleManagerPro.Forms.EmployeeForms
             if (!string.IsNullOrEmpty(dataGridEmployee.CurrentRow.Cells[0].Value.ToString()))
             {
                 int id =int.Parse( dataGridEmployee.CurrentRow.Cells[0].Value.ToString());
+                string name = dataGridEmployee.CurrentRow.Cells[1].Value.ToString();
                 //string name = dataGridProducts.CurrentRow.Cells[1].Value.ToString();
-                Master.MasterForm.GetFormMasterForm.showform($"", new FormEmployeeDocuments { EmployeeId = id});
+                Master.MasterForm.GetFormMasterForm.showform($"مستندات الموظف ", new FormEmployeeDocuments { EmployeeId = id , EmployeeName =name   });
             }
 
         }
@@ -737,24 +738,29 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private void comboDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblIdDepartment.Text = comboDepartment.SelectedValue.ToString();
+            labelDepartmentError.Text = "";
+            comboDepartment.BackColor = Color.FromArgb(82, 75, 75);
         }
 
         private void comboJob_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblIdJob.Text = comboJob.SelectedValue.ToString();
-
+            labelJobEroor.Text = "";
+            comboJob.BackColor = Color.FromArgb(82, 75, 75);
         }
 
         private void comboJobDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblIdJobDegree.Text = comboJobDegree.SelectedValue.ToString();
-
+            labelJobDegreeError.Text = "";
+            comboJobDegree.BackColor = Color.FromArgb(82, 75, 75);
         }
 
         private void comboFinancialDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblbIdFinancialDegree.Text = comboFinancialDegree.SelectedValue.ToString();
-
+            labelFinancialDegreeError.Text = "";
+            comboFinancialDegree.BackColor = Color.FromArgb(82, 75, 75);
         }
 
         private void btnChooseImage_Click(object sender, EventArgs e)

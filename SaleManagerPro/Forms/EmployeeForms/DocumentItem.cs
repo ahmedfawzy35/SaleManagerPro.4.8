@@ -33,8 +33,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 Invalidate();
             }
         }
-                [Category("RJ Code Advance")]
-
+          [Category("RJ Code Advance")]
         public string NameDocument
         {
             get

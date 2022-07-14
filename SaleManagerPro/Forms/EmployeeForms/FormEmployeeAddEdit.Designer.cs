@@ -63,6 +63,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.comboDepartment = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblDefualtImage = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -103,7 +104,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.حذفالمنتجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.عرضمستنداتالموظفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.lblDefualtImage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelunit2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureImage)).BeginInit();
@@ -524,6 +524,19 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "الوظيفه";
+            // 
+            // lblDefualtImage
+            // 
+            this.lblDefualtImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDefualtImage.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblDefualtImage.ForeColor = System.Drawing.Color.Red;
+            this.lblDefualtImage.Location = new System.Drawing.Point(3, 472);
+            this.lblDefualtImage.Name = "lblDefualtImage";
+            this.lblDefualtImage.Size = new System.Drawing.Size(156, 21);
+            this.lblDefualtImage.TabIndex = 5;
+            this.lblDefualtImage.Text = "DefualtImage";
             // 
             // label32
             // 
@@ -1054,19 +1067,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // lblDefualtImage
-            // 
-            this.lblDefualtImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDefualtImage.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblDefualtImage.ForeColor = System.Drawing.Color.Red;
-            this.lblDefualtImage.Location = new System.Drawing.Point(58, 472);
-            this.lblDefualtImage.Name = "lblDefualtImage";
-            this.lblDefualtImage.Size = new System.Drawing.Size(76, 21);
-            this.lblDefualtImage.TabIndex = 5;
-            this.lblDefualtImage.Text = "DefualtImage";
             // 
             // FormEmployeeAddEdit
             // 
