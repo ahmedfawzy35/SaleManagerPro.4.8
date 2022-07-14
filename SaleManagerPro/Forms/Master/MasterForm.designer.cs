@@ -31,9 +31,6 @@ namespace SaleManagerPro.Forms.Master
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureMinimize = new System.Windows.Forms.PictureBox();
-            this.pictureRestore = new System.Windows.Forms.PictureBox();
-            this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_userid = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -97,15 +94,15 @@ namespace SaleManagerPro.Forms.Master
             this.MasterPanel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MasterTabPage = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureMinimize = new System.Windows.Forms.PictureBox();
+            this.pictureRestore = new System.Windows.Forms.PictureBox();
+            this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelSideBar.SuspendLayout();
@@ -123,8 +120,11 @@ namespace SaleManagerPro.Forms.Master
             this.panel7.SuspendLayout();
             this.MasterPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -137,42 +137,6 @@ namespace SaleManagerPro.Forms.Master
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1334, 21);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureMinimize
-            // 
-            this.pictureMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureMinimize.Image = global::SaleManagerPro.Properties.Resources.minimize_window_32px;
-            this.pictureMinimize.Location = new System.Drawing.Point(1277, 0);
-            this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(19, 21);
-            this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureMinimize.TabIndex = 2;
-            this.pictureMinimize.TabStop = false;
-            this.pictureMinimize.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureRestore
-            // 
-            this.pictureRestore.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureRestore.Image = global::SaleManagerPro.Properties.Resources.restore_down_32px;
-            this.pictureRestore.Location = new System.Drawing.Point(1296, 0);
-            this.pictureRestore.Name = "pictureRestore";
-            this.pictureRestore.Size = new System.Drawing.Size(19, 21);
-            this.pictureRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureRestore.TabIndex = 1;
-            this.pictureRestore.TabStop = false;
-            this.pictureRestore.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureClose
-            // 
-            this.pictureClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureClose.Image = global::SaleManagerPro.Properties.Resources.close_window_32px;
-            this.pictureClose.Location = new System.Drawing.Point(1315, 0);
-            this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(19, 21);
-            this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureClose.TabIndex = 0;
-            this.pictureClose.TabStop = false;
-            this.pictureClose.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel2
             // 
@@ -787,8 +751,9 @@ namespace SaleManagerPro.Forms.Master
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(201, 41);
             this.button15.TabIndex = 6;
-            this.button15.Text = "button15";
+            this.button15.Text = "الجزاءات";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 
@@ -996,18 +961,6 @@ namespace SaleManagerPro.Forms.Master
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = global::SaleManagerPro.Properties.Resources.menu_50px;
-            this.pictureBox1.Location = new System.Drawing.Point(207, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(15, 23);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1048,6 +1001,54 @@ namespace SaleManagerPro.Forms.Master
             this.MasterTabPage.TabIndex = 0;
             this.MasterTabPage.Text = "الرئيسيه";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Image = global::SaleManagerPro.Properties.Resources.menu_50px;
+            this.pictureBox1.Location = new System.Drawing.Point(207, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(15, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // pictureMinimize
+            // 
+            this.pictureMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureMinimize.Image = global::SaleManagerPro.Properties.Resources.minimize_window_32px;
+            this.pictureMinimize.Location = new System.Drawing.Point(1277, 0);
+            this.pictureMinimize.Name = "pictureMinimize";
+            this.pictureMinimize.Size = new System.Drawing.Size(19, 21);
+            this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureMinimize.TabIndex = 2;
+            this.pictureMinimize.TabStop = false;
+            this.pictureMinimize.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureRestore
+            // 
+            this.pictureRestore.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureRestore.Image = global::SaleManagerPro.Properties.Resources.restore_down_32px;
+            this.pictureRestore.Location = new System.Drawing.Point(1296, 0);
+            this.pictureRestore.Name = "pictureRestore";
+            this.pictureRestore.Size = new System.Drawing.Size(19, 21);
+            this.pictureRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureRestore.TabIndex = 1;
+            this.pictureRestore.TabStop = false;
+            this.pictureRestore.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureClose
+            // 
+            this.pictureClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureClose.Image = global::SaleManagerPro.Properties.Resources.close_window_32px;
+            this.pictureClose.Location = new System.Drawing.Point(1315, 0);
+            this.pictureClose.Name = "pictureClose";
+            this.pictureClose.Size = new System.Drawing.Size(19, 21);
+            this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureClose.TabIndex = 0;
+            this.pictureClose.TabStop = false;
+            this.pictureClose.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // MasterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1070,9 +1071,6 @@ namespace SaleManagerPro.Forms.Master
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MasterForm_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1092,8 +1090,11 @@ namespace SaleManagerPro.Forms.Master
             this.panel7.ResumeLayout(false);
             this.MasterPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             this.ResumeLayout(false);
 
         }

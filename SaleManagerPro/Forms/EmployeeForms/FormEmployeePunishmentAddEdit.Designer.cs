@@ -2,7 +2,7 @@
 
 namespace SaleManagerPro.Forms.EmployeeForms
 {
-    partial class EmployeePromotionAddEdit
+    partial class FormEmployeePunishmentAddEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_clear = new CustomControls.Controls.RJButton();
             this.rjButton1 = new CustomControls.Controls.RJButton();
             this.panelImages = new System.Windows.Forms.Panel();
             this.dataGridEmployee = new System.Windows.Forms.DataGridView();
@@ -51,7 +52,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label5 = new System.Windows.Forms.Label();
             this.labledateStartError = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textAddToSalary = new CustomControls.Controls.RJTextBox();
+            this.textLessFromSalary = new CustomControls.Controls.RJTextBox();
             this.lableAddToSalaryError = new System.Windows.Forms.Label();
             this.labelFinancialDegreeError = new System.Windows.Forms.Label();
             this.textDetails = new CustomControls.Controls.RJTextBox();
@@ -72,7 +73,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btn_clear = new CustomControls.Controls.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployee)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -101,7 +101,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labledateStartError);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textAddToSalary);
+            this.panel1.Controls.Add(this.textLessFromSalary);
             this.panel1.Controls.Add(this.lableAddToSalaryError);
             this.panel1.Controls.Add(this.labelFinancialDegreeError);
             this.panel1.Controls.Add(this.textDetails);
@@ -122,6 +122,25 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(627, 814);
             this.panel1.TabIndex = 8;
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.BackColor = System.Drawing.Color.Red;
+            this.btn_clear.BackgroundColor = System.Drawing.Color.Red;
+            this.btn_clear.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_clear.BorderRadius = 0;
+            this.btn_clear.BorderSize = 0;
+            this.btn_clear.FlatAppearance.BorderSize = 0;
+            this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_clear.ForeColor = System.Drawing.Color.White;
+            this.btn_clear.Location = new System.Drawing.Point(11, 504);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(68, 40);
+            this.btn_clear.TabIndex = 27;
+            this.btn_clear.Text = "تفريغ";
+            this.btn_clear.TextColor = System.Drawing.Color.White;
+            this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // rjButton1
             // 
@@ -182,12 +201,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.عرضالقرارToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 26);
             // 
             // عرضالقرارToolStripMenuItem
             // 
             this.عرضالقرارToolStripMenuItem.Name = "عرضالقرارToolStripMenuItem";
-            this.عرضالقرارToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.عرضالقرارToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.عرضالقرارToolStripMenuItem.Text = "عرض القرار";
             this.عرضالقرارToolStripMenuItem.Click += new System.EventHandler(this.عرضالقرارToolStripMenuItem_Click);
             // 
@@ -321,30 +340,30 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label10.Size = new System.Drawing.Size(169, 25);
             this.label10.TabIndex = 13;
             // 
-            // textAddToSalary
+            // textLessFromSalary
             // 
-            this.textAddToSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textAddToSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textAddToSalary.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textAddToSalary.BorderFocusColor = System.Drawing.Color.Red;
-            this.textAddToSalary.BorderRadius = 15;
-            this.textAddToSalary.BorderSize = 2;
-            this.textAddToSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.textAddToSalary.ForeColor = System.Drawing.Color.White;
-            this.textAddToSalary.Location = new System.Drawing.Point(320, 239);
-            this.textAddToSalary.Margin = new System.Windows.Forms.Padding(4);
-            this.textAddToSalary.Multiline = false;
-            this.textAddToSalary.Name = "textAddToSalary";
-            this.textAddToSalary.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textAddToSalary.PasswordChar = false;
-            this.textAddToSalary.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textAddToSalary.PlaceholderText = "الزياده على المرتب";
-            this.textAddToSalary.Size = new System.Drawing.Size(292, 42);
-            this.textAddToSalary.TabIndex = 3;
-            this.textAddToSalary.Texts = "";
-            this.textAddToSalary.UnderlinedStyle = false;
-            this.textAddToSalary._TextChanged += new System.EventHandler(this.textAddToSalary__TextChanged);
-            this.textAddToSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
+            this.textLessFromSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textLessFromSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.textLessFromSalary.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.textLessFromSalary.BorderFocusColor = System.Drawing.Color.Red;
+            this.textLessFromSalary.BorderRadius = 15;
+            this.textLessFromSalary.BorderSize = 2;
+            this.textLessFromSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.textLessFromSalary.ForeColor = System.Drawing.Color.White;
+            this.textLessFromSalary.Location = new System.Drawing.Point(320, 239);
+            this.textLessFromSalary.Margin = new System.Windows.Forms.Padding(4);
+            this.textLessFromSalary.Multiline = false;
+            this.textLessFromSalary.Name = "textLessFromSalary";
+            this.textLessFromSalary.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
+            this.textLessFromSalary.PasswordChar = false;
+            this.textLessFromSalary.PlaceholderColor = System.Drawing.Color.Gainsboro;
+            this.textLessFromSalary.PlaceholderText = "الخصم من المرتب";
+            this.textLessFromSalary.Size = new System.Drawing.Size(292, 42);
+            this.textLessFromSalary.TabIndex = 3;
+            this.textLessFromSalary.Texts = "";
+            this.textLessFromSalary.UnderlinedStyle = false;
+            this.textLessFromSalary._TextChanged += new System.EventHandler(this.textAddToSalary__TextChanged);
+            this.textLessFromSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
             // 
             // lableAddToSalaryError
             // 
@@ -383,7 +402,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textDetails.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
             this.textDetails.PasswordChar = false;
             this.textDetails.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textDetails.PlaceholderText = "تفاصيل الترقيه";
+            this.textDetails.PlaceholderText = "تفاصيل الجزاء";
             this.textDetails.Size = new System.Drawing.Size(292, 79);
             this.textDetails.TabIndex = 1;
             this.textDetails.Texts = "";
@@ -631,26 +650,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Multiselect = true;
             // 
-            // btn_clear
-            // 
-            this.btn_clear.BackColor = System.Drawing.Color.Red;
-            this.btn_clear.BackgroundColor = System.Drawing.Color.Red;
-            this.btn_clear.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_clear.BorderRadius = 0;
-            this.btn_clear.BorderSize = 0;
-            this.btn_clear.FlatAppearance.BorderSize = 0;
-            this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(11, 504);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(68, 40);
-            this.btn_clear.TabIndex = 27;
-            this.btn_clear.Text = "تفريغ";
-            this.btn_clear.TextColor = System.Drawing.Color.White;
-            this.btn_clear.UseVisualStyleBackColor = false;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
-            // 
-            // EmployeePromotionAddEdit
+            // FormEmployeePunishmentAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -658,7 +658,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EmployeePromotionAddEdit";
+            this.Name = "FormEmployeePunishmentAddEdit";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "FormProductAddEdit";
@@ -685,7 +685,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private DataGridView dataGridEmployees;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem عرضالقرارToolStripMenuItem;
-        private CustomControls.Controls.RJTextBox textAddToSalary;
+        private CustomControls.Controls.RJTextBox textLessFromSalary;
         public Label lableAddToSalaryError;
         private CustomControls.Controls.RJTextBox textDetails;
         public Label lableDetailsError;

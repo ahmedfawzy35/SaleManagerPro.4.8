@@ -301,6 +301,32 @@ namespace SaleManagerPro.Forms.EmployeeForms
             Form2 form2 = new Form2();
             Master.MasterForm.GetFormMasterForm.showform("test", form2);
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void طباعةالصفحةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void حفظالصفحهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             if (lbl_imageid.Text == "0" || string.IsNullOrEmpty(lbl_imageid.Text))

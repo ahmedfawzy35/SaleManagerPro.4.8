@@ -239,6 +239,12 @@
     <Compile Include="Forms\EmployeeForms\FormEmployeeDocuments.Designer.cs">
       <DependentUpon>FormEmployeeDocuments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EmployeeForms\FormEmployeePunishmentAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmployeeForms\FormEmployeePunishmentAddEdit.Designer.cs">
+      <DependentUpon>FormEmployeePunishmentAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EmployeeForms\FormFinancialDegreeAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,12 @@
     </Compile>
     <Compile Include="Forms\EmployeeForms\FormJobDegreeAddEdit.Designer.cs">
       <DependentUpon>FormJobDegreeAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmployeeForms\FormPromotionViewDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmployeeForms\FormPromotionViewDetails.Designer.cs">
+      <DependentUpon>FormPromotionViewDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EmployeeForms\LabelAdress.cs">
       <SubType>UserControl</SubType>
@@ -385,6 +397,10 @@
     <Compile Include="Migrations\20220511151440_editimage.designer.cs">
       <DependentUpon>20220511151440_editimage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20220714050531_addpormation-documents.cs" />
+    <Compile Include="Migrations\20220714050531_addpormation-documents.designer.cs">
+      <DependentUpon>20220714050531_addpormation-documents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
     <Compile Include="Models\Cash\BankAccount.cs" />
     <Compile Include="Models\Cash\CashIns\CashInByCheck\CashFromByCheck.cs" />
@@ -435,6 +451,7 @@
     <Compile Include="Models\Employees\Department.cs" />
     <Compile Include="Models\Employees\Employee.cs" />
     <Compile Include="Models\Employees\EmployeeDetails.cs" />
+    <Compile Include="Models\Employees\PromotionDocuments.cs" />
     <Compile Include="Models\Employees\EmployeeDocuments.cs" />
     <Compile Include="Models\Employees\EmployeeDocumentsDetails.cs" />
     <Compile Include="Models\Employees\EmployeePromotion.cs" />
@@ -519,6 +536,9 @@
     <EmbeddedResource Include="Forms\EmployeeForms\FormEmployeeDocuments.resx">
       <DependentUpon>FormEmployeeDocuments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeeForms\FormEmployeePunishmentAddEdit.resx">
+      <DependentUpon>FormEmployeePunishmentAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForms\FormFinancialDegreeAddEdit.resx">
       <DependentUpon>FormFinancialDegreeAddEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -527,6 +547,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForms\FormJobDegreeAddEdit.resx">
       <DependentUpon>FormJobDegreeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeeForms\FormPromotionViewDetails.resx">
+      <DependentUpon>FormPromotionViewDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForms\LabelAdress.resx">
       <DependentUpon>LabelAdress.cs</DependentUpon>

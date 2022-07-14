@@ -59,5 +59,7 @@ namespace SaleManagerPro.Models.Employees
 
         public virtual JobDegree JobDegree { get; set; }
 
+        public virtual IEnumerable<PromotionDocuments> PromotionDocuments { get; set; }
+
     }
 }

@@ -33,13 +33,26 @@
             this.button1 = new System.Windows.Forms.Button();
             this.labelNameError = new System.Windows.Forms.Label();
             this.btnSaveDocument = new CustomControls.Controls.RJButton();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textName = new CustomControls.Controls.RJTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureView = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.طباعةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.طباعةالصفحةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.طباعةالكلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.طباعةجميعالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حفظToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حفظالصفحهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حفظالمستندToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حفظجميعالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تعديلالصفحهالحاليهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفالصفحةالحاليهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفالمستندToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفجميعالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.PictureBox();
             this.lblDecumentName = new System.Windows.Forms.TextBox();
             this.lblDecumentId = new System.Windows.Forms.Label();
             this.lblPageCount = new System.Windows.Forms.Label();
@@ -47,39 +60,26 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.btnDeleteImage = new System.Windows.Forms.PictureBox();
             this.lbl_imageid = new System.Windows.Forms.Label();
+            this.pictureView = new System.Windows.Forms.PictureBox();
+            this.btnDeleteImage = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnChangeImage = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.طباعةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.طباعةالصفحةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.طباعةالكلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حفظToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حفظالصفحهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حفظالمستندToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حفظجميعالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.طباعةجميعالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.تعديلالصفحهالحاليهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حذفالصفحةالحاليهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حذفالمستندToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حذفجميعالمستنداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeImage)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,6 +140,16 @@
             this.btnSaveDocument.UseVisualStyleBackColor = false;
             this.btnSaveDocument.Click += new System.EventHandler(this.btnSaveDocument_Click);
             // 
+            // lblEmployeeName
+            // 
+            this.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblEmployeeName.Location = new System.Drawing.Point(7, 8);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(264, 32);
+            this.lblEmployeeName.TabIndex = 18;
+            this.lblEmployeeName.Text = "الموظف / ";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -182,16 +192,107 @@
             this.panel2.Size = new System.Drawing.Size(1172, 557);
             this.panel2.TabIndex = 1;
             // 
-            // pictureView
+            // contextMenuStrip1
             // 
-            this.pictureView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureView.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureView.Location = new System.Drawing.Point(208, 6);
-            this.pictureView.Name = "pictureView";
-            this.pictureView.Size = new System.Drawing.Size(787, 272);
-            this.pictureView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureView.TabIndex = 1;
-            this.pictureView.TabStop = false;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.طباعةToolStripMenuItem,
+            this.حفظToolStripMenuItem,
+            this.تعديلالصفحهالحاليهToolStripMenuItem,
+            this.حذفToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(179, 92);
+            // 
+            // طباعةToolStripMenuItem
+            // 
+            this.طباعةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.طباعةالصفحةToolStripMenuItem,
+            this.طباعةالكلToolStripMenuItem,
+            this.طباعةجميعالمستنداتToolStripMenuItem});
+            this.طباعةToolStripMenuItem.Name = "طباعةToolStripMenuItem";
+            this.طباعةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.طباعةToolStripMenuItem.Text = "طباعة ";
+            // 
+            // طباعةالصفحةToolStripMenuItem
+            // 
+            this.طباعةالصفحةToolStripMenuItem.Name = "طباعةالصفحةToolStripMenuItem";
+            this.طباعةالصفحةToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.طباعةالصفحةToolStripMenuItem.Text = "طباعة الصفحة";
+            this.طباعةالصفحةToolStripMenuItem.Click += new System.EventHandler(this.طباعةالصفحةToolStripMenuItem_Click);
+            // 
+            // طباعةالكلToolStripMenuItem
+            // 
+            this.طباعةالكلToolStripMenuItem.Name = "طباعةالكلToolStripMenuItem";
+            this.طباعةالكلToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.طباعةالكلToolStripMenuItem.Text = "طباعة المستند";
+            // 
+            // طباعةجميعالمستنداتToolStripMenuItem
+            // 
+            this.طباعةجميعالمستنداتToolStripMenuItem.Name = "طباعةجميعالمستنداتToolStripMenuItem";
+            this.طباعةجميعالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.طباعةجميعالمستنداتToolStripMenuItem.Text = "طباعة جميع المستندات";
+            // 
+            // حفظToolStripMenuItem
+            // 
+            this.حفظToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.حفظالصفحهToolStripMenuItem,
+            this.حفظالمستندToolStripMenuItem,
+            this.حفظجميعالمستنداتToolStripMenuItem});
+            this.حفظToolStripMenuItem.Name = "حفظToolStripMenuItem";
+            this.حفظToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حفظToolStripMenuItem.Text = "حفظ";
+            // 
+            // حفظالصفحهToolStripMenuItem
+            // 
+            this.حفظالصفحهToolStripMenuItem.Name = "حفظالصفحهToolStripMenuItem";
+            this.حفظالصفحهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حفظالصفحهToolStripMenuItem.Text = "حفظ الصفحه";
+            this.حفظالصفحهToolStripMenuItem.Click += new System.EventHandler(this.حفظالصفحهToolStripMenuItem_Click);
+            // 
+            // حفظالمستندToolStripMenuItem
+            // 
+            this.حفظالمستندToolStripMenuItem.Name = "حفظالمستندToolStripMenuItem";
+            this.حفظالمستندToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حفظالمستندToolStripMenuItem.Text = "حفظ المستند";
+            // 
+            // حفظجميعالمستنداتToolStripMenuItem
+            // 
+            this.حفظجميعالمستنداتToolStripMenuItem.Name = "حفظجميعالمستنداتToolStripMenuItem";
+            this.حفظجميعالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حفظجميعالمستنداتToolStripMenuItem.Text = "حفظ جميع المستندات";
+            // 
+            // تعديلالصفحهالحاليهToolStripMenuItem
+            // 
+            this.تعديلالصفحهالحاليهToolStripMenuItem.Name = "تعديلالصفحهالحاليهToolStripMenuItem";
+            this.تعديلالصفحهالحاليهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.تعديلالصفحهالحاليهToolStripMenuItem.Text = "تعديل الصفحه الحاليه";
+            // 
+            // حذفToolStripMenuItem
+            // 
+            this.حذفToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.حذفالصفحةالحاليهToolStripMenuItem,
+            this.حذفالمستندToolStripMenuItem,
+            this.حذفجميعالمستنداتToolStripMenuItem});
+            this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حذفToolStripMenuItem.Text = "حذف";
+            // 
+            // حذفالصفحةالحاليهToolStripMenuItem
+            // 
+            this.حذفالصفحةالحاليهToolStripMenuItem.Name = "حذفالصفحةالحاليهToolStripMenuItem";
+            this.حذفالصفحةالحاليهToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.حذفالصفحةالحاليهToolStripMenuItem.Text = "حذف الصفحة الحاليه";
+            // 
+            // حذفالمستندToolStripMenuItem
+            // 
+            this.حذفالمستندToolStripMenuItem.Name = "حذفالمستندToolStripMenuItem";
+            this.حذفالمستندToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.حذفالمستندToolStripMenuItem.Text = "حذف المستند";
+            // 
+            // حذفجميعالمستنداتToolStripMenuItem
+            // 
+            this.حذفجميعالمستنداتToolStripMenuItem.Name = "حذفجميعالمستنداتToolStripMenuItem";
+            this.حذفجميعالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.حذفجميعالمستنداتToolStripMenuItem.Text = "حذف جميع المستندات";
             // 
             // panel3
             // 
@@ -214,18 +315,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(177, 201);
             this.panel4.TabIndex = 0;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Image = global::SaleManagerPro.Properties.Resources.icon_add_48px;
-            this.btnAdd.Location = new System.Drawing.Point(4, 108);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(48, 44);
-            this.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.TabStop = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblDecumentName
             // 
@@ -264,6 +353,8 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Multiselect = true;
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // panel5
             // 
@@ -303,6 +394,28 @@
             this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
+            // lbl_imageid
+            // 
+            this.lbl_imageid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_imageid.Location = new System.Drawing.Point(262, 25);
+            this.lbl_imageid.Name = "lbl_imageid";
+            this.lbl_imageid.Size = new System.Drawing.Size(35, 26);
+            this.lbl_imageid.TabIndex = 3;
+            this.lbl_imageid.Text = "0";
+            this.lbl_imageid.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbl_imageid.Visible = false;
+            // 
+            // pictureView
+            // 
+            this.pictureView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureView.ContextMenuStrip = this.contextMenuStrip1;
+            this.pictureView.Location = new System.Drawing.Point(208, 6);
+            this.pictureView.Name = "pictureView";
+            this.pictureView.Size = new System.Drawing.Size(787, 272);
+            this.pictureView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureView.TabIndex = 1;
+            this.pictureView.TabStop = false;
+            // 
             // btnDeleteImage
             // 
             this.btnDeleteImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
@@ -315,17 +428,6 @@
             this.btnDeleteImage.TabStop = false;
             this.btnDeleteImage.Click += new System.EventHandler(this.btnDeleteImage_Click);
             // 
-            // lbl_imageid
-            // 
-            this.lbl_imageid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_imageid.Location = new System.Drawing.Point(262, 25);
-            this.lbl_imageid.Name = "lbl_imageid";
-            this.lbl_imageid.Size = new System.Drawing.Size(35, 26);
-            this.lbl_imageid.TabIndex = 3;
-            this.lbl_imageid.Text = "0";
-            this.lbl_imageid.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lbl_imageid.Visible = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
@@ -336,6 +438,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -347,6 +450,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnChangeImage
             // 
@@ -360,115 +464,17 @@
             this.btnChangeImage.TabStop = false;
             this.btnChangeImage.Click += new System.EventHandler(this.btnChangeImage_Click_1);
             // 
-            // contextMenuStrip1
+            // btnAdd
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.طباعةToolStripMenuItem,
-            this.حفظToolStripMenuItem,
-            this.تعديلالصفحهالحاليهToolStripMenuItem,
-            this.حذفToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(179, 92);
-            // 
-            // طباعةToolStripMenuItem
-            // 
-            this.طباعةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.طباعةالصفحةToolStripMenuItem,
-            this.طباعةالكلToolStripMenuItem,
-            this.طباعةجميعالمستنداتToolStripMenuItem});
-            this.طباعةToolStripMenuItem.Name = "طباعةToolStripMenuItem";
-            this.طباعةToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.طباعةToolStripMenuItem.Text = "طباعة ";
-            // 
-            // طباعةالصفحةToolStripMenuItem
-            // 
-            this.طباعةالصفحةToolStripMenuItem.Name = "طباعةالصفحةToolStripMenuItem";
-            this.طباعةالصفحةToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.طباعةالصفحةToolStripMenuItem.Text = "طباعة الصفحة";
-            // 
-            // طباعةالكلToolStripMenuItem
-            // 
-            this.طباعةالكلToolStripMenuItem.Name = "طباعةالكلToolStripMenuItem";
-            this.طباعةالكلToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.طباعةالكلToolStripMenuItem.Text = "طباعة المستند";
-            // 
-            // حفظToolStripMenuItem
-            // 
-            this.حفظToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.حفظالصفحهToolStripMenuItem,
-            this.حفظالمستندToolStripMenuItem,
-            this.حفظجميعالمستنداتToolStripMenuItem});
-            this.حفظToolStripMenuItem.Name = "حفظToolStripMenuItem";
-            this.حفظToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.حفظToolStripMenuItem.Text = "حفظ";
-            // 
-            // حفظالصفحهToolStripMenuItem
-            // 
-            this.حفظالصفحهToolStripMenuItem.Name = "حفظالصفحهToolStripMenuItem";
-            this.حفظالصفحهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.حفظالصفحهToolStripMenuItem.Text = "حفظ الصفحه";
-            // 
-            // حفظالمستندToolStripMenuItem
-            // 
-            this.حفظالمستندToolStripMenuItem.Name = "حفظالمستندToolStripMenuItem";
-            this.حفظالمستندToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.حفظالمستندToolStripMenuItem.Text = "حفظ المستند";
-            // 
-            // حفظجميعالمستنداتToolStripMenuItem
-            // 
-            this.حفظجميعالمستنداتToolStripMenuItem.Name = "حفظجميعالمستنداتToolStripMenuItem";
-            this.حفظجميعالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.حفظجميعالمستنداتToolStripMenuItem.Text = "حفظ جميع المستندات";
-            // 
-            // طباعةجميعالمستنداتToolStripMenuItem
-            // 
-            this.طباعةجميعالمستنداتToolStripMenuItem.Name = "طباعةجميعالمستنداتToolStripMenuItem";
-            this.طباعةجميعالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.طباعةجميعالمستنداتToolStripMenuItem.Text = "طباعة جميع المستندات";
-            // 
-            // تعديلالصفحهالحاليهToolStripMenuItem
-            // 
-            this.تعديلالصفحهالحاليهToolStripMenuItem.Name = "تعديلالصفحهالحاليهToolStripMenuItem";
-            this.تعديلالصفحهالحاليهToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.تعديلالصفحهالحاليهToolStripMenuItem.Text = "تعديل الصفحه الحاليه";
-            // 
-            // حذفToolStripMenuItem
-            // 
-            this.حذفToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.حذفالصفحةالحاليهToolStripMenuItem,
-            this.حذفالمستندToolStripMenuItem,
-            this.حذفجميعالمستنداتToolStripMenuItem});
-            this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.حذفToolStripMenuItem.Text = "حذف";
-            // 
-            // حذفالصفحةالحاليهToolStripMenuItem
-            // 
-            this.حذفالصفحةالحاليهToolStripMenuItem.Name = "حذفالصفحةالحاليهToolStripMenuItem";
-            this.حذفالصفحةالحاليهToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.حذفالصفحةالحاليهToolStripMenuItem.Text = "حذف الصفحة الحاليه";
-            // 
-            // حذفالمستندToolStripMenuItem
-            // 
-            this.حذفالمستندToolStripMenuItem.Name = "حذفالمستندToolStripMenuItem";
-            this.حذفالمستندToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.حذفالمستندToolStripMenuItem.Text = "حذف المستند";
-            // 
-            // حذفجميعالمستنداتToolStripMenuItem
-            // 
-            this.حذفجميعالمستنداتToolStripMenuItem.Name = "حذفجميعالمستنداتToolStripMenuItem";
-            this.حذفجميعالمستنداتToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.حذفجميعالمستنداتToolStripMenuItem.Text = "حذف جميع المستندات";
-            // 
-            // lblEmployeeName
-            // 
-            this.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lblEmployeeName.Location = new System.Drawing.Point(7, 8);
-            this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(264, 32);
-            this.lblEmployeeName.TabIndex = 18;
-            this.lblEmployeeName.Text = "الموظف / ";
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Image = global::SaleManagerPro.Properties.Resources.icon_add_48px;
+            this.btnAdd.Location = new System.Drawing.Point(4, 108);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(48, 44);
+            this.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabStop = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // FormEmployeeDocuments
             // 
@@ -488,19 +494,19 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeImage)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.ResumeLayout(false);
 
         }

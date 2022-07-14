@@ -118,6 +118,7 @@ namespace SaleManagerPro.Data
         public  DbSet<JobDegree> JobDegrees { get; set; }
         public  DbSet<LessToSalary> LessToSalarys { get; set; }
         public  DbSet<LessToSalaryForAll> LessToSalaryForAlls { get; set; }
+        public  DbSet<PromotionDocuments> PromotionDocuments { get; set; }
         public  DbSet<SalaryAdd> SalaryAdds { get; set; }
         public  DbSet<SalaryLess> SalaryLesses { get; set; }
         #endregion

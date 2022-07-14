@@ -461,5 +461,11 @@ namespace SaleManagerPro.Forms.Master
             //EmployeePromotionAddEdit
             showform("ادراة الترقيات", EmployeePromotionAddEdit.GetFormEmployeePromotionAddEdit);
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            showform("ادراة الجزاءات", FormEmployeePunishmentAddEdit.GetFormEmployeePunishmentAddEdit);
+
+        }
     }
 }

@@ -106,39 +106,6 @@ namespace SaleManagerPro.Forms.Security
                 setlocation(row,coulmn);
 
 
-                //if (i>0 && i <=5)
-                //{
-                //    y = 35;
-                //    x += 260;
-                //}
-                //else if (i >5 && i <=11)
-                //{
-                    
-                //    y = 300;
-                //    if (i==6)
-                //    {
-                //        x = 10;
-                //    }else
-                //     {
-                //       x = 10 + ((i - 6) * 260);
-                //      }
-                
-                //}
-                //else if (i > 11 && i <= 17)
-                //{
-
-                //    y = 560;
-                //    if (i == 11)
-                //    {
-                //        x = 10;
-                //    }
-                //    else
-                //    {
-                //        x = 10 + ((i - 12) * 260);
-                //    }
-
-                //}
-
                 panel1.Controls.Add(new ModelRoleCard() { ModelRoleName = Assist.Permissions.Models[i], Location = new Point(x, y) ,_IdROle = IdRole});
 
             }

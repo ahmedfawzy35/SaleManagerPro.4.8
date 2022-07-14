@@ -979,7 +979,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.labelId.ForeColor = System.Drawing.Color.Red;
             this.labelId.Location = new System.Drawing.Point(3, 0);
             this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(22, 25);
+            this.labelId.Size = new System.Drawing.Size(20, 25);
             this.labelId.TabIndex = 5;
             this.labelId.Text = "0";
             this.labelId.Visible = false;
@@ -1041,20 +1041,20 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.عرضمستنداتالموظفToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 92);
             // 
             // تعديلالمنتجToolStripMenuItem
             // 
             this.تعديلالمنتجToolStripMenuItem.Name = "تعديلالمنتجToolStripMenuItem";
             this.تعديلالمنتجToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.تعديلالمنتجToolStripMenuItem.Text = "تعديل المنتج";
+            this.تعديلالمنتجToolStripMenuItem.Text = "تعديل الموظف";
             this.تعديلالمنتجToolStripMenuItem.Click += new System.EventHandler(this.تعديلالمنتجToolStripMenuItem_Click);
             // 
             // حذفالمنتجToolStripMenuItem
             // 
             this.حذفالمنتجToolStripMenuItem.Name = "حذفالمنتجToolStripMenuItem";
             this.حذفالمنتجToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.حذفالمنتجToolStripMenuItem.Text = "حذف المنتج";
+            this.حذفالمنتجToolStripMenuItem.Text = "حذف الموظف";
             this.حذفالمنتجToolStripMenuItem.Click += new System.EventHandler(this.حذفالمنتجToolStripMenuItem_Click);
             // 
             // عرضمستنداتالموظفToolStripMenuItem
