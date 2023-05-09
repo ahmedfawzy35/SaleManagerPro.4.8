@@ -19,6 +19,19 @@ using System.Windows.Forms;
 
 namespace SaleManagerPro.Forms.Master
 {
+    public enum MasterPanels
+    {
+        المنتجات ,
+        العملاء,
+        الموردين,
+        المستخدمين,
+        
+    }public enum SupPanels
+    {
+        إضافة,
+        ادارة,
+        تعديل,
+    }
     public partial class MasterForm : Form
     {
         #region getter
@@ -43,10 +56,20 @@ namespace SaleManagerPro.Forms.Master
         }
         //
         #endregion
+        // تستخدم لعرض الازارا للقائمة الفرعية 
+        Panel SubPnel = new Panel();
+        Button btn_add = new Button();
+        Button btn_edit = new Button();
+        Button btn_manage = new Button();
+
+
+
+
+
+
         List<Panel> SupPsnels = new List<Panel>();
         List<Panel> MasterPsnels = new List<Panel>();
         public  List<Claime> userClaims = new List<Claime>();
-
         public UserRoleManager roleManager = new UserRoleManager();
         public static AppDbContext db = new AppDbContext();
         private Form _ActivForm =null;
@@ -55,14 +78,46 @@ namespace SaleManagerPro.Forms.Master
         {
             InitializeComponent();
             if (masterForm == null) masterForm = this;
-           
+            setbutton(btn_add);
+            setbutton(btn_edit);
+            setbutton(btn_manage);
+            setsubpnel();
         }
 
 
         #region Methods
 
  
+        void setbutton(Button btn)
+        {
+            btn.Dock = System.Windows.Forms.DockStyle.Top;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn.Font = new System.Drawing.Font("Segoe UI", 19F);
+            btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+          //  btn.Location = new System.Drawing.Point(0, 205);
+           // btn.Name = "button32";
+            btn.Size = new System.Drawing.Size(201, 60);
+            btn.TabIndex = 8;
+            btn.Text = "";
+            btn.UseVisualStyleBackColor = true;
 
+
+        }
+        void setsubpnel()
+        {
+            panelSideBar.Controls.Add(SubPnel);
+            SubPnel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+
+            SubPnel.Dock = System.Windows.Forms.DockStyle.Top;
+            SubPnel.Location = new System.Drawing.Point(0, 238);
+            //SubPnel.Name = "SubPanel4";
+            SubPnel.Padding = new System.Windows.Forms.Padding(0, 0, 21, 0);
+            SubPnel.Size = new System.Drawing.Size(222, 17);
+            //SubPnel.TabIndex = 7;
+            SubPnel.Visible = false;
+            SubPnel.BringToFront();
+        }
         private void ShowForm(Form form)
         {
             //if (_ActivForm != null) _ActivForm.Close();
@@ -100,6 +155,28 @@ namespace SaleManagerPro.Forms.Master
                 }
 
             }
+        }
+
+        private void set_sub_panel_button(Panel master, MasterPanels name )
+        {
+           
+            if (SubPnel.Visible)
+            {
+                SubPnel.Visible = false;
+            }
+            else SubPnel.Visible = true;
+
+            SubPnel.Controls.Clear();
+            btn_add.Text = " اضافة" + " "+name.ToString();
+            btn_edit.Text = " تعديل" +" "+ name.ToString();
+            btn_manage.Text = " ادارة" +" "+ name.ToString();
+            SubPnel.Controls.Add(btn_manage);
+            SubPnel.Controls.Add(btn_edit);
+            SubPnel.Controls.Add(btn_add);
+            SubPnel.Height = 285;
+            SubPnel.Location = new Point(master.Location.X + 25, master.Location.Y);
+
+
         }
         int is_exits(string x)
         {
@@ -235,7 +312,7 @@ namespace SaleManagerPro.Forms.Master
 
         private void button4_Click(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel4);
+         //   showpanel(btn);
 
         }
 
@@ -247,7 +324,8 @@ namespace SaleManagerPro.Forms.Master
 
         private void button6_Click(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel6);
+            //  showpanel(this.SubPanel6);
+            set_sub_panel_button(MasterPanel6, MasterPanels.المستخدمين);
 
         }
         #endregion
