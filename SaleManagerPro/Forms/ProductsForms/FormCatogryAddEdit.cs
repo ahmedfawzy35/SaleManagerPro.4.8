@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -67,11 +67,11 @@ namespace SaleManagerPro.Forms.ProductsForms
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم التصنيف مطلوب";
-                CustomMessageBox.show("أسم التصنيف مطلوب", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("أسم التصنيف مطلوب" );
                 return;
             }
 
@@ -79,27 +79,27 @@ namespace SaleManagerPro.Forms.ProductsForms
             {
                 if (!cancreat)
                 {
-                    CustomMessageBox.show("غير مسموح بالاضافه", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("غير مسموح بالاضافه" );
 
                     return;
                 }
-                if (isexits(textName.Texts))
+                if (isexits(textName .Text))
                 {
                     textName.BackColor = Color.Orange;
-                    CustomMessageBox.show("أسم التصنيف موجود بالفعل", CustomMessageBox.enmType.Warning);
+                     MessageBox.Show("أسم التصنيف موجود بالفعل" );
 
                     labeNamelError.Text = "أسم التصنيف موجود بالفعل";
                     return;
                 }
                 Catogry cat = new Catogry();
-                cat.Name = textName.Texts;
-                cat.Details = textDetails.Texts;
+                cat.Name = textName .Text;
+                cat.Details = textDetails .Text;
                 cat.IdUser = Properties.Settings.Default.UserId;
                 cat.DateCreated = DateTime.Now;
                 db.Catogrys.Add(cat);
 
                 db.SaveChanges();
-                CustomMessageBox.show("تم حفظ التصنيف", CustomMessageBox.enmType.Success);
+                 MessageBox.Show("تم حفظ التصنيف" );
 
                 //MessageBox.Show("تم حفظ التصنيف");
             }
@@ -107,7 +107,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             {
                 if (!canedit)
                 {
-                    CustomMessageBox.show("غير مسموح بالتعديل", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("غير مسموح بالتعديل" );
 
                     return;
                 }
@@ -116,37 +116,37 @@ namespace SaleManagerPro.Forms.ProductsForms
                 if (catEdit == null)
                 {
                     //MessageBox.Show("لم يتم العثور على التصنيف");
-                    CustomMessageBox.dialog("لم يتم العثور على التصنيف");
-                    CustomMessageBox.show("لم يتم العثور على التصنيف", CustomMessageBox.enmType.Error);
+                    MessageBox.Show("لم يتم العثور على التصنيف");
+                     MessageBox.Show("لم يتم العثور على التصنيف" );
                     return;
                 }
-                if (textName.Texts != catEdit.Name)
+                if (textName .Text != catEdit.Name)
                 {
-                    if (isexits(textName.Texts))
+                    if (isexits(textName .Text))
                     {
                         textName.BackColor = Color.Orange;
-                        CustomMessageBox.show("أسم التصنيف موجود بالفعل", CustomMessageBox.enmType.Warning);
+                         MessageBox.Show("أسم التصنيف موجود بالفعل" );
 
                         labeNamelError.Text = "أسم التصنيف موجود بالفعل";
                         return;
                     }
                 }
-                catEdit.Name = textName.Texts;
-                catEdit.Details = textDetails.Texts;
+                catEdit.Name = textName .Text;
+                catEdit.Details = textDetails .Text;
                 catEdit.IdUser =Properties.Settings.Default.UserId;
                 catEdit.IsEdit = true;
                 catEdit.DateEdit = DateTime.Now;
 
                 db.Catogrys.Update(catEdit);
                 db.SaveChanges();
-                CustomMessageBox.show("تم تعديل التصنيف", CustomMessageBox.enmType.Success);
+                 MessageBox.Show("تم تعديل التصنيف" );
                 //MessageBox.Show("تم تعديل التصنيف");
             }
             cleartext();
             search();
         }
 
-        private void textName_TextChanged(object sender, EventArgs e)
+        private void textNameTextChanged(object sender, EventArgs e)
         {
             search();
             textName.BackColor = Color.FromArgb(82, 75, 75);
@@ -178,8 +178,8 @@ namespace SaleManagerPro.Forms.ProductsForms
                 string name = dataGridCatogrys.CurrentRow.Cells[1].Value.ToString();
                 string details = dataGridCatogrys.CurrentRow.Cells[2].Value.ToString();
                 labelId.Text = id;
-                textName.Texts = name;
-                textDetails.Texts = details;
+                textName .Text = name;
+                textDetails .Text = details;
                 btnSave.Text = "تعديل";
                 IsNew = false;
 
@@ -201,7 +201,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         }
         private void search( )
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var a = db.Catogrys.Include(x=>x.User).Select(ct => new CatogryDto
             {
@@ -214,8 +214,8 @@ namespace SaleManagerPro.Forms.ProductsForms
 
         void cleartext()
         {
-            textDetails.Texts = "";
-            textName.Texts = "";
+            textDetails .Text = "";
+            textName .Text = "";
             labelId.Text = "0";
             btnSave.Text = "إضافه";
             IsNew = true;
@@ -227,7 +227,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
 
                 return;
             }
@@ -245,7 +245,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف التصنيف", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف التصنيف" );
 
                 }
 

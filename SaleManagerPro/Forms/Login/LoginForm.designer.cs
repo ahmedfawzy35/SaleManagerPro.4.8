@@ -32,12 +32,12 @@ namespace SaleManagerPro.Forms.Login
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new CustomControls.Controls.RJButton();
-            this.button1 = new CustomControls.Controls.RJButton();
+            this.button2 = new Button();
+            this.button1 = new Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbl_error_message = new System.Windows.Forms.Label();
-            this.text_user_name = new CustomControls.Controls.RJTextBox();
-            this.text_pass = new CustomControls.Controls.RJTextBox();
+            this.text_user_name = new TextBox();
+            this.text_pass = new TextBox();
             this.picture_loading = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_loading)).BeginInit();
@@ -67,10 +67,7 @@ namespace SaleManagerPro.Forms.Login
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.BackgroundColor = System.Drawing.Color.Red;
-            this.button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button2.BorderRadius = 15;
-            this.button2.BorderSize = 0;
+
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -81,17 +78,13 @@ namespace SaleManagerPro.Forms.Login
             this.button2.Size = new System.Drawing.Size(125, 39);
             this.button2.TabIndex = 4;
             this.button2.Text = "Exit";
-            this.button2.TextColor = System.Drawing.Color.White;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.button1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button1.BorderRadius = 15;
-            this.button1.BorderSize = 0;
+
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -101,7 +94,6 @@ namespace SaleManagerPro.Forms.Login
             this.button1.Size = new System.Drawing.Size(125, 39);
             this.button1.TabIndex = 3;
             this.button1.Text = "Login";
-            this.button1.TextColor = System.Drawing.Color.Black;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -128,10 +120,7 @@ namespace SaleManagerPro.Forms.Login
             // text_user_name
             // 
             this.text_user_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.text_user_name.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.text_user_name.BorderFocusColor = System.Drawing.Color.Red;
-            this.text_user_name.BorderRadius = 15;
-            this.text_user_name.BorderSize = 1;
+
             this.text_user_name.CausesValidation = false;
             this.text_user_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.text_user_name.ForeColor = System.Drawing.Color.White;
@@ -139,21 +128,15 @@ namespace SaleManagerPro.Forms.Login
             this.text_user_name.Multiline = false;
             this.text_user_name.Name = "text_user_name";
             this.text_user_name.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.text_user_name.PasswordChar = false;
-            this.text_user_name.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.text_user_name.PlaceholderText = "User Name";
+
             this.text_user_name.Size = new System.Drawing.Size(292, 42);
             this.text_user_name.TabIndex = 1;
-            this.text_user_name.Texts = "";
-            this.text_user_name.UnderlinedStyle = false;
+            this.text_user_name .Text = "";
             // 
             // text_pass
             // 
             this.text_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.text_pass.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.text_pass.BorderFocusColor = System.Drawing.Color.Red;
-            this.text_pass.BorderRadius = 15;
-            this.text_pass.BorderSize = 1;
+
             this.text_pass.CausesValidation = false;
             this.text_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.text_pass.ForeColor = System.Drawing.Color.White;
@@ -161,13 +144,10 @@ namespace SaleManagerPro.Forms.Login
             this.text_pass.Multiline = false;
             this.text_pass.Name = "text_pass";
             this.text_pass.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.text_pass.PasswordChar = false;
-            this.text_pass.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.text_pass.PlaceholderText = "Password";
+
             this.text_pass.Size = new System.Drawing.Size(292, 42);
             this.text_pass.TabIndex = 2;
-            this.text_pass.Texts = "";
-            this.text_pass.UnderlinedStyle = false;
+            this.text_pass .Text = "";
             // 
             // picture_loading
             // 
@@ -215,9 +195,9 @@ namespace SaleManagerPro.Forms.Login
         private Panel panel3;
         private Panel panel4;
         private Label lbl_error_message;
-        private CustomControls.Controls.RJTextBox text_user_name;
-        private CustomControls.Controls.RJTextBox text_pass;
-        private CustomControls.Controls.RJButton button1;
-        private CustomControls.Controls.RJButton button2;
+        private TextBox text_user_name;
+        private TextBox text_pass;
+        private Button button1;
+        private Button button2;
     }
 }

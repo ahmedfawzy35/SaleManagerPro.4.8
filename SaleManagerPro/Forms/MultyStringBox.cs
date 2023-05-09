@@ -60,14 +60,14 @@ namespace SaleManagerPro.Forms
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textvalue.Texts))
+            if (string.IsNullOrEmpty(textvalue .Text))
             {
                 return;
             }
             DataRow dr = data.NewRow();
-            dr[0] = textvalue.Texts;
+            dr[0] = textvalue .Text;
             data.Rows.Add(dr);
-            textvalue.Texts = "";
+            textvalue .Text = "";
             //dataGridValues.DataSource = values;
             Invalidate();
         }
@@ -101,7 +101,7 @@ namespace SaleManagerPro.Forms
         {
             if (!string.IsNullOrEmpty(dataGridValues.CurrentRow.Cells[0].Value.ToString()))
             {
-                textvalue.Texts = dataGridValues.CurrentRow.Cells[0].Value.ToString();
+                textvalue .Text = dataGridValues.CurrentRow.Cells[0].Value.ToString();
                 data.Rows.RemoveAt(dataGridValues.CurrentRow.Index);
 
                 Invalidate();

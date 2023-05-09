@@ -37,7 +37,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.panelunit2 = new System.Windows.Forms.Panel();
             this.pictureImage = new System.Windows.Forms.PictureBox();
-            this.btnChooseImage = new CustomControls.Controls.RJButton();
+            this.btnChooseImage = new Button();
             this.pictureAddFinancialDegree = new System.Windows.Forms.PictureBox();
             this.pictureAddJobDegree = new System.Windows.Forms.PictureBox();
             this.pictureAddJob = new System.Windows.Forms.PictureBox();
@@ -80,21 +80,21 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textNationalNumber = new CustomControls.Controls.RJTextBox();
+            this.textNationalNumber = new TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textEducationalQualification = new CustomControls.Controls.RJTextBox();
+            this.textEducationalQualification = new TextBox();
             this.labelNationalNumberError = new System.Windows.Forms.Label();
             this.labelEducationalQualificationError = new System.Windows.Forms.Label();
-            this.textSalary = new CustomControls.Controls.RJTextBox();
+            this .textSalary = new TextBox();
             this.lableSalaryError = new System.Windows.Forms.Label();
-            this.textPhone = new CustomControls.Controls.RJTextBox();
+            this.textPhone = new TextBox();
             this.lablePhoneerror = new System.Windows.Forms.Label();
-            this.textAdress = new CustomControls.Controls.RJTextBox();
+            this.textAdress = new TextBox();
             this.lableAdressError = new System.Windows.Forms.Label();
-            this.textName = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
+            this.btnCancel = new Button();
+            this.btnSave = new Button();
             this.labelId = new System.Windows.Forms.Label();
             this.labeNamelError = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -138,7 +138,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.panel1.Controls.Add(this.textEducationalQualification);
             this.panel1.Controls.Add(this.labelNationalNumberError);
             this.panel1.Controls.Add(this.labelEducationalQualificationError);
-            this.panel1.Controls.Add(this.textSalary);
+            this.panel1.Controls.Add(this .textSalary);
             this.panel1.Controls.Add(this.lableSalaryError);
             this.panel1.Controls.Add(this.textPhone);
             this.panel1.Controls.Add(this.lablePhoneerror);
@@ -232,10 +232,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // btnChooseImage
             // 
             this.btnChooseImage.BackColor = System.Drawing.Color.Black;
-            this.btnChooseImage.BackgroundColor = System.Drawing.Color.Black;
-            this.btnChooseImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnChooseImage.BorderRadius = 15;
-            this.btnChooseImage.BorderSize = 0;
+
             this.btnChooseImage.FlatAppearance.BorderSize = 0;
             this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChooseImage.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -245,7 +242,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.btnChooseImage.Size = new System.Drawing.Size(101, 29);
             this.btnChooseImage.TabIndex = 15;
             this.btnChooseImage.Text = "اختار صوره";
-            this.btnChooseImage.TextColor = System.Drawing.Color.White;
+            this.btnChooseImage.ForeColor = System.Drawing.Color.White;
             this.btnChooseImage.UseVisualStyleBackColor = false;
             this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
             // 
@@ -715,10 +712,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // textNationalNumber
             // 
             this.textNationalNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textNationalNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textNationalNumber.BorderFocusColor = System.Drawing.Color.Red;
-            this.textNationalNumber.BorderRadius = 15;
-            this.textNationalNumber.BorderSize = 2;
+
             this.textNationalNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textNationalNumber.ForeColor = System.Drawing.Color.White;
             this.textNationalNumber.Location = new System.Drawing.Point(456, 470);
@@ -726,14 +720,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textNationalNumber.Multiline = false;
             this.textNationalNumber.Name = "textNationalNumber";
             this.textNationalNumber.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textNationalNumber.PasswordChar = false;
-            this.textNationalNumber.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textNationalNumber.PlaceholderText = "الرقم القومي";
+
             this.textNationalNumber.Size = new System.Drawing.Size(292, 42);
             this.textNationalNumber.TabIndex = 5;
-            this.textNationalNumber.Texts = "";
-            this.textNationalNumber.UnderlinedStyle = false;
-            this.textNationalNumber._TextChanged += new System.EventHandler(this.textNationalNumber__TextChanged);
+            this.textNationalNumber .Text = "";
+            this.textNationalNumber.TextChanged += new System.EventHandler(this.textNationalNumber_TextChanged);
             this.textNationalNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
             // 
             // label10
@@ -750,10 +741,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // textEducationalQualification
             // 
             this.textEducationalQualification.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textEducationalQualification.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textEducationalQualification.BorderFocusColor = System.Drawing.Color.Red;
-            this.textEducationalQualification.BorderRadius = 15;
-            this.textEducationalQualification.BorderSize = 2;
+
             this.textEducationalQualification.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textEducationalQualification.ForeColor = System.Drawing.Color.White;
             this.textEducationalQualification.Location = new System.Drawing.Point(456, 372);
@@ -761,14 +749,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textEducationalQualification.Multiline = false;
             this.textEducationalQualification.Name = "textEducationalQualification";
             this.textEducationalQualification.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textEducationalQualification.PasswordChar = false;
-            this.textEducationalQualification.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textEducationalQualification.PlaceholderText = "المؤهل الدراسي";
+
             this.textEducationalQualification.Size = new System.Drawing.Size(292, 42);
             this.textEducationalQualification.TabIndex = 4;
-            this.textEducationalQualification.Texts = "";
-            this.textEducationalQualification.UnderlinedStyle = false;
-            this.textEducationalQualification._TextChanged += new System.EventHandler(this.textEducationalQualification__TextChanged);
+            this.textEducationalQualification .Text = "";
+            this.textEducationalQualification.TextChanged += new System.EventHandler(this.textEducationalQualification_TextChanged);
             // 
             // labelNationalNumberError
             // 
@@ -794,27 +779,21 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // 
             // textSalary
             // 
-            this.textSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textSalary.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textSalary.BorderFocusColor = System.Drawing.Color.Red;
-            this.textSalary.BorderRadius = 15;
-            this.textSalary.BorderSize = 2;
-            this.textSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.textSalary.ForeColor = System.Drawing.Color.White;
-            this.textSalary.Location = new System.Drawing.Point(456, 287);
-            this.textSalary.Margin = new System.Windows.Forms.Padding(4);
-            this.textSalary.Multiline = false;
-            this.textSalary.Name = "textSalary";
-            this.textSalary.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textSalary.PasswordChar = false;
-            this.textSalary.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textSalary.PlaceholderText = "المرتب الاساسي";
-            this.textSalary.Size = new System.Drawing.Size(292, 42);
-            this.textSalary.TabIndex = 3;
-            this.textSalary.Texts = "";
-            this.textSalary.UnderlinedStyle = false;
-            this.textSalary._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
-            this.textSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
+            this .textSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+
+            this .textSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this .textSalary.ForeColor = System.Drawing.Color.White;
+            this .textSalary.Location = new System.Drawing.Point(456, 287);
+            this .textSalary.Margin = new System.Windows.Forms.Padding(4);
+            this .textSalary.Multiline = false;
+            this .textSalary.Name = "textSalary";
+            this .textSalary.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
+
+            this .textSalary.Size = new System.Drawing.Size(292, 42);
+            this .textSalary.TabIndex = 3;
+            this .textSalary.Text = "";
+            this .textSalary.TextChanged += new System.EventHandler(this.textLimitStock_TextChanged);
+            this .textSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
             // 
             // lableSalaryError
             // 
@@ -830,10 +809,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // textPhone
             // 
             this.textPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textPhone.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textPhone.BorderFocusColor = System.Drawing.Color.Red;
-            this.textPhone.BorderRadius = 15;
-            this.textPhone.BorderSize = 2;
+
             this.textPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textPhone.ForeColor = System.Drawing.Color.White;
             this.textPhone.Location = new System.Drawing.Point(456, 199);
@@ -841,14 +817,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textPhone.Multiline = false;
             this.textPhone.Name = "textPhone";
             this.textPhone.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textPhone.PasswordChar = false;
-            this.textPhone.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textPhone.PlaceholderText = "الهاتف";
+
             this.textPhone.Size = new System.Drawing.Size(292, 42);
             this.textPhone.TabIndex = 2;
-            this.textPhone.Texts = "";
-            this.textPhone.UnderlinedStyle = false;
-            this.textPhone._TextChanged += new System.EventHandler(this.textPricePurchase__TextChanged);
+            this.textPhone .Text = "";
+
+            this.textPhone.TextChanged += new System.EventHandler(this.textPricePurchase_TextChanged);
             this.textPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
             // 
             // lablePhoneerror
@@ -865,10 +839,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // textAdress
             // 
             this.textAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textAdress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textAdress.BorderFocusColor = System.Drawing.Color.Red;
-            this.textAdress.BorderRadius = 15;
-            this.textAdress.BorderSize = 2;
+
             this.textAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textAdress.ForeColor = System.Drawing.Color.White;
             this.textAdress.Location = new System.Drawing.Point(456, 111);
@@ -876,14 +847,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textAdress.Multiline = false;
             this.textAdress.Name = "textAdress";
             this.textAdress.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textAdress.PasswordChar = false;
-            this.textAdress.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textAdress.PlaceholderText = "العنوان";
+
             this.textAdress.Size = new System.Drawing.Size(292, 42);
             this.textAdress.TabIndex = 1;
-            this.textAdress.Texts = "";
-            this.textAdress.UnderlinedStyle = false;
-            this.textAdress._TextChanged += new System.EventHandler(this.textPriceSale__TextChanged);
+            this.textAdress .Text = "";
+            this.textAdress.TextChanged += new System.EventHandler(this.textPriceSale_TextChanged);
             // 
             // lableAdressError
             // 
@@ -899,10 +867,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(456, 24);
@@ -910,14 +875,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم الموظف";
+
             this.textName.Size = new System.Drawing.Size(292, 42);
             this.textName.TabIndex = 0;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
-            this.textName._TextChanged += new System.EventHandler(this.textName__TextChanged);
+            this.textName .Text = "";
+            this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // panel3
             // 
@@ -932,10 +894,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.BorderSize = 0;
+
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -945,17 +904,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.btnCancel.Size = new System.Drawing.Size(125, 39);
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "الغاء";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -965,7 +921,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 15;
             this.btnSave.Text = "إضافه";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -1099,10 +1055,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
         }
 
         #endregion
-        private CustomControls.Controls.RJTextBox textName;
+        private TextBox textName;
         private Panel panel3;
-        private CustomControls.Controls.RJButton btnCancel;
-        private CustomControls.Controls.RJButton btnSave;
+        private Button btnCancel;
+        private Button btnSave;
         public Label labelId;
         public Label labeNamelError;
         private Panel panel2;
@@ -1110,11 +1066,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem تعديلالمنتجToolStripMenuItem;
         private ToolStripMenuItem حذفالمنتجToolStripMenuItem;
-        private CustomControls.Controls.RJTextBox textSalary;
+        private TextBox textSalary;
         public Label lableSalaryError;
-        private CustomControls.Controls.RJTextBox textPhone;
+        private TextBox textPhone;
         public Label lablePhoneerror;
-        private CustomControls.Controls.RJTextBox textAdress;
+        private TextBox textAdress;
         public Label lableAdressError;
         private Label label4;
         public Panel panel1;
@@ -1129,7 +1085,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private ComboBox comboDepartment;
         public Label labelDepartmentError;
         private Label label11;
-        private CustomControls.Controls.RJTextBox textNationalNumber;
+        private TextBox textNationalNumber;
         public Label label10;
         private Label label2;
         private DateTimePicker dateStart;
@@ -1146,7 +1102,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private Label label16;
         private ComboBox comboScientificDegree;
         private Label label18;
-        private CustomControls.Controls.RJTextBox textEducationalQualification;
+        private TextBox textEducationalQualification;
         public Label labelEducationalQualificationError;
         public Label labelNationalNumberError;
         public Label labelScientificDegreeError;
@@ -1168,7 +1124,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         private PictureBox pictureAddDepartment;
         private ToolStripMenuItem عرضمستنداتالموظفToolStripMenuItem;
         private PictureBox pictureImage;
-        private CustomControls.Controls.RJButton btnChooseImage;
+        private Button btnChooseImage;
         private OpenFileDialog openFileDialog1;
         public Label lblDefualtImage;
     }

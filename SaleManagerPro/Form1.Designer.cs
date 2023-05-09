@@ -1,4 +1,6 @@
-﻿namespace SaleManagerPro
+﻿using System.Windows.Forms;
+
+namespace SaleManagerPro
 {
     partial class Form1
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rjButton1 = new CustomControls.Controls.RJButton();
+            this.rjButton1 = new Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -36,10 +38,9 @@
             // rjButton1
             // 
             this.rjButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
+ 
+ 
+ 
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
@@ -48,7 +49,7 @@
             this.rjButton1.Size = new System.Drawing.Size(150, 40);
             this.rjButton1.TabIndex = 1;
             this.rjButton1.Text = "rjButton1";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
+ 
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -79,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private CustomControls.Controls.RJButton rjButton1;
+        private Button rjButton1;
     }
 }
 

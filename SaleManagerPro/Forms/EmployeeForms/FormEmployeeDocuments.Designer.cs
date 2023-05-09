@@ -1,4 +1,6 @@
-﻿namespace SaleManagerPro.Forms.EmployeeForms
+﻿using System.Windows.Forms;
+
+namespace SaleManagerPro.Forms.EmployeeForms
 {
     partial class FormEmployeeDocuments
     {
@@ -32,10 +34,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.labelNameError = new System.Windows.Forms.Label();
-            this.btnSaveDocument = new CustomControls.Controls.RJButton();
+            this.btnSaveDocument = new Button();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textName = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.طباعةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,10 +125,7 @@
             // btnSaveDocument
             // 
             this.btnSaveDocument.BackColor = System.Drawing.Color.Lime;
-            this.btnSaveDocument.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSaveDocument.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSaveDocument.BorderRadius = 15;
-            this.btnSaveDocument.BorderSize = 0;
+
             this.btnSaveDocument.FlatAppearance.BorderSize = 0;
             this.btnSaveDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveDocument.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -136,7 +135,7 @@
             this.btnSaveDocument.Size = new System.Drawing.Size(80, 38);
             this.btnSaveDocument.TabIndex = 21;
             this.btnSaveDocument.Text = "إضافه";
-            this.btnSaveDocument.TextColor = System.Drawing.Color.Black;
+            this.btnSaveDocument.ForeColor = System.Drawing.Color.Black;
             this.btnSaveDocument.UseVisualStyleBackColor = false;
             this.btnSaveDocument.Click += new System.EventHandler(this.btnSaveDocument_Click);
             // 
@@ -162,10 +161,7 @@
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(6, 62);
@@ -173,14 +169,12 @@
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم المستند";
+
             this.textName.Size = new System.Drawing.Size(265, 42);
             this.textName.TabIndex = 17;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
-            this.textName._TextChanged += new System.EventHandler(this.textName__TextChanged);
+            this.textName .Text = "";
+
+            this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // panel2
             // 
@@ -517,14 +511,14 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
-        private CustomControls.Controls.RJTextBox textName;
+        private TextBox textName;
         private System.Windows.Forms.PictureBox pictureView;
         private System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.PictureBox btnAdd;
         public System.Windows.Forms.TextBox lblDecumentName;
         public System.Windows.Forms.Label lblDecumentId;
         public System.Windows.Forms.Label lblPageCount;
-        private CustomControls.Controls.RJButton btnSaveDocument;
+        private Button btnSaveDocument;
         public System.Windows.Forms.Label labelNameError;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panel5;

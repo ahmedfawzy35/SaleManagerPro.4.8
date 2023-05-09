@@ -1,5 +1,5 @@
-﻿using CustomControls.Controls;
-using CustomControls.MessageBox;
+﻿ 
+ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -62,7 +62,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
             int error = 0;
 
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName.Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الموظف مطلوب";
@@ -75,19 +75,19 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 error++;
             }
 
-            if (string.IsNullOrEmpty(textDetails.Texts))
+            if (string.IsNullOrEmpty(textDetails .Text))
             {
                 textDetails.BackColor = Color.Red;
                 lableDetailsError.Text = "تفاصيل الترقيه مطلوبه";
                 error++;
             }
           
-            if (string.IsNullOrEmpty(textAddToSalary.Texts))
+            if (string.IsNullOrEmpty(textAddToSalary .Text))
             {
                 textAddToSalary.BackColor = Color.Red;
                 lableAddToSalaryError.Text = "مرتب الموظف  مطلوب";
                 error++;
-                if (int.Parse(textAddToSalary.Texts) < 1)
+                if (int.Parse(textAddToSalary .Text) < 1)
                 {
                     textAddToSalary.BackColor = Color.Red;
                     lableAddToSalaryError.Text = "هذا الرقم ضغير جدا";
@@ -112,11 +112,11 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
 
             if (error > 0)
-                CustomMessageBox.show($"لديك عدد  {error} اخطاء ", CustomMessageBox.enmType.Error);
+                MessageBox.Show($"لديك عدد  {error} اخطاء " );
 
             return error;
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox, Label label)
+        private void Textchange(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
@@ -152,7 +152,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if (validations() > 0)
@@ -168,7 +168,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 var emp = db.Employees.Where(x => x.IdEmployee == idemp).FirstOrDefault();
                 if (int.Parse(lblIdJobDegree.Text) == emp.IdJobDegree)
                 {
-                    if (CustomMessageBox.dialog("تأكيد حفظ الترقية والبقاء على نفس الدرجه الوظيفيه") != DialogResult.OK)
+                    if (MessageBox.Show("تأكيد حفظ الترقية والبقاء على نفس الدرجه الوظيفيه") != DialogResult.OK)
                     {
                         return;
                     }
@@ -176,7 +176,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
                 if (int.Parse(lblbIdFinancialDegree.Text) == emp.IdFinancialDegree)
                 {
-                    if (CustomMessageBox.dialog("تأكيد حفظ الترقية والبقاء على نفس الدرجه الماليه") != DialogResult.OK)
+                    if (MessageBox.Show("تأكيد حفظ الترقية والبقاء على نفس الدرجه الماليه") != DialogResult.OK)
                     {
                         return;
                     }
@@ -184,8 +184,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
             EmployeePromotion employeePromotionToAdd = new EmployeePromotion();
             employeePromotionToAdd.IdEmployee = int.Parse(lblidEmployee.Text);
-            employeePromotionToAdd.AddToSalary = double.Parse(textAddToSalary.Texts);
-            employeePromotionToAdd.Details = textDetails.Texts;
+            employeePromotionToAdd.AddToSalary = double.Parse(textAddToSalary .Text);
+            employeePromotionToAdd.Details = textDetails .Text;
 
             employeePromotionToAdd.IdGobDegree = int.Parse(lblIdJobDegree.Text);
             employeePromotionToAdd.IdFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
@@ -200,12 +200,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
             var employee = db.Employees.Where(x => x.IdEmployee == idemployee).FirstOrDefault();
             employee.IdJobDegree = int.Parse(lblIdJobDegree.Text);
             employee.IdFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
-            employee.Salary += double.Parse(textAddToSalary.Texts);
+            employee.Salary += double.Parse(textAddToSalary .Text);
             db.Employees.Update(employee);
             db.EmployeePromotions.Add(employeePromotionToAdd);
             db.SaveChanges();
             AddDocuments(employeePromotionToAdd.IdEmployeePromotion);
-            CustomMessageBox.show("تم اضافة الترقيه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم اضافة الترقيه" );
             cleartext();
             search();
         }
@@ -233,7 +233,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 return;
             }
 
@@ -247,7 +247,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             int idempprom = int.Parse(labelId.Text);
             EmployeePromotion employeePromotionToEdit = db.EmployeePromotions.Where(x=> x.IdEmployeePromotion == idempprom).FirstOrDefault();
 
-            employeePromotionToEdit.AddToSalary = double.Parse(textAddToSalary.Texts);
+            employeePromotionToEdit.AddToSalary = double.Parse(textAddToSalary .Text);
             //employeePromotionToEdit.job = int.Parse(lblIdJob.Text);
             employeePromotionToEdit.IdGobDegree = int.Parse(lblIdJobDegree.Text);
             employeePromotionToEdit.IdFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
@@ -264,7 +264,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             var employee = db.Employees.Where(x => x.IdEmployee == idemployee).FirstOrDefault();
             employee.IdJobDegree = int.Parse(lblIdJobDegree.Text);
             employee.IdFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
-            employee.Salary += double.Parse(textAddToSalary.Texts);
+            employee.Salary += double.Parse(textAddToSalary .Text);
             db.Employees.Update(employee);
 
             db.EmployeePromotions.Update(employeePromotionToEdit);
@@ -272,14 +272,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
 
 
-            CustomMessageBox.show("تم تعديل الترقيه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل الترقيه" );
             cleartext();
 
         }
         private void search()
         {
             searchEmployee();
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
             var a = db.EmployeePromotions.Include(x => x.Employee).Where(r => r.Employee.FullName.Contains(search)).Select(em => new EmployeePromotionDto
             {
                 IdEmployeePromotion = em.IdEmployeePromotion,
@@ -304,7 +304,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         }
         private void searchEmployee()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
             var a = db.Employees.Where(r => r.FullName.Contains(search)).Select(emp => new
             {
                 الرقم = emp.IdEmployee,الاسم =emp.FullName,
@@ -319,10 +319,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         void cleartext()
         {
-            textName.Texts = "";
+            textName .Text = "";
             textName.Enabled = true;
-            textDetails.Texts = "";
-            textAddToSalary.Texts = "0";
+            textDetails .Text = "";
+            textAddToSalary .Text = "0";
             lblidEmployee.Text = "0";
 
             lblIdJobDegree.Text = "0";
@@ -375,25 +375,25 @@ namespace SaleManagerPro.Forms.EmployeeForms
             cleartext();
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
 
             Textchange(textName, labeNamelError);
             search();
         }
 
-        private void textPriceSale__TextChanged(object sender, EventArgs e)
+        private void textPriceSale_TextChanged(object sender, EventArgs e)
         {
             Textchange(textDetails, lableDetailsError);
 
         }
         //int editproductunitcount = 0;
 
-        private async void تعديلالمنتجToolStripMenuItem_Click(object sender, EventArgs e)
+        private  void تعديلالمنتجToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!canedit)
             {
-                CustomMessageBox.show("غير مسموح بالتعديل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالتعديل" );
                 return;
             }
             if (!string.IsNullOrEmpty(dataGridEmployees.CurrentRow.Cells[0].Value.ToString()))
@@ -402,9 +402,9 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 var empporm = db.EmployeePromotions.Include(j=>j.JobDegree).Include(f=>f.FinancialDegree).Include(n =>n.Employee).Where(x => x.IdEmployeePromotion == idep).FirstOrDefault();
                 lblidEmployee.Text = empporm.IdEmployee.ToString();
                 labelId.Text = empporm.IdEmployeePromotion.ToString();
-                textName.Texts = empporm.Employee.FullName;
-                textDetails.Texts = empporm.Details;
-                textAddToSalary.Texts = empporm.AddToSalary.ToString();
+                textName .Text = empporm.Employee.FullName;
+                textDetails .Text = empporm.Details;
+                textAddToSalary .Text = empporm.AddToSalary.ToString();
                 date.Value = empporm.Date;
                 dateStart.Value = empporm.DateStart;
                 lblIdJobDegree.Text = empporm.IdGobDegree.ToString();
@@ -423,7 +423,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
                 return;
             }
             if (!string.IsNullOrEmpty(dataGridEmployees.CurrentRow.Cells[0].Value.ToString()))
@@ -475,12 +475,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         }
 
-        private void textunit2count__TextChanged(object sender, EventArgs e)
+        private void textunit2count_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textunit3count__TextChanged(object sender, EventArgs e)
+        private void textunit3count_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -496,7 +496,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -535,7 +535,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
 
 
-        private void textAddToSalary__TextChanged(object sender, EventArgs e)
+        private void textAddToSalary_TextChanged(object sender, EventArgs e)
         {
             textAddToSalary.BackColor = Color.FromArgb(82, 75, 75);
         }
@@ -557,7 +557,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 return;
             }
             lblidEmployee.Text = dataGridEmployee.CurrentRow.Cells[0].Value.ToString();
-            textName.Texts = dataGridEmployee.CurrentRow.Cells[1].Value.ToString();
+            textName .Text = dataGridEmployee.CurrentRow.Cells[1].Value.ToString();
             comboJobDegree.Text = dataGridEmployee.CurrentRow.Cells[2].Value.ToString();
             comboFinancialDegree.Text = dataGridEmployee.CurrentRow.Cells[3].Value.ToString();
         }

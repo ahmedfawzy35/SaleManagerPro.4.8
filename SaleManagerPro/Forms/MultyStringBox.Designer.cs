@@ -1,4 +1,6 @@
-﻿namespace SaleManagerPro.Forms
+﻿using System.Windows.Forms;
+
+namespace SaleManagerPro.Forms
 {
     partial class MultyStringBox
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.textvalue = new CustomControls.Controls.RJTextBox();
+            this.textvalue = new TextBox();
             this.dataGridValues = new System.Windows.Forms.DataGridView();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,10 +45,7 @@
             this.textvalue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textvalue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textvalue.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textvalue.BorderFocusColor = System.Drawing.Color.Red;
-            this.textvalue.BorderRadius = 15;
-            this.textvalue.BorderSize = 2;
+           
             this.textvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.textvalue.ForeColor = System.Drawing.Color.White;
             this.textvalue.Location = new System.Drawing.Point(65, 33);
@@ -54,13 +53,10 @@
             this.textvalue.Multiline = false;
             this.textvalue.Name = "textvalue";
             this.textvalue.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textvalue.PasswordChar = false;
-            this.textvalue.PlaceholderColor = System.Drawing.Color.White;
-            this.textvalue.PlaceholderText = "";
+
             this.textvalue.Size = new System.Drawing.Size(295, 31);
             this.textvalue.TabIndex = 0;
-            this.textvalue.Texts = "";
-            this.textvalue.UnderlinedStyle = false;
+            this.textvalue .Text = "";
             // 
             // dataGridValues
             // 
@@ -137,7 +133,7 @@
 
         #endregion
 
-        private CustomControls.Controls.RJTextBox textvalue;
+        private TextBox textvalue;
         private System.Windows.Forms.DataGridView dataGridValues;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Panel panel1;

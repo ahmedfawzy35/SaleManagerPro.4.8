@@ -1,5 +1,5 @@
-﻿using CustomControls.Controls;
-using CustomControls.MessageBox;
+﻿ 
+ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -60,26 +60,26 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
 
             int error = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الموظف مطلوب";
                 error++;
             }
 
-            if (string.IsNullOrEmpty(textAdress.Texts))
+            if (string.IsNullOrEmpty(textAdress .Text))
             {
                 textAdress.BackColor = Color.Red;
                 lableAdressError.Text = "عنوان الموظف  مطلوب";
                 error++;
             }
-            if (string.IsNullOrEmpty(textPhone.Texts))
+            if (string.IsNullOrEmpty(textPhone .Text))
             {
                 textPhone.BackColor = Color.Red;
                 lablePhoneerror.Text = "هاتف الموظف  مطلوب";
                 error++;
             }
-          if (string.IsNullOrEmpty(textSalary.Texts))
+          if (string.IsNullOrEmpty(textSalary .Text))
             {
                 textSalary.BackColor = Color.Red;
                 lableSalaryError.Text = "مرتب الموظف  مطلوب";
@@ -111,18 +111,18 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
 
             if (error > 0)
-                CustomMessageBox.show($"لديك عدد  {error} اخطاء ", CustomMessageBox.enmType.Error);
+                 MessageBox.Show($"لديك عدد  {error} اخطاء " );
 
             return error;
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox, Label label)
+        private void Textchange(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
         }
         private bool IsExitsName()
         {
-            Employee employee = db.Employees.Where(c => c.FullName == textName.Texts).FirstOrDefault();
+            Employee employee = db.Employees.Where(c => c.FullName == textName .Text).FirstOrDefault();
             if (employee != null)
                 return true;
             return false;
@@ -130,7 +130,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
          private int IsExitsPhonee()
         {
             int employeeyd =0;
-            EmployeeDetails employee = db.EmployeeDetails.Where(c => c.Phone == textPhone.Texts).FirstOrDefault();
+            EmployeeDetails employee = db.EmployeeDetails.Where(c => c.Phone == textPhone .Text).FirstOrDefault();
             if (employee != null)
                 employeeyd = employee.IdEmployee ;
             return employeeyd;
@@ -139,7 +139,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             int employeeyd = 0;
 
-            EmployeeDetails employee = db.EmployeeDetails.Where(c => c.NationalNumber == textNationalNumber.Texts).FirstOrDefault();
+            EmployeeDetails employee = db.EmployeeDetails.Where(c => c.NationalNumber == textNationalNumber .Text).FirstOrDefault();
             if (employee != null)
                 employeeyd = employee.IdEmployee;
             return employeeyd;
@@ -180,7 +180,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if (validations() > 0)
@@ -190,34 +190,34 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
             if (IsExitsName())
             {
-                CustomMessageBox.show("اسم الموظف موجود بالفعل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("اسم الموظف موجود بالفعل" );
                 return;
             }
             int idnational = IsExitsNationalNumber();
              if (idnational > 0)
             {
                 var employeeyd = db.Employees.Where(c => c.IdEmployee == idnational).FirstOrDefault();
-                CustomMessageBox.show($"الرقم القومي مسجل مسبقا باسم الموظف {employeeyd.FullName}", CustomMessageBox.enmType.Error);
+                 MessageBox.Show($"الرقم القومي مسجل مسبقا باسم الموظف {employeeyd.FullName}" );
                 return;
             }
              int idphone = IsExitsPhonee();
              if (idphone > 0)
             {
                 var employeeyd = db.Employees.Where(c => c.IdEmployee == idphone).FirstOrDefault();
-                CustomMessageBox.show($"رقم الهاتف مسجل مسبقا باسم الموظف {employeeyd.FullName}", CustomMessageBox.enmType.Error);
+                 MessageBox.Show($"رقم الهاتف مسجل مسبقا باسم الموظف {employeeyd.FullName}" );
                 return;
             }
 
             Employee employeetoadd = new Employee();
             employeetoadd.Guid = Guid.NewGuid();
-            employeetoadd.FullName = textName.Texts;
-            employeetoadd.Salary =double.Parse( textSalary.Texts);
+            employeetoadd.FullName = textName .Text;
+            employeetoadd.Salary =double.Parse( textSalary .Text);
             employeetoadd.IdJob =int.Parse(lblIdJob.Text);
             employeetoadd.IdJobDegree = int.Parse(lblIdJobDegree.Text);
             employeetoadd.IdDepartment = int.Parse(lblIdDepartment.Text);
             employeetoadd.IdFinancialDegree = int.Parse(lblbIdFinancialDegree.Text);
             employeetoadd.ISOnWork = true;
-            employeetoadd.StartSalary =double.Parse( textSalary.Texts);
+            employeetoadd.StartSalary =double.Parse( textSalary .Text);
             employeetoadd.StartJob = int.Parse(lblIdJob.Text);
             employeetoadd.StartJobDegree = int.Parse(lblIdJobDegree.Text);
             employeetoadd.StartDepartment = int.Parse(lblIdDepartment.Text);
@@ -251,22 +251,22 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
             EmployeeDetails details = new EmployeeDetails();
             details.IdEmployee = employeetoadd.IdEmployee;
-            details.Adress = textAdress.Texts;
+            details.Adress = textAdress .Text;
             details.DateStart = dateStart.Value;
             details.DateOfBirth = dateOfBirth.Value;
             details.DateCreated = DateTime.Now;
-            details.Phone = textPhone.Texts;
-            details.NationalNumber = textNationalNumber.Texts;
+            details.Phone = textPhone .Text;
+            details.NationalNumber = textNationalNumber .Text;
             details.Gender = comboGender.Text;
             details.IsMaried = comboIsMarid.Text;
             details.ScientificDegree = comboScientificDegree.Text;
-            details.EducationalQualification = textEducationalQualification.Texts;
+            details.EducationalQualification = textEducationalQualification .Text;
             details.DateCreated = DateTime.Now;
             details.IdUser = Properties.Settings.Default.UserId;
 
             db.EmployeeDetails.Add(details);
             db.SaveChanges();
-            CustomMessageBox.show("تم اضافة الموظف", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم اضافة الموظف" );
             cleartext();
             search();
         }
@@ -282,14 +282,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 return;
             }
             var employeetoedit = db.EmployeeDetails.Include(p => p.Employee).Where(x => x.IdEmployee == int.Parse(labelId.Text)).FirstOrDefault();
             var emptoedit = employeetoedit.Employee;
             if (employeetoedit == null)
             {
-                CustomMessageBox.dialog("قم بإختيار الموظف مجددا");
+                MessageBox.Show("قم بإختيار الموظف مجددا");
                 return;
             }
 
@@ -298,43 +298,43 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 return;
 
             }
-            if (employeetoedit.Employee.FullName != textName.Texts)
+            if (employeetoedit.Employee.FullName != textName .Text)
             {
                 if (IsExitsName())
                 {
-                    CustomMessageBox.show("اسم الموظف موجود بالفعل", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("اسم الموظف موجود بالفعل" );
                     return;
                 }
             }
-             if (employeetoedit.NationalNumber != textNationalNumber.Texts)
+             if (employeetoedit.NationalNumber != textNationalNumber .Text)
             {
                 if (IsExitsNationalNumber() > 0)
                 {
-                    CustomMessageBox.show($"الرقم القومي مسجل باسم  {employeetoedit.Employee.FullName}", CustomMessageBox.enmType.Error);
+                     MessageBox.Show($"الرقم القومي مسجل باسم  {employeetoedit.Employee.FullName}" );
                     return;
                 }
             }
-             if (employeetoedit.Phone != textPhone.Texts)
+             if (employeetoedit.Phone != textPhone .Text)
             {
                 if (IsExitsPhonee() >0)
                 {
-                    CustomMessageBox.show($"رقم الهاتف مسجل باسم  {employeetoedit.Employee.FullName}", CustomMessageBox.enmType.Error);
+                     MessageBox.Show($"رقم الهاتف مسجل باسم  {employeetoedit.Employee.FullName}" );
                     return;
                 }
             }
 
             employeetoedit.DateOfBirth = dateOfBirth.Value;
-            employeetoedit.NationalNumber = textNationalNumber.Texts;
-            employeetoedit.Adress =textAdress.Texts;
-            employeetoedit.Phone = textPhone.Texts;
+            employeetoedit.NationalNumber = textNationalNumber .Text;
+            employeetoedit.Adress =textAdress .Text;
+            employeetoedit.Phone = textPhone .Text;
             employeetoedit.Gender = comboGender.Text;
             employeetoedit.IsMaried = comboIsMarid.Text;
             employeetoedit.ScientificDegree = comboScientificDegree.Text;
-            employeetoedit.EducationalQualification = textEducationalQualification.Texts;
+            employeetoedit.EducationalQualification = textEducationalQualification .Text;
             employeetoedit.IsEdit = true;
             employeetoedit.IdUser = Properties.Settings.Default.UserId;
 
-            emptoedit.FullName = textName.Texts;
+            emptoedit.FullName = textName .Text;
             emptoedit.IdJob =int.Parse( lblIdJob.Text);
 
             if (lblDefualtImage.Text != employeetoedit.Employee.FullName)
@@ -352,13 +352,13 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
 
 
-            CustomMessageBox.show("تم تعديل الموظف", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل الموظف" );
             cleartext();
 
         }
         public void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
             var a = db.Employees.Where(r => r.FullName.Contains(search)).ToList();
             dataGridEmployee.DataSource = a;
             dataGridEmployee.Columns[1].Visible = false;
@@ -392,12 +392,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         void cleartext()
         {
-            textName.Texts = "";
-            textAdress.Texts = "";
-            textPhone.Texts = "";
-            textSalary.Texts = "";
-            textEducationalQualification.Texts = "";
-            textNationalNumber.Texts = "";
+            textName .Text = "";
+            textAdress .Text = "";
+            textPhone .Text = "";
+            textSalary .Text = "";
+            textEducationalQualification .Text = "";
+            textNationalNumber .Text = "";
             lblIdDepartment.Text = "0";
             lblDefualtImage.Text = "DefualtImage";
             pictureImage.Image = Properties.Resources.DefualyEmployee;
@@ -455,14 +455,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
             cleartext();
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
 
             Textchange(textName, labeNamelError);
             search();
         }
 
-        private void textPriceSale__TextChanged(object sender, EventArgs e)
+        private void textPriceSale_TextChanged(object sender, EventArgs e)
         {
             Textchange(textAdress, lableAdressError);
 
@@ -490,12 +490,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
 
                 labelId.Text = emp.IdEmployee.ToString();
-                textName.Texts = emp.Employee.FullName;
-                textAdress.Texts = emp.Adress;
-                textPhone.Texts = emp.Phone;
-                textSalary.Texts = emp.Employee.Salary.ToString();
-                textNationalNumber.Texts = emp.NationalNumber;
-                textEducationalQualification.Texts = emp.EducationalQualification;
+                textName .Text = emp.Employee.FullName;
+                textAdress .Text = emp.Adress;
+                textPhone .Text = emp.Phone;
+                textSalary .Text = emp.Employee.Salary.ToString();
+                textNationalNumber .Text = emp.NationalNumber;
+                textEducationalQualification .Text = emp.EducationalQualification;
                 dateStart.Value = emp.DateStart;
                 dateOfBirth.Value = emp.DateOfBirth;
                 comboDepartment.Text = emp.Employee.Department.Name;
@@ -544,7 +544,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
 
                 return;
             }
@@ -563,7 +563,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف المنتج", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف المنتج" );
 
                 }
 
@@ -612,12 +612,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
            
         }
 
-        private void textunit2count__TextChanged(object sender, EventArgs e)
+        private void textunit2count_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textunit3count__TextChanged(object sender, EventArgs e)
+        private void textunit3count_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -631,7 +631,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as  Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -646,7 +646,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as  Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -692,14 +692,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         }
 
-        private void textEducationalQualification__TextChanged(object sender, EventArgs e)
+        private void textEducationalQualification_TextChanged(object sender, EventArgs e)
         {
 
             Textchange(textEducationalQualification, labelEducationalQualificationError);
             search();
         }
 
-        private void textNationalNumber__TextChanged(object sender, EventArgs e)
+        private void textNationalNumber_TextChanged(object sender, EventArgs e)
         {
             Textchange(textNationalNumber, labelNationalNumberError);
 
@@ -794,13 +794,13 @@ namespace SaleManagerPro.Forms.EmployeeForms
             }
         }
 
-        private void textPricePurchase__TextChanged(object sender, EventArgs e)
+        private void textPricePurchase_TextChanged(object sender, EventArgs e)
         {
             Textchange(textPhone, lablePhoneerror);
 
         }
 
-        private void textLimitStock__TextChanged(object sender, EventArgs e)
+        private void textLimitStock_TextChanged(object sender, EventArgs e)
         {
             Textchange(textSalary, lableSalaryError);
 

@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -114,8 +114,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 string name = dataGridJobs.CurrentRow.Cells[1].Value.ToString();
                 string details = dataGridJobs.CurrentRow.Cells[2].Value.ToString();
                 labelId.Text = id;
-                textName.Texts = name;
-                textDetails.Texts = details;
+                textName .Text = name;
+                textDetails .Text = details;
                 btnSave.Text = "تعديل";
                 IsNew = false;
 
@@ -129,7 +129,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                MessageBox.Show("غير مسموح بالحذف");
 
                 return;
             }
@@ -147,7 +147,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف الوظيفه", CustomMessageBox.enmType.Error);
+                    MessageBox.Show("لا يمكن حذف الوظيفه");
 
                 }
 
@@ -165,33 +165,33 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.show("غير مسموح بالاضافه", CustomMessageBox.enmType.Error);
+                MessageBox.Show("غير مسموح بالاضافه");
 
                 return;
             }
-            if (isexits(textName.Texts))
+            if (isexits(textName .Text))
             {
                 textName.BackColor = Color.Orange;
-                CustomMessageBox.show("أسم الوظيفه موجود بالفعل", CustomMessageBox.enmType.Warning);
+                MessageBox.Show("أسم الوظيفه موجود بالفعل");
 
                 labeNamelError.Text = "أسم الوظيفه موجود بالفعل";
                 return;
             }
             Job job = new Job();
-            job.Name = textName.Texts;
-            job.Details = textDetails.Texts;
+            job.Name = textName .Text;
+            job.Details = textDetails .Text;
             job.IdUser = Properties.Settings.Default.UserId;
             job.DateCreated = DateTime.Now;
             db.Jobs.Add(job);
 
             db.SaveChanges();
-            CustomMessageBox.show("تم حفظ الوظيفه", CustomMessageBox.enmType.Success);
+            MessageBox.Show("تم حفظ الوظيفه");
         }
         private void Edit()
         {
             if (!canedit)
             {
-                CustomMessageBox.show("غير مسموح بالتعديل", CustomMessageBox.enmType.Error);
+                MessageBox.Show("غير مسموح بالتعديل");
 
                 return;
             }
@@ -199,39 +199,39 @@ namespace SaleManagerPro.Forms.EmployeeForms
             Job jobEdit = db.Jobs.Find(id);
             if (jobEdit == null)
             {
-                CustomMessageBox.dialog("لم يتم العثور على الوظيفه");
-                CustomMessageBox.show("لم يتم العثور على الوظيفه", CustomMessageBox.enmType.Error);
+               MessageBox.Show("لم يتم العثور على الوظيفه");
+                MessageBox.Show("لم يتم العثور على الوظيفه");
                 return;
             }
-            if (textName.Texts != jobEdit.Name)
+            if (textName .Text != jobEdit.Name)
             {
-                if (isexits(textName.Texts))
+                if (isexits(textName .Text))
                 {
                     textName.BackColor = Color.Orange;
-                    CustomMessageBox.show("أسم الوظيفه موجود بالفعل", CustomMessageBox.enmType.Warning);
+                    MessageBox.Show("أسم الوظيفه موجود بالفعل");
 
                     labeNamelError.Text = "أسم الوظيفه موجود بالفعل";
                     return;
                 }
             }
-            jobEdit.Name = textName.Texts;
-            jobEdit.Details = textDetails.Texts;
+            jobEdit.Name = textName .Text;
+            jobEdit.Details = textDetails .Text;
             jobEdit.IdUser = Properties.Settings.Default.UserId;
             jobEdit.IsEdit = true;
             jobEdit.DateEdit = DateTime.Now;
 
             db.Jobs.Update(jobEdit);
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل الوظيفه", CustomMessageBox.enmType.Success);
+            MessageBox.Show("تم تعديل الوظيفه");
         }
         private int Validation()
         {
             int errors = 0; 
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الوظيفه مطلوب";
-                CustomMessageBox.show("أسم الوظيفه مطلوب", CustomMessageBox.enmType.Error);
+                MessageBox.Show("أسم الوظيفه مطلوب");
                errors++;
             }
             return errors;
@@ -246,7 +246,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         }
         private void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var a = db.Jobs.Include(x => x.User).Select(ct => new JobDto
             {
@@ -265,8 +265,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         void cleartext()
         {
-            textDetails.Texts = "";
-            textName.Texts = "";
+            textDetails .Text = "";
+            textName .Text = "";
             labelId.Text = "0";
             btnSave.Text = "إضافه";
             IsNew = true;

@@ -1,4 +1,6 @@
-﻿namespace SaleManagerPro.Forms.Security
+﻿using System.Windows.Forms;
+
+namespace SaleManagerPro.Forms.Security
 {
     partial class FormUserRoleManager
     {
@@ -32,8 +34,8 @@
             this.lblId = new System.Windows.Forms.Label();
             this.panelRoles = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
+            this.btnCancel = new Button();
+            this.btnSave = new Button();
             this.dataGridRoles = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,10 +80,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.BorderSize = 0;
+
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -91,16 +90,13 @@
             this.btnCancel.Size = new System.Drawing.Size(125, 39);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "الغاء";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -110,7 +106,7 @@
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "حفظ";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -191,8 +187,8 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private CustomControls.Controls.RJButton btnCancel;
-        private CustomControls.Controls.RJButton btnSave;
+        private Button btnCancel;
+        private Button btnSave;
         public System.Windows.Forms.Label lblId;
     }
 }

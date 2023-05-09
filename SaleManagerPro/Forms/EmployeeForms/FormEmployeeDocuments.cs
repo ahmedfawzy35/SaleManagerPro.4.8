@@ -44,17 +44,17 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomControls.MessageBox.CustomMessageBox.show("غير مصرح بالاضافه ", CustomControls.MessageBox.CustomMessageBox.enmType.Info);
+                MessageBox.Show("غير مصرح بالاضافه ");
                 return;
             }
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 labelNameError.Text = "اسم المستند مطلوب";
                 textName.BackColor = Color.Red;
                 return;
             }
             var document = new EmployeeDocuments();
-            document.Name = textName.Texts;
+            document.Name = textName .Text;
             document.IdEmployee = EmployeeId;
             document.DateCreated = DateTime.Now;
             document.IdUser = Properties.Settings.Default.UserId;
@@ -278,7 +278,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 CreatPages(documents);
             }
         }
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
             labelNameError.Text = "";
             textName.BackColor = Color.FromArgb(82, 75, 75);
@@ -355,7 +355,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!canedit)
             {
-                CustomControls.MessageBox.CustomMessageBox.show("غير مصرح بالتعديل ", CustomControls.MessageBox.CustomMessageBox.enmType.Info);
+                MessageBox.Show("غير مصرح بالتعديل ");
                 return;
             }
             if (lbl_imageid.Text == "0" || string.IsNullOrEmpty(lbl_imageid.Text))
@@ -384,14 +384,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomControls.MessageBox.CustomMessageBox.show("غير مصرح بالحذف ", CustomControls.MessageBox.CustomMessageBox.enmType.Info);
+                MessageBox.Show("غير مصرح بالحذف ");
                 return;
             }
             if (lbl_imageid.Text == "0" || string.IsNullOrEmpty(lbl_imageid.Text))
             {
                 return;
             }
-            if (CustomControls.MessageBox.CustomMessageBox.dialog(" تأكيد حذف الصوره نهائيا ") == DialogResult.OK)
+            if (MessageBox.Show(" تأكيد حذف الصوره نهائيا ") == DialogResult.OK)
             {
 
                 int id_document = int.Parse(lblDecumentId.Text);

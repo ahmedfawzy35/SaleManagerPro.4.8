@@ -36,11 +36,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.labeNamelError = new System.Windows.Forms.Label();
             this.labelId = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textName = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
-            this.textDetails = new CustomControls.Controls.RJTextBox();
+            this.button2 = new Button();
+            this.btnSave = new Button();
+            this.textDetails = new TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridCatogrys = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -98,10 +98,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(49, 105);
@@ -109,14 +106,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم التصنيف";
+
             this.textName.Size = new System.Drawing.Size(292, 42);
             this.textName.TabIndex = 0;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
-            this.textName._TextChanged += new System.EventHandler(this.textName_TextChanged);
+            this.textName .Text = "";
+            this.textName.TextChanged += new System.EventHandler(this.textNameTextChanged);
             // 
             // panel3
             // 
@@ -131,10 +125,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.BackgroundColor = System.Drawing.Color.Red;
-            this.button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button2.BorderRadius = 15;
-            this.button2.BorderSize = 0;
+
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -144,17 +135,14 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.button2.Size = new System.Drawing.Size(125, 39);
             this.button2.TabIndex = 3;
             this.button2.Text = "الغاء";
-            this.button2.TextColor = System.Drawing.Color.White;
+            this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -164,17 +152,14 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "إضافه";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.button1_Click);
             // 
             // textDetails
             // 
             this.textDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textDetails.BorderFocusColor = System.Drawing.Color.Red;
-            this.textDetails.BorderRadius = 15;
-            this.textDetails.BorderSize = 1;
+
             this.textDetails.CausesValidation = false;
             this.textDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textDetails.ForeColor = System.Drawing.Color.White;
@@ -183,13 +168,10 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textDetails.Multiline = true;
             this.textDetails.Name = "textDetails";
             this.textDetails.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textDetails.PasswordChar = false;
-            this.textDetails.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textDetails.PlaceholderText = "التفاصيل";
+
             this.textDetails.Size = new System.Drawing.Size(292, 91);
             this.textDetails.TabIndex = 1;
-            this.textDetails.Texts = "";
-            this.textDetails.UnderlinedStyle = false;
+            this.textDetails .Text = "";
             // 
             // panel2
             // 
@@ -283,9 +265,9 @@ namespace SaleManagerPro.Forms.ProductsForms
         private ToolStripMenuItem تعديلالتصنيفToolStripMenuItem;
         private ToolStripMenuItem حذفالتصنيفToolStripMenuItem;
         private Panel panel3;
-        private CustomControls.Controls.RJButton button2;
-        private CustomControls.Controls.RJButton btnSave;
-        private CustomControls.Controls.RJTextBox textName;
-        private CustomControls.Controls.RJTextBox textDetails;
+        private Button button2;
+        private Button btnSave;
+        private TextBox textName;
+        private TextBox textDetails;
     }
 }

@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
 using SaleManagerPro.Models;
@@ -56,60 +56,60 @@ namespace SaleManagerPro.Forms.Security
         {
 
             int error = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم المستخدم مطلوب";
                 error++;
             }
 
-            if (string.IsNullOrEmpty(textPassword.Texts))
+            if (string.IsNullOrEmpty(textPassword .Text))
             {
                 textPassword.BackColor = Color.Red;
                 labePasswordError.Text = "كلمة المرو مطلوبه";
                 error++;
             }
-            if (string.IsNullOrEmpty(textRePassword.Texts))
+            if (string.IsNullOrEmpty(textRePassword .Text))
             {
                 textRePassword.BackColor = Color.Red;
                 labeRePasswordError.Text = "اعادة كلنة المرور مطلوبه";
                 error++;
             }
-             if (textRePassword.Texts != textPassword.Texts)
+             if (textRePassword .Text != textPassword .Text)
             {
                 textRePassword.BackColor = Color.Red;
                 labeRePasswordError.Text = "كلمات المرور غير متطابقه";
                 error++;
             }
 
-            if (string.IsNullOrEmpty(textFullName.Texts))
+            if (string.IsNullOrEmpty(textFullName .Text))
             {
                 textFullName.BackColor = Color.Red;
                 labeFullNameError.Text = "الاسم الكامل مطلوب";
                 error++;
             }
             if(error>0)
-            CustomMessageBox.show($"لديك عدد {error}اخطاء", CustomMessageBox.enmType.Error);
+             MessageBox.Show($"لديك عدد {error}اخطاء");
 
             return error;
         }
         private void Search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts)?" ":textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text)?" ":textName .Text;
 
             var Users =db.Users.Where(u => u.UserName.Contains(search)).ToList();
 
             dataGridUsers.DataSource = Users;
 
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox, Label label)
+        private void Textchange(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
         }
         private bool IsExitsUserName()
         {
-            User user = db.Users.Where(c => c.UserName == textName.Texts).FirstOrDefault();
+            User user = db.Users.Where(c => c.UserName == textName .Text).FirstOrDefault();
             if (user != null)
                 return true;
             return false;
@@ -119,7 +119,7 @@ namespace SaleManagerPro.Forms.Security
 
         private bool IsExitsFullName()
         {
-            User user = db.Users.Where(c => c.FullName == textFullName.Texts).FirstOrDefault();
+            User user = db.Users.Where(c => c.FullName == textFullName .Text).FirstOrDefault();
             if (user != null)
                 return true;
             return false;
@@ -131,7 +131,7 @@ namespace SaleManagerPro.Forms.Security
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if (validations() > 0)
@@ -153,14 +153,14 @@ namespace SaleManagerPro.Forms.Security
                 return;
             }
             var user = new User();
-            user.UserName = textName.Texts;
-            user.Password = textPassword.Texts;
-            user.FullName = textFullName.Texts;
+            user.UserName = textName .Text;
+            user.Password = textPassword .Text;
+            user.FullName = textFullName .Text;
             user.Enable = textenable.Checked;
             user.DateCreated = DateTime.Now;
             db.Users.Add(user);
             db.SaveChanges();
-            CustomMessageBox.show("تم انشاء المستخدم", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم انشاء المستخدم");
 
             cleartext();
         }
@@ -169,7 +169,7 @@ namespace SaleManagerPro.Forms.Security
         {
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 cleartext();
                 return;
             }
@@ -189,7 +189,7 @@ namespace SaleManagerPro.Forms.Security
             {
                 return;
             }
-            if (user.UserName != textName.Texts)
+            if (user.UserName != textName .Text)
             {
                 if (IsExitsUserName())
                 {
@@ -198,7 +198,7 @@ namespace SaleManagerPro.Forms.Security
                     return;
                 }
             }
-            if (user.FullName != textFullName.Texts)
+            if (user.FullName != textFullName .Text)
             {
                 if (IsExitsFullName())
                 {
@@ -209,15 +209,15 @@ namespace SaleManagerPro.Forms.Security
             }
 
 
-            user.UserName = textName.Texts; 
-            user.Password = textPassword.Texts;
-            user.FullName = textFullName.Texts;
+            user.UserName = textName .Text; 
+            user.Password = textPassword .Text;
+            user.FullName = textFullName .Text;
             user.Enable = textenable.Checked;
             user.IsEdit = true; 
             user.DateEdit = DateTime.Now;
             db.Users.Update(user);
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل المستخدم", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل المستخدم");
 
 
             cleartext();
@@ -226,10 +226,10 @@ namespace SaleManagerPro.Forms.Security
 
         void cleartext()
         {
-            textName.Texts = "";
-            textFullName.Texts = "";
-            textPassword.Texts = "";
-            textRePassword.Texts = "";
+            textName .Text = "";
+            textFullName .Text = "";
+            textPassword .Text = "";
+            textRePassword .Text = "";
             textenable.Checked = false;
             btnSave.Text = "إضافه";
             labelId.Text = "";
@@ -255,7 +255,7 @@ namespace SaleManagerPro.Forms.Security
 
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
             Textchange(textName, labeNamelError);
             Search();
@@ -281,10 +281,10 @@ namespace SaleManagerPro.Forms.Security
                 var user = db.Users.Find(id);
 
                 labelId.Text = id.ToString();
-                textName.Texts = user.UserName;
-                textPassword.Texts = user.Password;
-                textRePassword.Texts = user.Password;
-                textFullName.Texts = user.FullName;
+                textName .Text = user.UserName;
+                textPassword .Text = user.Password;
+                textRePassword .Text = user.Password;
+                textFullName .Text = user.FullName;
                 textenable.Checked = user.Enable;
                 btnSave.Text = "تعديل";
                 isnew = false;
@@ -300,14 +300,14 @@ namespace SaleManagerPro.Forms.Security
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مصرح بالحذف",CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مصرح بالحذف");
                 return;
             }
             if (!string.IsNullOrEmpty(dataGridUsers.CurrentRow.Cells[0].Value.ToString()))
             {
                 int id = int.Parse(dataGridUsers.CurrentRow.Cells[0].Value.ToString());
                 var user = db.Users.Find(id);
-                if (CustomMessageBox.dialog($"تأكيد حذف المستخدم {user.UserName}") == DialogResult.OK)
+                if (MessageBox.Show($"تأكيد حذف المستخدم {user.UserName}") == DialogResult.OK)
                 {
                     try
                     {
@@ -317,7 +317,7 @@ namespace SaleManagerPro.Forms.Security
                     catch (Exception)
                     {
 
-                        CustomMessageBox.show("لايمكن حذف المستخدم", CustomMessageBox.enmType.Error);
+                         MessageBox.Show("لايمكن حذف المستخدم");
                     }
                     
                 }
@@ -351,18 +351,18 @@ namespace SaleManagerPro.Forms.Security
             }
         }
 
-        private void textPassword__TextChanged(object sender, EventArgs e)
+        private void textPassword_TextChanged(object sender, EventArgs e)
         {
             Textchange(textPassword, labePasswordError);
 
         }
-        private void textRePassword__TextChanged(object sender, EventArgs e)
+        private void textRePassword_TextChanged(object sender, EventArgs e)
         {
             Textchange(textRePassword, labeRePasswordError);
 
         }
 
-        private void textFullName__TextChanged(object sender, EventArgs e)
+        private void textFullName_TextChanged(object sender, EventArgs e)
         {
             Textchange(textFullName, labeFullNameError);
 

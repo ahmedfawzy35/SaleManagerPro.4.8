@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
 using Microsoft.EntityFrameworkCore;
@@ -67,14 +67,14 @@ namespace SaleManagerPro.Forms.CustomersForms
         {
 
             int error = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labelNamelError.Text = "أسم العميل مطلوب";
                 error++;
             }
 
-            if (string.IsNullOrEmpty(textAdress.Texts))
+            if (string.IsNullOrEmpty(textAdress .Text))
             {
                 textAdress.BackColor = Color.Red;
                 labelAdressError.Text = "العنوان  مطلوب";
@@ -85,13 +85,13 @@ namespace SaleManagerPro.Forms.CustomersForms
 
           
             if (error > 0)
-                CustomMessageBox.show($"لديك عدد {error}اخطاء", CustomMessageBox.enmType.Error);
+                 MessageBox.Show($"لديك عدد {error}اخطاء" );
 
             return error;
         }
         private void Search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var customers = db.Customers.Where(u => u.Name.Contains(search)).Select(cus => new CustomerDto
             {
@@ -113,14 +113,14 @@ namespace SaleManagerPro.Forms.CustomersForms
             dataGridUsers.DataSource = customers;
             dataGridUsers.Columns[4].Visible = false;
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox, Label label)
+        private void Textchange(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
         }
         private bool IsExitsUserName()
         {
-            User user = db.Users.Where(c => c.UserName == textName.Texts).FirstOrDefault();
+            User user = db.Users.Where(c => c.UserName == textName .Text).FirstOrDefault();
             if (user != null)
                 return true;
             return false;
@@ -136,7 +136,7 @@ namespace SaleManagerPro.Forms.CustomersForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if (validations() > 0)
@@ -152,10 +152,10 @@ namespace SaleManagerPro.Forms.CustomersForms
             }
         
             var customer = new Customer();
-            customer.Name = textName.Texts;
-            customer.Adress = textAdress.Texts;
+            customer.Name = textName .Text;
+            customer.Adress = textAdress .Text;
             customer.HideInOrders = textHideInOrder.Checked;
-            customer.StartAccount =string.IsNullOrEmpty(textStartAccount.Texts)?0: double.Parse(textStartAccount.Texts);
+            customer.StartAccount =string.IsNullOrEmpty(textStartAccount .Text)?0: double.Parse(textStartAccount .Text);
             db.Customers.Add(customer);
             db.SaveChanges();
             var phones = cutomerphones.Values.ToList();
@@ -185,7 +185,7 @@ namespace SaleManagerPro.Forms.CustomersForms
 
             }
 
-            CustomMessageBox.show("تم انشاء العميل", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم انشاء العميل" );
 
             cleartext();
         }
@@ -194,7 +194,7 @@ namespace SaleManagerPro.Forms.CustomersForms
         {
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 cleartext();
                 return;
             }
@@ -215,7 +215,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             {
                 return;
             }
-            if (customer.Name != textName.Texts)
+            if (customer.Name != textName .Text)
             {
                 if (IsExitsUserName())
                 {
@@ -227,10 +227,10 @@ namespace SaleManagerPro.Forms.CustomersForms
 
 
 
-            customer.Name = textName.Texts;
-            customer.Adress = textAdress.Texts;
+            customer.Name = textName .Text;
+            customer.Adress = textAdress .Text;
             customer.HideInOrders = textHideInOrder.Checked;
-            customer.StartAccount = string.IsNullOrEmpty(textStartAccount.Texts) ? 0 : double.Parse(textStartAccount.Texts);
+            customer.StartAccount = string.IsNullOrEmpty(textStartAccount .Text) ? 0 : double.Parse(textStartAccount .Text);
             db.Customers.Update(customer);
             db.SaveChanges();
 
@@ -273,7 +273,7 @@ namespace SaleManagerPro.Forms.CustomersForms
                 db.SaveChanges();
 
             }
-            CustomMessageBox.show("تم تعديل العميل", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل العميل" );
 
 
             cleartext();
@@ -284,10 +284,10 @@ namespace SaleManagerPro.Forms.CustomersForms
         {
             ban_dt.Clear();
             isnew = true;
-            textName.Texts = "";
+            textName .Text = "";
      
-            textAdress.Texts = "";
-            textStartAccount.Texts = "";
+            textAdress .Text = "";
+            textStartAccount .Text = "";
             textHideInOrder.Checked = false;
             cutomerphones.Enabled = true;
             btnSave.Text = "إضافه";
@@ -319,7 +319,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             dataGridView_BankAccounts.Columns[3].Width = Convert.ToInt32((dataGridView_BankAccounts.Width * .20));
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
             Textchange(textName, labelNamelError);
             Search();
@@ -346,9 +346,9 @@ namespace SaleManagerPro.Forms.CustomersForms
                 var customer = db.Customers.Include(p=>p.Phones).Include(b=>b.BankAccounts).Where(x=>x.IdCustomer == id).FirstOrDefault();
 
                 labelId.Text = id.ToString();
-                textName.Texts = customer.Name;
-                textAdress.Texts = customer.Adress;
-                textStartAccount.Texts = customer.StartAccount.ToString();
+                textName .Text = customer.Name;
+                textAdress .Text = customer.Adress;
+                textStartAccount .Text = customer.StartAccount.ToString();
                 textHideInOrder.Checked = customer.HideInOrders;
                 btnSave.Text = "تعديل";
                 isnew = false;
@@ -387,14 +387,14 @@ namespace SaleManagerPro.Forms.CustomersForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مصرح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مصرح بالحذف" );
                 return;
             }
             if (!string.IsNullOrEmpty(dataGridUsers.CurrentRow.Cells[0].Value.ToString()))
             {
                 int id = int.Parse(dataGridUsers.CurrentRow.Cells[0].Value.ToString());
                 var customer = db.Customers.Find(id);
-                if (CustomMessageBox.dialog($"تأكيد حذف المستخدم {customer.Name}") == DialogResult.OK)
+                if (MessageBox.Show($"تأكيد حذف المستخدم {customer.Name}") == DialogResult.OK)
                 {
                     try
                     {
@@ -404,7 +404,7 @@ namespace SaleManagerPro.Forms.CustomersForms
                     catch (Exception)
                     {
 
-                        CustomMessageBox.show("لايمكن حذف العميل", CustomMessageBox.enmType.Error);
+                         MessageBox.Show("لايمكن حذف العميل" );
                     }
 
                 }
@@ -445,33 +445,33 @@ namespace SaleManagerPro.Forms.CustomersForms
         private void btn_bankcancek_Click(object sender, EventArgs e)
         {
             lbl_idban.Text = "0";
-            text_BankAccountNumber.Texts = "";
-            text_BankName.Texts = "";
-            text_BankBranchName.Texts = "";
+            text_BankAccountNumber .Text = "";
+            text_BankName .Text = "";
+            text_BankBranchName .Text = "";
             btn_AddBankAccount.Text = "اضافه";
         }
         private void btn_AddBankAccount_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(text_BankAccountNumber.Texts))
+            if (string.IsNullOrEmpty(text_BankAccountNumber .Text))
             {
                 text_BankAccountNumber.BackColor = Color.OrangeRed;
                 return;
             }
-            if (string.IsNullOrEmpty(text_BankName.Texts))
+            if (string.IsNullOrEmpty(text_BankName .Text))
             {
                 text_BankName.BackColor = Color.OrangeRed;
                 return;
             }
-            if (string.IsNullOrEmpty(text_BankBranchName.Texts))
+            if (string.IsNullOrEmpty(text_BankBranchName .Text))
             {
                 text_BankBranchName.BackColor = Color.OrangeRed;
                 return;
             }
             DataRow r = ban_dt.NewRow();
             r[0] = int.Parse(lbl_idban.Text);
-            r[1] = text_BankAccountNumber.Texts;
-            r[2] = text_BankName.Texts;
-            r[3] = text_BankBranchName.Texts;
+            r[1] = text_BankAccountNumber .Text;
+            r[2] = text_BankName .Text;
+            r[3] = text_BankBranchName .Text;
             ban_dt.Rows.Add(r);
 
             int id = int.Parse(lbl_idban.Text);
@@ -482,13 +482,13 @@ namespace SaleManagerPro.Forms.CustomersForms
                     CustomerBankAccounts customerBankAccount = db.CustomersBankAccounts.Where(x => x.Id ==id).FirstOrDefault();
                     if (customerBankAccount != null)
                 {
-                    customerBankAccount.BankAccuntNumber = text_BankAccountNumber.Texts;
-                    customerBankAccount.BankName = text_BankName.Texts;
-                    customerBankAccount.BankBranchName = text_BankBranchName.Texts;
+                    customerBankAccount.BankAccuntNumber = text_BankAccountNumber .Text;
+                    customerBankAccount.BankName = text_BankName .Text;
+                    customerBankAccount.BankBranchName = text_BankBranchName .Text;
 
                     db.CustomersBankAccounts.Update(customerBankAccount);
                     db.SaveChanges();
-                    CustomMessageBox.show("تم تعديل الحساب", CustomMessageBox.enmType.Success);
+                     MessageBox.Show("تم تعديل الحساب" );
 
                 }
 
@@ -496,25 +496,25 @@ namespace SaleManagerPro.Forms.CustomersForms
 
 
             lbl_idban.Text = "0";
-            text_BankAccountNumber.Texts = "";
-            text_BankName.Texts = "";
-            text_BankBranchName.Texts = "";
+            text_BankAccountNumber .Text = "";
+            text_BankName .Text = "";
+            text_BankBranchName .Text = "";
             btn_AddBankAccount.Text = "اضافه";
 
         }
 
-        private void text_BankAccountNumber__TextChanged(object sender, EventArgs e)
+        private void text_BankAccountNumber_TextChanged(object sender, EventArgs e)
         {
             text_BankAccountNumber.BackColor = Color.FromArgb(82, 75, 75);
         }
 
-        private void text_BankName__TextChanged(object sender, EventArgs e)
+        private void text_BankName_TextChanged(object sender, EventArgs e)
         {
             text_BankName.BackColor = Color.FromArgb(82, 75, 75);
 
         }
 
-        private void text_BankBranchName__TextChanged(object sender, EventArgs e)
+        private void text_BankBranchName_TextChanged(object sender, EventArgs e)
         {
             text_BankBranchName.BackColor = Color.FromArgb(82, 75, 75);
 
@@ -526,9 +526,9 @@ namespace SaleManagerPro.Forms.CustomersForms
             if (!string.IsNullOrEmpty(dataGridView_BankAccounts.CurrentRow.Cells[0].Value.ToString()))
             {
                 lbl_idban.Text = dataGridView_BankAccounts.CurrentRow.Cells[0].Value.ToString();
-                text_BankAccountNumber.Texts = dataGridView_BankAccounts.CurrentRow.Cells[1].Value.ToString();
-                text_BankName.Texts = dataGridView_BankAccounts.CurrentRow.Cells[2].Value.ToString();
-                text_BankBranchName.Texts = dataGridView_BankAccounts.CurrentRow.Cells[3].Value.ToString();
+                text_BankAccountNumber .Text = dataGridView_BankAccounts.CurrentRow.Cells[1].Value.ToString();
+                text_BankName .Text = dataGridView_BankAccounts.CurrentRow.Cells[2].Value.ToString();
+                text_BankBranchName .Text = dataGridView_BankAccounts.CurrentRow.Cells[3].Value.ToString();
                 
                 ban_dt.Rows.RemoveAt(dataGridView_BankAccounts.CurrentRow.Index);
                 if (int.Parse(lbl_idban.Text) > 0)
@@ -544,18 +544,18 @@ namespace SaleManagerPro.Forms.CustomersForms
             }
         }
 
-        private void textPassword__TextChanged(object sender, EventArgs e)
+        private void textPassword_TextChanged(object sender, EventArgs e)
         {
             Textchange(textAdress, labelAdressError);
 
         }
-        private void textRePassword__TextChanged(object sender, EventArgs e)
+        private void textRePassword_TextChanged(object sender, EventArgs e)
         {
             Textchange(textStartAccount, labelStartAccountError);
 
         }
 
-        private void textFullName__TextChanged(object sender, EventArgs e)
+        private void textFullName_TextChanged(object sender, EventArgs e)
         {
 
         }

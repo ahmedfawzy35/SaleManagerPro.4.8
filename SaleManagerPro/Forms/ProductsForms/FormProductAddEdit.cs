@@ -1,5 +1,5 @@
-﻿using CustomControls.Controls;
-using CustomControls.MessageBox;
+﻿ 
+ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -58,20 +58,20 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
 
             int error = 0;  
-            if(string.IsNullOrEmpty(textName.Texts))
+            if(string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم المنتج مطلوب";
                 error++;
             }
 
-            if (string.IsNullOrEmpty(textPriceSale.Texts))
+            if (string.IsNullOrEmpty(textPriceSale .Text))
             {
                 textPriceSale.BackColor = Color.Red;
                 labePriceSaleError.Text = "سعر البيع  مطلوب";
                 error++;
             }
-            if (string.IsNullOrEmpty(textPricePurchase.Texts))
+            if (string.IsNullOrEmpty(textPricePurchase .Text))
             {
                 textPricePurchase.BackColor = Color.Red;
                 labePricePurchaseError.Text = "سعر الشراء  مطلوب";
@@ -81,7 +81,7 @@ namespace SaleManagerPro.Forms.ProductsForms
 
             if (panelunit2.Visible==true)
             {
-                if (string.IsNullOrEmpty(textunit2count.Texts))
+                if (string.IsNullOrEmpty(textunit2count .Text))
                 {
                     textunit2count.BackColor = Color.Red;
                     labeunit2lError.Text = "هذا الرقم مطلوب";
@@ -94,7 +94,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             }   
             if (panelunit3.Visible==true)
             {
-                if (string.IsNullOrEmpty(textunit3count.Texts))
+                if (string.IsNullOrEmpty(textunit3count .Text))
                 {
                     textunit3count.BackColor = Color.Red;
                     labeunit3lError.Text = "هذا الرقم مطلوب";
@@ -106,18 +106,18 @@ namespace SaleManagerPro.Forms.ProductsForms
 
             }
             if(error>0)
-            CustomMessageBox.show($"لديك عدد  {error} اخطاء ", CustomMessageBox.enmType.Error);
+             MessageBox.Show($"لديك عدد  {error} اخطاء " );
 
             return error;
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox,Label label)
+        private void Textchange(TextBox textbox,Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
         }
         private bool IsExitsName()
         {
-            Product product = db.Products.Where(c => c.Name == textName.Texts).FirstOrDefault();
+            Product product = db.Products.Where(c => c.Name == textName .Text).FirstOrDefault();
             if (product != null)
                 return true;
             return false;
@@ -126,7 +126,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if(validations() >0)
@@ -136,15 +136,15 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
             if (IsExitsName())
             {
-                CustomMessageBox.show("اسم المنتج موجود بالفعل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("اسم المنتج موجود بالفعل" );
                 return;
             }
             var product = new Product();
-            product.Name = textName.Texts;
-            product.Price =double.Parse( textPriceSale.Texts);
-            product.LastPurchasePrice = double.Parse( textPricePurchase.Texts);
-            product.LimitInStok =!string.IsNullOrEmpty(textLimitStock.Texts)? int.Parse( textLimitStock.Texts):1;
-            product.StartStock =!string.IsNullOrEmpty(textStartStock.Texts)? int.Parse(textStartStock.Texts):1;
+            product.Name = textName .Text;
+            product.Price =double.Parse( textPriceSale .Text);
+            product.LastPurchasePrice = double.Parse( textPricePurchase .Text);
+            product.LimitInStok =!string.IsNullOrEmpty(textLimitStock .Text)? int.Parse( textLimitStock .Text):1;
+            product.StartStock =!string.IsNullOrEmpty(textStartStock.Text)? int.Parse(textStartStock .Text):1;
             product.IdCatogry =int.Parse(TextCatogry.SelectedValue.ToString());
             product.DateCreated = DateTime.Now;
             product.IdUser = Properties.Settings.Default.UserId;
@@ -163,7 +163,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                 var productunit2 = new ProductUnits();
                 productunit2.IdProduct = product.IdProduct;
                 productunit2.IdUnit = int.Parse(combounit2.SelectedValue.ToString());
-                productunit2.Count = int.Parse(textunit2count.Texts);
+                productunit2.Count = int.Parse(textunit2count .Text);
                 productunit2.Rate = 2;
                 units.Add(productunit2);
             }
@@ -172,13 +172,13 @@ namespace SaleManagerPro.Forms.ProductsForms
                 var productunit3 = new ProductUnits();
                 productunit3.IdProduct = product.IdProduct;
                 productunit3.IdUnit = int.Parse(combounit3.SelectedValue.ToString());
-                productunit3.Count = int.Parse(textunit3count.Texts);
+                productunit3.Count = int.Parse(textunit3count .Text);
                 productunit3.Rate = 2;
                 units.Add(productunit3);
             }
             db.ProductUnits.AddRange(units);
             db.SaveChanges();
-            CustomMessageBox.show("تم اضافة المنتج", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم اضافة المنتج" );
             cleartext();
 
         }  
@@ -188,12 +188,12 @@ namespace SaleManagerPro.Forms.ProductsForms
             var product =db.Products.Include(p=>p.Units).Where(x=>x.IdProduct == int.Parse(labelId.Text)).FirstOrDefault();
             if (product == null)
             {
-                CustomMessageBox.dialog("قم بإختيار المنتج مجددا");
+                MessageBox.Show("قم بإختيار المنتج مجددا");
                 return;
             }
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 return;
             }
             if(validations() >0)
@@ -201,20 +201,20 @@ namespace SaleManagerPro.Forms.ProductsForms
                 return;
                 
             }
-            if (product.Name != textName.Texts)
+            if (product.Name != textName .Text)
             {
                 if (IsExitsName())
                 {
-                    CustomMessageBox.show("اسم المنتج موجود بالفعل", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("اسم المنتج موجود بالفعل" );
                     return;
                 }
             }
            
-            product.Name = textName.Texts;
-            product.Price =double.Parse( textPriceSale.Texts);
-            product.LastPurchasePrice = double.Parse( textPricePurchase.Texts);
-            product.LimitInStok = !string.IsNullOrEmpty(textLimitStock.Texts) ? int.Parse(textLimitStock.Texts) : 1;
-            product.StartStock = !string.IsNullOrEmpty(textStartStock.Texts) ? int.Parse(textStartStock.Texts) : 1;
+            product.Name = textName .Text;
+            product.Price =double.Parse( textPriceSale .Text);
+            product.LastPurchasePrice = double.Parse( textPricePurchase .Text);
+            product.LimitInStok = !string.IsNullOrEmpty(textLimitStock .Text) ? int.Parse(textLimitStock .Text) : 1;
+            product.StartStock = !string.IsNullOrEmpty(textStartStock .Text) ? int.Parse(textStartStock .Text) : 1;
             product.IdCatogry =int.Parse(TextCatogry.SelectedValue.ToString());
             product.DateCreated = DateTime.Now;
             product.IdUser = Properties.Settings.Default.UserId;
@@ -230,7 +230,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                     ProductUnits units2 = new ProductUnits();
                     units2.IdProduct = product.IdProduct;
                     units2.IdUnit = int.Parse(combounit2.SelectedValue.ToString());
-                    units2.Count = int.Parse(textunit2count.Texts.ToString());
+                    units2.Count = int.Parse(textunit2count .Text.ToString());
                     units.Add(units2);
 
                     }
@@ -239,7 +239,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                     ProductUnits units3 = new ProductUnits();
                     units3.IdProduct = product.IdProduct;
                     units3.IdUnit = int.Parse(combounit3.SelectedValue.ToString());
-                    units3.Count = int.Parse(textunit3count.Texts.ToString());
+                    units3.Count = int.Parse(textunit3count .Text.ToString());
                     units.Add(units3);
 
                 }
@@ -249,13 +249,13 @@ namespace SaleManagerPro.Forms.ProductsForms
                     db.SaveChanges();
                 }
 
-            CustomMessageBox.show("تم تعديل المنتج", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل المنتج" );
             cleartext();
 
         }
         private void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " ":textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " ":textName .Text;
             var a = db.Products.Include(x => x.User).Include(x=>x.Catogry).Select(ct => new ProductyDto
             {
                 IdProduct = ct.IdProduct,
@@ -285,10 +285,10 @@ namespace SaleManagerPro.Forms.ProductsForms
 
         void cleartext()
         {
-            textName.Texts = "";
-            textPriceSale.Texts = "";
-            textPricePurchase.Texts = "0";
-            textLimitStock.Texts = "";
+            textName .Text = "";
+            textPriceSale .Text = "";
+            textPricePurchase .Text = "0";
+            textLimitStock .Text = "";
             combounit1.Enabled = true ;
 
             btnSave.Text = "إضافه";
@@ -296,8 +296,8 @@ namespace SaleManagerPro.Forms.ProductsForms
 
             pictureaddunit2.Visible =true;
             pictureaddunit3.Visible =false;
-            textunit2count.Texts = "";
-            textunit3count.Texts = "";
+            textunit2count .Text = "";
+            textunit3count .Text = "";
             panelunit2.Visible =false;
             panelunit3.Visible =false;
             panelunit2.Enabled = true;
@@ -329,13 +329,13 @@ namespace SaleManagerPro.Forms.ProductsForms
             cleartext();
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
             Textchange(textName, labeNamelError);
             search();
         }
 
-        private void textPriceSale__TextChanged(object sender, EventArgs e)
+        private void textPriceSale_TextChanged(object sender, EventArgs e)
         {
             Textchange(textPriceSale, labePriceSaleError);
 
@@ -367,17 +367,17 @@ namespace SaleManagerPro.Forms.ProductsForms
                 {
                     int idunit2 = product.Units.Where(x => x.Rate == 2).FirstOrDefault().IdUnit;
                     combounit2.Text = db.Units.Find(idunit2).Name;
-                    textunit2count.Texts = product.Units.Where(x => x.Rate == 2).FirstOrDefault().Count.ToString();
+                    textunit2count .Text = product.Units.Where(x => x.Rate == 2).FirstOrDefault().Count.ToString();
                     panelunit2.Enabled = false;
                 }
                 
               
                 labelId.Text = product.IdProduct.ToString();
-                textName.Texts = product.Name;
-                textPriceSale.Texts = product.Price.ToString();
-                textPricePurchase.Texts = product.LastPurchasePrice.ToString();
-                textLimitStock.Texts = product.LimitInStok.ToString();
-                textStartStock.Texts = product.StartStock.ToString();
+                textName .Text = product.Name;
+                textPriceSale .Text = product.Price.ToString();
+                textPricePurchase .Text = product.LastPurchasePrice.ToString();
+                textLimitStock .Text = product.LimitInStok.ToString();
+                textStartStock .Text = product.StartStock.ToString();
                 btnSave.Text = "تعديل";
                 IsNew = false;
 
@@ -392,7 +392,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
 
                 return;
             }
@@ -411,7 +411,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف المنتج", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف المنتج" );
 
                 }
 
@@ -476,13 +476,13 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
         }
 
-        private void textunit2count__TextChanged(object sender, EventArgs e)
+        private void textunit2count_TextChanged(object sender, EventArgs e)
         {
             Textchange(textunit2count, labeunit2lError);
 
         }
 
-        private void textunit3count__TextChanged(object sender, EventArgs e)
+        private void textunit3count_TextChanged(object sender, EventArgs e)
         {
             Textchange(textunit3count, labeunit3lError);
 
@@ -497,7 +497,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as  Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -512,7 +512,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as  Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -545,7 +545,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as  Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -560,19 +560,19 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
 
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as RJTextBox).Texts.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && ((sender as  Button) .Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
         }
 
-        private void textPricePurchase__TextChanged(object sender, EventArgs e)
+        private void textPricePurchase_TextChanged(object sender, EventArgs e)
         {
             Textchange(textPricePurchase, labePricePurchaseError);
 
         }
 
-        private void textLimitStock__TextChanged(object sender, EventArgs e)
+        private void textLimitStock_TextChanged(object sender, EventArgs e)
         {
             Textchange(textLimitStock, labeLimitStockError);
 

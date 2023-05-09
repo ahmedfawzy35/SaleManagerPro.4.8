@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -52,7 +52,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
 
             int error = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الوحده مطلوب";
@@ -62,18 +62,18 @@ namespace SaleManagerPro.Forms.ProductsForms
            
           
             if (error > 0)
-                CustomMessageBox.show($"لديك عدد  {error} اخطاء ", CustomMessageBox.enmType.Error);
+                 MessageBox.Show($"لديك عدد  {error} اخطاء " );
 
             return error;
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox, Label label)
+        private void Textchange(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
         }
         private bool IsExitsName()
         {
-            Units unit = db.Units.Where(c => c.Name == textName.Texts).FirstOrDefault();
+            Units unit = db.Units.Where(c => c.Name == textName .Text).FirstOrDefault();
             if (unit != null)
                 return true;
             return false;
@@ -82,7 +82,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if (validations() > 0)
@@ -92,17 +92,17 @@ namespace SaleManagerPro.Forms.ProductsForms
             }
             if (IsExitsName())
             {
-                CustomMessageBox.show("اسم الوحده موجود بالفعل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("اسم الوحده موجود بالفعل" );
                 return;
             }
             var unit = new Units();
-            unit.Name = textName.Texts;
-            unit.Details =textdDetails.Texts;
+            unit.Name = textName .Text;
+            unit.Details =textdDetails .Text;
 
 
             db.Units.Add(unit);
             db.SaveChanges();
-            CustomMessageBox.show("تم اضافة الوحده", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم اضافة الوحده" );
             cleartext();
 
         }
@@ -112,12 +112,12 @@ namespace SaleManagerPro.Forms.ProductsForms
             var unit = db.Units.Find(int.Parse(labelId.Text));
             if (unit == null)
             {
-                CustomMessageBox.dialog("قم بإختيار الوحده مجددا");
+                MessageBox.Show("قم بإختيار الوحده مجددا");
                 return;
             }
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 return;
             }
             if (validations() > 0)
@@ -125,36 +125,36 @@ namespace SaleManagerPro.Forms.ProductsForms
                 return;
 
             }
-            if (unit.Name != textName.Texts)
+            if (unit.Name != textName .Text)
             {
                 if (IsExitsName())
                 {
-                    CustomMessageBox.show("اسم الوحده موجود بالفعل", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("اسم الوحده موجود بالفعل" );
                     return;
                 }
             }
 
-            unit.Name = textName.Texts;
-            unit.Details =textdDetails.Texts;
+            unit.Name = textName .Text;
+            unit.Details =textdDetails .Text;
           
 
             db.Units.Update(unit);
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل الوحده", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل الوحده" );
             cleartext();
 
         }
         private void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
             var a = db.Units.ToList();
             dataGridUnits.DataSource = a;
         }
 
         void cleartext()
         {
-            textName.Texts = "";
-            textdDetails.Texts = "";
+            textName .Text = "";
+            textdDetails .Text = "";
        
             btnSave.Text = "إضافه";
             IsNew = true;
@@ -187,13 +187,13 @@ namespace SaleManagerPro.Forms.ProductsForms
             cleartext();
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
             Textchange(textName, labeNamelError);
             search();
         }
 
-        private void textPriceSale__TextChanged(object sender, EventArgs e)
+        private void textPriceSale_TextChanged(object sender, EventArgs e)
         {
             Textchange(textdDetails, labePriceSaleError);
 
@@ -206,11 +206,11 @@ namespace SaleManagerPro.Forms.ProductsForms
                 string id = dataGridUnits.CurrentRow.Cells[0].Value.ToString();
                 string name = dataGridUnits.CurrentRow.Cells[1].Value.ToString();
                 string details = dataGridUnits.CurrentRow.Cells[2].Value.ToString();
-                if (CustomMessageBox.dialog($"تأكيد حذف الوحده  {name}") == DialogResult.OK)
+                if (MessageBox.Show($"تأكيد حذف الوحده  {name}") == DialogResult.OK)
                 {
                     labelId.Text = id;
-                    textName.Texts = name;
-                    textdDetails.Texts = details;
+                    textName .Text = name;
+                    textdDetails .Text = details;
                     btnSave.Text = "تعديل";
                     IsNew = false;
                 }
@@ -225,7 +225,7 @@ namespace SaleManagerPro.Forms.ProductsForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
 
                 return;
             }
@@ -236,7 +236,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                 {
                     int id = int.Parse(dataGridUnits.CurrentRow.Cells[0].Value.ToString());
                     var unit = db.Units.Find(id);
-                    if (CustomMessageBox.dialog($"تأكيد حذف الوحده  {unit.Name}") == DialogResult.OK)
+                    if (MessageBox.Show($"تأكيد حذف الوحده  {unit.Name}") == DialogResult.OK)
                     {
                        
                         db.Units.Remove(unit);
@@ -248,7 +248,7 @@ namespace SaleManagerPro.Forms.ProductsForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف الوحده", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف الوحده" );
 
                 }
 

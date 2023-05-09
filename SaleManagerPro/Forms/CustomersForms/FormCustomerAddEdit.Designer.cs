@@ -45,23 +45,23 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.lbl_idban = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.text_BankBranchName = new CustomControls.Controls.RJTextBox();
-            this.text_BankName = new CustomControls.Controls.RJTextBox();
-            this.text_BankAccountNumber = new CustomControls.Controls.RJTextBox();
+            this.text_BankBranchName = new TextBox();
+            this.text_BankName = new TextBox();
+            this.text_BankAccountNumber = new TextBox();
             this.btn_bankcancel = new System.Windows.Forms.Button();
             this.btn_AddBankAccount = new System.Windows.Forms.Button();
             this.textHideInOrder = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textStartAccount = new CustomControls.Controls.RJTextBox();
+            this .textStartAccount = new TextBox();
             this.labelStartAccountError = new System.Windows.Forms.Label();
-            this.textAdress = new CustomControls.Controls.RJTextBox();
+            this.textAdress = new TextBox();
             this.labelAdressError = new System.Windows.Forms.Label();
-            this.textName = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
+            this.btnCancel = new Button();
+            this.btnSave = new Button();
             this.labelId = new System.Windows.Forms.Label();
             this.labelNamelError = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -87,7 +87,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textStartAccount);
+            this.panel1.Controls.Add(this .textStartAccount);
             this.panel1.Controls.Add(this.labelStartAccountError);
             this.panel1.Controls.Add(this.textAdress);
             this.panel1.Controls.Add(this.labelAdressError);
@@ -216,10 +216,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.text_BankBranchName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text_BankBranchName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.text_BankBranchName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.text_BankBranchName.BorderFocusColor = System.Drawing.Color.Red;
-            this.text_BankBranchName.BorderRadius = 15;
-            this.text_BankBranchName.BorderSize = 2;
+
             this.text_BankBranchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.text_BankBranchName.ForeColor = System.Drawing.Color.White;
             this.text_BankBranchName.Location = new System.Drawing.Point(4, 56);
@@ -227,24 +224,18 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.text_BankBranchName.Multiline = false;
             this.text_BankBranchName.Name = "text_BankBranchName";
             this.text_BankBranchName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.text_BankBranchName.PasswordChar = false;
-            this.text_BankBranchName.PlaceholderColor = System.Drawing.Color.White;
-            this.text_BankBranchName.PlaceholderText = "الفرع";
+
             this.text_BankBranchName.Size = new System.Drawing.Size(174, 31);
             this.text_BankBranchName.TabIndex = 13;
-            this.text_BankBranchName.Texts = "";
-            this.text_BankBranchName.UnderlinedStyle = false;
-            this.text_BankBranchName._TextChanged += new System.EventHandler(this.text_BankBranchName__TextChanged);
+            this.text_BankBranchName .Text = "";
+            this.text_BankBranchName.TextChanged += new System.EventHandler(this.text_BankBranchName_TextChanged);
             // 
             // text_BankName
             // 
             this.text_BankName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text_BankName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.text_BankName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.text_BankName.BorderFocusColor = System.Drawing.Color.Red;
-            this.text_BankName.BorderRadius = 15;
-            this.text_BankName.BorderSize = 2;
+
             this.text_BankName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.text_BankName.ForeColor = System.Drawing.Color.White;
             this.text_BankName.Location = new System.Drawing.Point(186, 56);
@@ -252,24 +243,18 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.text_BankName.Multiline = false;
             this.text_BankName.Name = "text_BankName";
             this.text_BankName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.text_BankName.PasswordChar = false;
-            this.text_BankName.PlaceholderColor = System.Drawing.Color.White;
-            this.text_BankName.PlaceholderText = "اسم البنك";
+
             this.text_BankName.Size = new System.Drawing.Size(253, 31);
             this.text_BankName.TabIndex = 13;
-            this.text_BankName.Texts = "";
-            this.text_BankName.UnderlinedStyle = false;
-            this.text_BankName._TextChanged += new System.EventHandler(this.text_BankName__TextChanged);
+            this.text_BankName .Text = "";
+            this.text_BankName.TextChanged += new System.EventHandler(this.text_BankName_TextChanged);
             // 
             // text_BankAccountNumber
             // 
             this.text_BankAccountNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text_BankAccountNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.text_BankAccountNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.text_BankAccountNumber.BorderFocusColor = System.Drawing.Color.Red;
-            this.text_BankAccountNumber.BorderRadius = 15;
-            this.text_BankAccountNumber.BorderSize = 2;
+
             this.text_BankAccountNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.text_BankAccountNumber.ForeColor = System.Drawing.Color.White;
             this.text_BankAccountNumber.Location = new System.Drawing.Point(-3, 4);
@@ -277,14 +262,11 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.text_BankAccountNumber.Multiline = false;
             this.text_BankAccountNumber.Name = "text_BankAccountNumber";
             this.text_BankAccountNumber.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.text_BankAccountNumber.PasswordChar = false;
-            this.text_BankAccountNumber.PlaceholderColor = System.Drawing.Color.White;
-            this.text_BankAccountNumber.PlaceholderText = "رقم الحساب";
+
             this.text_BankAccountNumber.Size = new System.Drawing.Size(457, 31);
             this.text_BankAccountNumber.TabIndex = 13;
-            this.text_BankAccountNumber.Texts = "";
-            this.text_BankAccountNumber.UnderlinedStyle = false;
-            this.text_BankAccountNumber._TextChanged += new System.EventHandler(this.text_BankAccountNumber__TextChanged);
+            this.text_BankAccountNumber .Text = "";
+            this.text_BankAccountNumber.TextChanged += new System.EventHandler(this.text_BankAccountNumber_TextChanged);
             // 
             // btn_bankcancel
             // 
@@ -348,26 +330,20 @@ namespace SaleManagerPro.Forms.CustomersForms
             // 
             // textStartAccount
             // 
-            this.textStartAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textStartAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textStartAccount.BorderFocusColor = System.Drawing.Color.Red;
-            this.textStartAccount.BorderRadius = 15;
-            this.textStartAccount.BorderSize = 2;
-            this.textStartAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.textStartAccount.ForeColor = System.Drawing.Color.White;
-            this.textStartAccount.Location = new System.Drawing.Point(58, 225);
-            this.textStartAccount.Margin = new System.Windows.Forms.Padding(4);
-            this.textStartAccount.Multiline = false;
-            this.textStartAccount.Name = "textStartAccount";
-            this.textStartAccount.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textStartAccount.PasswordChar = false;
-            this.textStartAccount.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textStartAccount.PlaceholderText = "الرصيد المبدئي";
-            this.textStartAccount.Size = new System.Drawing.Size(292, 42);
-            this.textStartAccount.TabIndex = 10;
-            this.textStartAccount.Texts = "";
-            this.textStartAccount.UnderlinedStyle = false;
-            this.textStartAccount._TextChanged += new System.EventHandler(this.textRePassword__TextChanged);
+            this .textStartAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+
+            this .textStartAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this .textStartAccount.ForeColor = System.Drawing.Color.White;
+            this .textStartAccount.Location = new System.Drawing.Point(58, 225);
+            this .textStartAccount.Margin = new System.Windows.Forms.Padding(4);
+            this .textStartAccount.Multiline = false;
+            this .textStartAccount.Name = "textStartAccount";
+            this .textStartAccount.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
+
+            this .textStartAccount.Size = new System.Drawing.Size(292, 42);
+            this .textStartAccount.TabIndex = 10;
+            this .textStartAccount .Text = "";
+            this .textStartAccount.TextChanged += new System.EventHandler(this.textRePassword_TextChanged);
             // 
             // labelStartAccountError
             // 
@@ -385,10 +361,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             // textAdress
             // 
             this.textAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textAdress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textAdress.BorderFocusColor = System.Drawing.Color.Red;
-            this.textAdress.BorderRadius = 15;
-            this.textAdress.BorderSize = 2;
+
             this.textAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textAdress.ForeColor = System.Drawing.Color.White;
             this.textAdress.Location = new System.Drawing.Point(58, 137);
@@ -396,14 +369,11 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.textAdress.Multiline = false;
             this.textAdress.Name = "textAdress";
             this.textAdress.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textAdress.PasswordChar = false;
-            this.textAdress.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textAdress.PlaceholderText = "العنوان";
+
             this.textAdress.Size = new System.Drawing.Size(292, 42);
             this.textAdress.TabIndex = 8;
-            this.textAdress.Texts = "";
-            this.textAdress.UnderlinedStyle = false;
-            this.textAdress._TextChanged += new System.EventHandler(this.textPassword__TextChanged);
+            this.textAdress .Text = "";
+            this.textAdress.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
             // 
             // labelAdressError
             // 
@@ -421,10 +391,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(58, 50);
@@ -432,14 +399,11 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم العميل";
+
             this.textName.Size = new System.Drawing.Size(303, 42);
             this.textName.TabIndex = 1;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
-            this.textName._TextChanged += new System.EventHandler(this.textName__TextChanged);
+            this.textName .Text = "";
+            this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // panel3
             // 
@@ -454,10 +418,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.BorderSize = 0;
+
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -467,17 +428,14 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.btnCancel.Size = new System.Drawing.Size(125, 39);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "الغاء";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -487,7 +445,7 @@ namespace SaleManagerPro.Forms.CustomersForms
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "إضافه";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -592,10 +550,10 @@ namespace SaleManagerPro.Forms.CustomersForms
         }
 
         #endregion
-        private CustomControls.Controls.RJTextBox textName;
+        private TextBox textName;
         private Panel panel3;
-        private CustomControls.Controls.RJButton btnCancel;
-        private CustomControls.Controls.RJButton btnSave;
+        private Button btnCancel;
+        private Button btnSave;
         public Label labelId;
         public Label labelNamelError;
         private Panel panel2;
@@ -603,9 +561,9 @@ namespace SaleManagerPro.Forms.CustomersForms
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem تعديل_العميلToolStripMenuItem;
         private ToolStripMenuItem حذفالتصنيفToolStripMenuItem;
-        private CustomControls.Controls.RJTextBox textStartAccount;
+        private TextBox textStartAccount;
         public Label labelStartAccountError;
-        private CustomControls.Controls.RJTextBox textAdress;
+        private TextBox textAdress;
         public Label labelAdressError;
         public Panel panel1;
         private Label label6;
@@ -620,9 +578,9 @@ namespace SaleManagerPro.Forms.CustomersForms
         private DataGridView dataGridView_BankAccounts;
         private Label label3;
         private Label label2;
-        private CustomControls.Controls.RJTextBox text_BankAccountNumber;
-        private CustomControls.Controls.RJTextBox text_BankBranchName;
-        private CustomControls.Controls.RJTextBox text_BankName;
+        private TextBox text_BankAccountNumber;
+        private TextBox text_BankBranchName;
+        private TextBox text_BankName;
         private Label lbl_idban;
         private Button btn_bankcancel;
     }

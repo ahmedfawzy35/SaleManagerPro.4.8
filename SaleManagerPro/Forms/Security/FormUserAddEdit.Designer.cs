@@ -38,16 +38,16 @@ namespace SaleManagerPro.Forms.Security
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textFullName = new CustomControls.Controls.RJTextBox();
+            this.textFullName = new TextBox();
             this.labeFullNameError = new System.Windows.Forms.Label();
-            this.textRePassword = new CustomControls.Controls.RJTextBox();
+            this.textRePassword = new TextBox();
             this.labeRePasswordError = new System.Windows.Forms.Label();
-            this.textPassword = new CustomControls.Controls.RJTextBox();
+            this.textPassword = new TextBox();
             this.labePasswordError = new System.Windows.Forms.Label();
-            this.textName = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
+            this.btnCancel = new Button();
+            this.btnSave = new Button();
             this.labelId = new System.Windows.Forms.Label();
             this.labeNamelError = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -138,10 +138,7 @@ namespace SaleManagerPro.Forms.Security
             // textFullName
             // 
             this.textFullName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textFullName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textFullName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textFullName.BorderRadius = 15;
-            this.textFullName.BorderSize = 2;
+
             this.textFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textFullName.ForeColor = System.Drawing.Color.White;
             this.textFullName.Location = new System.Drawing.Point(58, 306);
@@ -149,14 +146,11 @@ namespace SaleManagerPro.Forms.Security
             this.textFullName.Multiline = false;
             this.textFullName.Name = "textFullName";
             this.textFullName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textFullName.PasswordChar = false;
-            this.textFullName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textFullName.PlaceholderText = "الاسم الكامل للمستخدم";
+
             this.textFullName.Size = new System.Drawing.Size(292, 42);
             this.textFullName.TabIndex = 12;
-            this.textFullName.Texts = "";
-            this.textFullName.UnderlinedStyle = false;
-            this.textFullName._TextChanged += new System.EventHandler(this.textFullName__TextChanged);
+            this.textFullName .Text = "";
+            this.textFullName.TextChanged += new System.EventHandler(this.textFullName_TextChanged);
             // 
             // labeFullNameError
             // 
@@ -174,10 +168,7 @@ namespace SaleManagerPro.Forms.Security
             // textRePassword
             // 
             this.textRePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textRePassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textRePassword.BorderFocusColor = System.Drawing.Color.Red;
-            this.textRePassword.BorderRadius = 15;
-            this.textRePassword.BorderSize = 2;
+
             this.textRePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textRePassword.ForeColor = System.Drawing.Color.White;
             this.textRePassword.Location = new System.Drawing.Point(58, 225);
@@ -185,14 +176,11 @@ namespace SaleManagerPro.Forms.Security
             this.textRePassword.Multiline = false;
             this.textRePassword.Name = "textRePassword";
             this.textRePassword.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textRePassword.PasswordChar = false;
-            this.textRePassword.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textRePassword.PlaceholderText = "اعادة كلمة المرور";
+
             this.textRePassword.Size = new System.Drawing.Size(292, 42);
             this.textRePassword.TabIndex = 10;
-            this.textRePassword.Texts = "";
-            this.textRePassword.UnderlinedStyle = false;
-            this.textRePassword._TextChanged += new System.EventHandler(this.textRePassword__TextChanged);
+            this.textRePassword .Text = "";
+            this.textRePassword.TextChanged += new System.EventHandler(this.textRePassword_TextChanged);
             // 
             // labeRePasswordError
             // 
@@ -210,10 +198,7 @@ namespace SaleManagerPro.Forms.Security
             // textPassword
             // 
             this.textPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textPassword.BorderFocusColor = System.Drawing.Color.Red;
-            this.textPassword.BorderRadius = 15;
-            this.textPassword.BorderSize = 2;
+
             this.textPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textPassword.ForeColor = System.Drawing.Color.White;
             this.textPassword.Location = new System.Drawing.Point(58, 137);
@@ -221,14 +206,11 @@ namespace SaleManagerPro.Forms.Security
             this.textPassword.Multiline = false;
             this.textPassword.Name = "textPassword";
             this.textPassword.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textPassword.PasswordChar = false;
-            this.textPassword.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textPassword.PlaceholderText = "الباسوورد";
+
             this.textPassword.Size = new System.Drawing.Size(292, 42);
             this.textPassword.TabIndex = 8;
-            this.textPassword.Texts = "";
-            this.textPassword.UnderlinedStyle = false;
-            this.textPassword._TextChanged += new System.EventHandler(this.textPassword__TextChanged);
+            this.textPassword .Text = "";
+            this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
             // 
             // labePasswordError
             // 
@@ -246,10 +228,7 @@ namespace SaleManagerPro.Forms.Security
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(58, 50);
@@ -257,14 +236,11 @@ namespace SaleManagerPro.Forms.Security
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم المستخدم";
+
             this.textName.Size = new System.Drawing.Size(292, 42);
             this.textName.TabIndex = 1;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
-            this.textName._TextChanged += new System.EventHandler(this.textName__TextChanged);
+            this.textName .Text = "";
+          //  this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // panel3
             // 
@@ -279,10 +255,7 @@ namespace SaleManagerPro.Forms.Security
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.BorderSize = 0;
+
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -292,16 +265,13 @@ namespace SaleManagerPro.Forms.Security
             this.btnCancel.Size = new System.Drawing.Size(125, 39);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "الغاء";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -311,7 +281,7 @@ namespace SaleManagerPro.Forms.Security
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "إضافه";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -434,10 +404,10 @@ namespace SaleManagerPro.Forms.Security
         }
 
         #endregion
-        private CustomControls.Controls.RJTextBox textName;
+        private TextBox textName;
         private Panel panel3;
-        private CustomControls.Controls.RJButton btnCancel;
-        private CustomControls.Controls.RJButton btnSave;
+        private Button btnCancel;
+        private Button btnSave;
         public Label labelId;
         public Label labeNamelError;
         private Panel panel2;
@@ -445,11 +415,11 @@ namespace SaleManagerPro.Forms.Security
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem تعديلالتصنيفToolStripMenuItem;
         private ToolStripMenuItem حذفالتصنيفToolStripMenuItem;
-        private CustomControls.Controls.RJTextBox textFullName;
+        private TextBox textFullName;
         public Label labeFullNameError;
-        private CustomControls.Controls.RJTextBox textRePassword;
+        private TextBox textRePassword;
         public Label labeRePasswordError;
-        private CustomControls.Controls.RJTextBox textPassword;
+        private TextBox textPassword;
         public Label labePasswordError;
         public Panel panel1;
         private Label label6;

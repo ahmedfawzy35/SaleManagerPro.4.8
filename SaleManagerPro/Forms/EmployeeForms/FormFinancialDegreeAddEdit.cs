@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -81,7 +81,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             search();
         }
 
-        private void textName_TextChanged(object sender, EventArgs e)
+        private void textNameTextChanged(object sender, EventArgs e)
         {
             search();
             textName.BackColor = Color.FromArgb(82, 75, 75);
@@ -113,8 +113,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 string name = dataGridFinancialDegeree.CurrentRow.Cells[1].Value.ToString();
                 string details = dataGridFinancialDegeree.CurrentRow.Cells[2].Value.ToString();
                 labelId.Text = id;
-                textName.Texts = name;
-                textDetails.Texts = details;
+                textName .Text = name;
+                textDetails .Text = details;
                 btnSave.Text = "تعديل";
                 IsNew = false;
 
@@ -128,7 +128,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
 
                 return;
             }
@@ -146,7 +146,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف الدرجه الماليه", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف الدرجه الماليه" );
 
                 }
 
@@ -164,33 +164,33 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.show("غير مسموح بالاضافه", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالاضافه" );
 
                 return;
             }
-            if (isexits(textName.Texts))
+            if (isexits(textName .Text))
             {
                 textName.BackColor = Color.Orange;
-                CustomMessageBox.show("أسم الدرجه الماليه موجود بالفعل", CustomMessageBox.enmType.Warning);
+                 MessageBox.Show("أسم الدرجه الماليه موجود بالفعل" );
 
                 labeNamelError.Text = "أسم الدرجه الماليه موجود بالفعل";
                 return;
             }
             FinancialDegree financialDegree = new FinancialDegree();
-            financialDegree.Nmae = textName.Texts;
-            financialDegree.Details = textDetails.Texts;
+            financialDegree.Nmae = textName .Text;
+            financialDegree.Details = textDetails .Text;
             financialDegree.IdUser = Properties.Settings.Default.UserId;
             financialDegree.DateCreated = DateTime.Now;
             db.FinancialDegrees.Add(financialDegree);
 
             db.SaveChanges();
-            CustomMessageBox.show("تم حفظ الدرجه الماليه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم حفظ الدرجه الماليه" );
         }
         private void Edit()
         {
             if (!canedit)
             {
-                CustomMessageBox.show("غير مسموح بالتعديل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالتعديل" );
 
                 return;
             }
@@ -198,39 +198,39 @@ namespace SaleManagerPro.Forms.EmployeeForms
             FinancialDegree financialDegree = db.FinancialDegrees.Find(id);
             if (financialDegree == null)
             {
-                CustomMessageBox.dialog("لم يتم العثور على الدرجه الماليه");
-                CustomMessageBox.show("لم يتم العثور على الدرجه الماليه", CustomMessageBox.enmType.Error);
+                MessageBox.Show("لم يتم العثور على الدرجه الماليه");
+                 MessageBox.Show("لم يتم العثور على الدرجه الماليه" );
                 return;
             }
-            if (textName.Texts != financialDegree.Nmae)
+            if (textName .Text != financialDegree.Nmae)
             {
-                if (isexits(textName.Texts))
+                if (isexits(textName .Text))
                 {
                     textName.BackColor = Color.Orange;
-                    CustomMessageBox.show("أسم الدرجه الماليه موجود بالفعل", CustomMessageBox.enmType.Warning);
+                     MessageBox.Show("أسم الدرجه الماليه موجود بالفعل" );
 
                     labeNamelError.Text = "أسم الدرجه الماليه موجود بالفعل";
                     return;
                 }
             }
-            financialDegree.Nmae = textName.Texts;
-            financialDegree.Details = textDetails.Texts;
+            financialDegree.Nmae = textName .Text;
+            financialDegree.Details = textDetails .Text;
             financialDegree.IdUser = Properties.Settings.Default.UserId;
             financialDegree.IsEdit = true;
             financialDegree.DateEdit = DateTime.Now;
 
             db.FinancialDegrees.Update(financialDegree);
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل الدرجه الماليه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل الدرجه الماليه" );
         }
         private int Validation()
         {
             int errors = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الدرجه الماليه مطلوب";
-                CustomMessageBox.show("أسم الدرجه الماليه مطلوب", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("أسم الدرجه الماليه مطلوب" );
                 errors++;
             }
             return errors;
@@ -245,7 +245,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         }
         private void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var a = db.FinancialDegrees.Include(x => x.User).Select(ct => new FinancialDegreeDto
             {
@@ -264,8 +264,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         void cleartext()
         {
-            textDetails.Texts = "";
-            textName.Texts = "";
+            textDetails .Text = "";
+            textName .Text = "";
             labelId.Text = "0";
             btnSave.Text = "إضافه";
             IsNew = true;

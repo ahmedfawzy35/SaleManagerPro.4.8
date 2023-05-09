@@ -27,7 +27,6 @@ namespace SaleManagerPro.Forms.EmployeeForms
         public SubFormAddNames()
         {
             InitializeComponent();
-            textName.PlaceholderText = PlaceHolder;
            
         }
 
@@ -35,12 +34,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
          public void AddDepartment()
         {
-            if (string.IsNullOrEmpty(TextFather.Texts))
+            if (string.IsNullOrEmpty(TextFather .Text))
             {
                 labeNamelError.Text = "قم باختيار القسم الاب ";
                 return;
             }
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 labeNamelError.Text = "الاسم مطلوب";
                 return;
@@ -49,8 +48,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
              int idfather = int.Parse(lblFatherId.Text);
             Department department = new Department();
             Department father = db.Departments.Where(x=>x.IdDepartment == idfather).FirstOrDefault();
-            department.Name = textName.Texts;
-            department.About = textDetails.Texts;
+            department.Name = textName .Text;
+            department.About = textDetails .Text;
             department.Father = idfather;
             department.Rate = father.Rate+1;
             department.DateCreated = DateTime.Now;
@@ -65,14 +64,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         public void AddJob()
         {
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 labeNamelError.Text = "الاسم مطلوب";
                 return;
             }
             Job job = new Job();
-            job.Name = textName.Texts;
-            job.Details = textDetails.Texts;
+            job.Name = textName .Text;
+            job.Details = textDetails .Text;
             job.DateCreated = DateTime.Now;
             job.IdUser = Properties.Settings.Default.UserId;
             db.Jobs.Add(job);
@@ -83,14 +82,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         public void AddJobDegree()
         {
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 labeNamelError.Text = "الاسم مطلوب";
                 return;
             }
             JobDegree jobDegree = new JobDegree();
-            jobDegree.Name = textName.Texts;
-            jobDegree.Details = textDetails.Texts;
+            jobDegree.Name = textName .Text;
+            jobDegree.Details = textDetails .Text;
             jobDegree.DateCreated = DateTime.Now;
             jobDegree.IdUser = Properties.Settings.Default.UserId;
             db.JobDegrees.Add(jobDegree);
@@ -101,14 +100,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         public void AddFinancialDegree()
         {
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 labeNamelError.Text = "الاسم مطلوب";
                 return;
             }
             FinancialDegree financialDegree = new FinancialDegree();
-            financialDegree.Nmae = textName.Texts;
-            financialDegree.Details = textDetails.Texts;
+            financialDegree.Nmae = textName .Text;
+            financialDegree.Details = textDetails .Text;
             financialDegree.DateCreated = DateTime.Now;
             financialDegree.IdUser = Properties.Settings.Default.UserId;
             db.FinancialDegrees.Add(financialDegree);
@@ -148,7 +147,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 combodeparments.DataSource = db.Departments.ToList();
                 combodeparments.DisplayMember = "Name";
                 combodeparments.ValueMember = "IdDepartment";
-                TextFather.Texts = "";
+                TextFather .Text = "";
                 lblFatherId.Text = "0";
                 label2.Visible = true;
                 combodeparments.Visible = true;
@@ -160,7 +159,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         private void combodeparments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TextFather.Texts = combodeparments.Text.ToString();
+            TextFather .Text = combodeparments.Text.ToString();
             lblFatherId.Text = combodeparments.SelectedValue.ToString();
         }
     }

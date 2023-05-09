@@ -102,7 +102,7 @@ namespace SaleManagerPro.Forms.Login
             // start:
             picture_loading.Show();
             picture_loading.Update();
-            if (string.IsNullOrEmpty(text_user_name.Texts))
+            if (string.IsNullOrEmpty(text_user_name .Text))
             {
                 lbl_error_message.Text = "برجاء ادخال اسم المستخدم اولا";
                 lbl_error_message.ForeColor = Color.Red;
@@ -112,7 +112,7 @@ namespace SaleManagerPro.Forms.Login
 
                 return;
             }
-            if (string.IsNullOrEmpty(text_pass.Texts))
+            if (string.IsNullOrEmpty(text_pass .Text))
             {
                 lbl_error_message.Text = "برجاء ادخال كلمة المرور اولا";
                 lbl_error_message.ForeColor = Color.Red;
@@ -124,7 +124,7 @@ namespace SaleManagerPro.Forms.Login
             }
             try
             {
-                 await Login(text_user_name.Texts, text_pass.Texts);
+                 await Login(text_user_name .Text, text_pass .Text);
 
                 button1.Enabled = true;
 

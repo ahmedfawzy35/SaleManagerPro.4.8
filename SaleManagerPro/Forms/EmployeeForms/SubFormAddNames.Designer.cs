@@ -1,4 +1,6 @@
-﻿namespace SaleManagerPro.Forms.EmployeeForms
+﻿using System.Windows.Forms;
+
+namespace SaleManagerPro.Forms.EmployeeForms
 {
     partial class SubFormAddNames
     {
@@ -28,17 +30,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textName = new CustomControls.Controls.RJTextBox();
-            this.textDetails = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
+            this.textDetails = new TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_cancel = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
+            this.btn_cancel = new Button();
+            this.btnSave = new Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labeNamelError = new System.Windows.Forms.Label();
             this.lblFatherId = new System.Windows.Forms.Label();
             this.combodeparments = new System.Windows.Forms.ComboBox();
-            this.TextFather = new CustomControls.Controls.RJTextBox();
+            this.TextFather = new TextBox();
             this.labeFatherError = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
@@ -47,10 +49,7 @@
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(23, 176);
@@ -58,21 +57,15 @@
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم القسم";
+
             this.textName.Size = new System.Drawing.Size(292, 42);
             this.textName.TabIndex = 2;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
+            this.textName .Text = "";
             // 
             // textDetails
             // 
             this.textDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textDetails.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textDetails.BorderFocusColor = System.Drawing.Color.Red;
-            this.textDetails.BorderRadius = 15;
-            this.textDetails.BorderSize = 1;
+
             this.textDetails.CausesValidation = false;
             this.textDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textDetails.ForeColor = System.Drawing.Color.White;
@@ -81,13 +74,10 @@
             this.textDetails.Multiline = true;
             this.textDetails.Name = "textDetails";
             this.textDetails.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textDetails.PasswordChar = false;
-            this.textDetails.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textDetails.PlaceholderText = "الوصف";
+
             this.textDetails.Size = new System.Drawing.Size(292, 91);
             this.textDetails.TabIndex = 3;
-            this.textDetails.Texts = "";
-            this.textDetails.UnderlinedStyle = false;
+            this.textDetails .Text = "";
             // 
             // panel3
             // 
@@ -102,10 +92,7 @@
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.Red;
-            this.btn_cancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btn_cancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btn_cancel.BorderRadius = 15;
-            this.btn_cancel.BorderSize = 0;
+
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -116,17 +103,14 @@
             this.btn_cancel.Size = new System.Drawing.Size(125, 39);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "الغاء";
-            this.btn_cancel.TextColor = System.Drawing.Color.White;
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -136,7 +120,7 @@
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "إضافه";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -199,10 +183,7 @@
             // TextFather
             // 
             this.TextFather.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TextFather.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.TextFather.BorderFocusColor = System.Drawing.Color.Red;
-            this.TextFather.BorderRadius = 15;
-            this.TextFather.BorderSize = 2;
+
             this.TextFather.Enabled = false;
             this.TextFather.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.TextFather.ForeColor = System.Drawing.Color.White;
@@ -211,13 +192,11 @@
             this.TextFather.Multiline = false;
             this.TextFather.Name = "TextFather";
             this.TextFather.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.TextFather.PasswordChar = false;
-            this.TextFather.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.TextFather.PlaceholderText = "القسم الاب";
+
             this.TextFather.Size = new System.Drawing.Size(292, 42);
             this.TextFather.TabIndex = 21;
-            this.TextFather.Texts = "";
-            this.TextFather.UnderlinedStyle = false;
+            this.TextFather .Text = "";
+
             this.TextFather.Visible = false;
             // 
             // labeFatherError
@@ -273,17 +252,17 @@
 
         #endregion
 
-        private CustomControls.Controls.RJTextBox textName;
-        private CustomControls.Controls.RJTextBox textDetails;
+        private TextBox textName;
+        private TextBox textDetails;
         private System.Windows.Forms.Panel panel3;
-        private CustomControls.Controls.RJButton btn_cancel;
-        private CustomControls.Controls.RJButton btnSave;
+        private Button btn_cancel;
+        private Button btnSave;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label labeNamelError;
         public System.Windows.Forms.Label lblFatherId;
         private System.Windows.Forms.ComboBox combodeparments;
-        private CustomControls.Controls.RJTextBox TextFather;
+        private TextBox TextFather;
         public System.Windows.Forms.Label labeFatherError;
         private System.Windows.Forms.Label label2;
     }

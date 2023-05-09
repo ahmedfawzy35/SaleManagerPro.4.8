@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
 using SaleManagerPro.Models;
@@ -53,7 +53,7 @@ namespace SaleManagerPro.Forms.Security
         {
 
             int error = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الصلاحيه مطلوب";
@@ -61,27 +61,27 @@ namespace SaleManagerPro.Forms.Security
             }
 
             if (error > 0)
-                CustomMessageBox.show($"لديك عدد {error}اخطاء", CustomMessageBox.enmType.Error);
+                 MessageBox.Show($"لديك عدد {error}اخطاء" );
 
             return error;
         }
         private void Search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var     Roles = db.Roles.Where(u => u.Name.Contains(search)).ToList();
 
             dataGridRoles.DataSource = Roles;
 
         }
-        private void Textchange(CustomControls.Controls.RJTextBox textbox, Label label)
+        private void Textchange(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.FromArgb(82, 75, 75);
             label.Text = "";
         }
         private bool IsExitsUserName()
         {
-            Role role = db.Roles.Where(r=>r.Name  == textName.Texts).FirstOrDefault();
+            Role role = db.Roles.Where(r=>r.Name  == textName .Text).FirstOrDefault();
             if (role != null)
                 return true;
             return false;
@@ -96,7 +96,7 @@ namespace SaleManagerPro.Forms.Security
         {
             if (!cancreat)
             {
-                CustomMessageBox.dialog("غير مرخص بالاضافه");
+                MessageBox.Show("غير مرخص بالاضافه");
                 return;
             }
             if (validations() > 0)
@@ -112,11 +112,11 @@ namespace SaleManagerPro.Forms.Security
             }
            
             var role = new Role();
-            role.Name = textName.Texts;
+            role.Name = textName .Text;
             role.DateCreated= DateTime.Now; 
             db.Roles.Add(role);
             db.SaveChanges();
-            CustomMessageBox.show("تم انشاء الصلاحيه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم انشاء الصلاحيه" );
 
             cleartext();
         }
@@ -125,7 +125,7 @@ namespace SaleManagerPro.Forms.Security
         {
             if (!canedit)
             {
-                CustomMessageBox.dialog("غير مرخص بالتعديل");
+                MessageBox.Show("غير مرخص بالتعديل");
                 cleartext();
                 return;
             }
@@ -145,7 +145,7 @@ namespace SaleManagerPro.Forms.Security
             {
                 return;
             }
-            if (role.Name != textName.Texts)
+            if (role.Name != textName .Text)
             {
                 if (IsExitsUserName())
                 {
@@ -157,13 +157,13 @@ namespace SaleManagerPro.Forms.Security
          
 
 
-            role.Name = textName.Texts;
+            role.Name = textName .Text;
             role.IsEdit = true;
             role.DateEdit   = DateTime.Now;
             db.Roles.Update(role);
 
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل الصلاحيه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل الصلاحيه" );
 
 
             cleartext();
@@ -172,7 +172,7 @@ namespace SaleManagerPro.Forms.Security
 
         void cleartext()
         {
-            textName.Texts = "";
+            textName .Text = "";
             btnSave.Text = "إضافه";
             labelId.Text = "";
             isnew = true;
@@ -198,7 +198,7 @@ namespace SaleManagerPro.Forms.Security
 
         }
 
-        private void textName__TextChanged(object sender, EventArgs e)
+        private void textName_TextChanged(object sender, EventArgs e)
         {
             Textchange(textName, labeNamelError);
             Search();
@@ -252,7 +252,7 @@ namespace SaleManagerPro.Forms.Security
                 var role = db.Roles.Find(id);
 
                 labelId.Text = id.ToString();
-                textName.Texts = role.Name;
+                textName .Text = role.Name;
                 btnSave.Text = "تعديل";
                 isnew = false;
 
@@ -272,14 +272,14 @@ namespace SaleManagerPro.Forms.Security
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مصرح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مصرح بالحذف" );
                 return;
             }
             if (!string.IsNullOrEmpty(dataGridRoles.CurrentRow.Cells[0].Value.ToString()))
             {
                 int id = int.Parse(dataGridRoles.CurrentRow.Cells[0].Value.ToString());
                 var role = db.Roles.Find(id);
-                if (CustomMessageBox.dialog("تأكيد حذف الصلاحيه") ==DialogResult.OK)
+                if (MessageBox.Show("تأكيد حذف الصلاحيه") ==DialogResult.OK)
                 {
                     try
                     {
@@ -290,7 +290,7 @@ namespace SaleManagerPro.Forms.Security
                     catch (Exception)
                     {
 
-                        CustomMessageBox.show("لايمكن حذف الصلاحيه", CustomMessageBox.enmType.Error);
+                         MessageBox.Show("لايمكن حذف الصلاحيه" );
                     }
                 }
 

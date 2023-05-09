@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -82,14 +82,14 @@ namespace SaleManagerPro.Forms.EmployeeForms
             search();
         }
 
-        private void textName_TextChanged(object sender, EventArgs e)
+        private void textNameTextChanged(object sender, EventArgs e)
         {
             search();
             textName.BackColor = Color.FromArgb(82, 75, 75);
             labeNamelError.Text = "";
            
         }
-        private void TextFather_TextChanged(object sender, EventArgs e)
+        private void TextFatherTextChanged(object sender, EventArgs e)
         {
             search();
             TextFather.BackColor = Color.FromArgb(82, 75, 75);
@@ -123,10 +123,10 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 string name = dataGridFinancialDegeree.CurrentRow.Cells[1].Value.ToString();
                 string details = dataGridFinancialDegeree.CurrentRow.Cells[4].Value.ToString();
                 labelId.Text = id;
-                textName.Texts = name;
+                textName .Text = name;
                 lblFatherId.Text  = dataGridFinancialDegeree.CurrentRow.Cells[2].Value.ToString();
-                TextFather.Texts = dataGridFinancialDegeree.CurrentRow.Cells[5].Value == null? " ": dataGridFinancialDegeree.CurrentRow.Cells[5].Value.ToString();
-                textDetails.Texts = details;
+                TextFather .Text = dataGridFinancialDegeree.CurrentRow.Cells[5].Value == null? " ": dataGridFinancialDegeree.CurrentRow.Cells[5].Value.ToString();
+                textDetails .Text = details;
                 btnSave.Text = "تعديل";
                 IsNew = false;
 
@@ -140,7 +140,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف" );
 
                 return;
             }
@@ -158,7 +158,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف القسم", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف القسم" );
 
                 }
 
@@ -171,7 +171,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         }
         private void combodeparments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TextFather.Texts = combodeparments.Text;
+            TextFather .Text = combodeparments.Text;
             lblFatherId.Text = combodeparments.SelectedValue.ToString();
         }
         #endregion
@@ -181,22 +181,22 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.show("غير مسموح بالاضافه", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالاضافه" );
 
                 return;
             }
-            if (isexits(textName.Texts))
+            if (isexits(textName .Text))
             {
                 textName.BackColor = Color.Orange;
-                CustomMessageBox.show("أسم القسم موجود بالفعل", CustomMessageBox.enmType.Warning);
+                 MessageBox.Show("أسم القسم موجود بالفعل" );
 
                 labeNamelError.Text = "أسم القسم موجود بالفعل";
                 return;
             }
             int idfather = int.Parse(lblFatherId.Text);
             Department department = new Department();
-            department.Name = textName.Texts;
-            department.About = textDetails.Texts;
+            department.Name = textName .Text;
+            department.About = textDetails .Text;
             department.Father = int.Parse(lblFatherId.Text);
             department.Rate = db.Departments.Where(x => x.IdDepartment == idfather).FirstOrDefault().Rate + 1;
             department.IdUser = Properties.Settings.Default.UserId;
@@ -204,13 +204,13 @@ namespace SaleManagerPro.Forms.EmployeeForms
             db.Departments.Add(department);
 
             db.SaveChanges();
-            CustomMessageBox.show("تم حفظ القسم", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم حفظ القسم" );
         }
         private void Edit()
         {
             if (!canedit)
             {
-                CustomMessageBox.show("غير مسموح بالتعديل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالتعديل" );
 
                 return;
             }
@@ -218,24 +218,24 @@ namespace SaleManagerPro.Forms.EmployeeForms
             Department department = db.Departments.Find(id);
             if (department == null)
             {
-                CustomMessageBox.dialog("لم يتم العثور على القسم");
-                CustomMessageBox.show("لم يتم العثور على القسم", CustomMessageBox.enmType.Error);
+                MessageBox.Show("لم يتم العثور على القسم");
+                 MessageBox.Show("لم يتم العثور على القسم" );
                 return;
             }
-            if (textName.Texts != department.Name)
+            if (textName .Text != department.Name)
             {
-                if (isexits(textName.Texts))
+                if (isexits(textName .Text))
                 {
                     textName.BackColor = Color.Orange;
-                    CustomMessageBox.show("أسم القسم موجود بالفعل", CustomMessageBox.enmType.Warning);
+                     MessageBox.Show("أسم القسم موجود بالفعل" );
 
                     labeNamelError.Text = "أسم القسم موجود بالفعل";
                     return;
                 }
             }
             int idfather = int.Parse(lblFatherId.Text);
-            department.Name = textName.Texts;
-            department.About = textDetails.Texts;
+            department.Name = textName .Text;
+            department.About = textDetails .Text;
             //department.Father = int.Parse(lblFatherId.Text);
             //department.Rate = db.Departments.Where(x => x.IdDepartment == idfather).FirstOrDefault().Rate + 1;
             department.IdUser = Properties.Settings.Default.UserId;
@@ -244,23 +244,23 @@ namespace SaleManagerPro.Forms.EmployeeForms
             department.DateEdit = DateTime.Now;
             db.Departments.Update(department);
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل القسم", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل القسم" );
         }
         private int Validation()
         {
             int errors = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم القسم مطلوب";
-                CustomMessageBox.show("أسم القسم مطلوب", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("أسم القسم مطلوب" );
                 errors++;
             }  
-            if (string.IsNullOrEmpty(TextFather.Texts))
+            if (string.IsNullOrEmpty(TextFather .Text))
             {
                 TextFather.BackColor = Color.Red;
                 labeFatherError.Text = "أسم القسم الاب مطلوب";
-                CustomMessageBox.show("أسم القسم الاب مطلوب", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("أسم القسم الاب مطلوب" );
                 errors++;
             }
             return errors;
@@ -278,7 +278,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         private void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var a = db.Departments.Include(x => x.User).Select(ct => new DepartmentDto
             {
@@ -299,12 +299,12 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         void cleartext()
         {
-            textDetails.Texts = "";
-            textName.Texts = "";
+            textDetails .Text = "";
+            textName .Text = "";
             labelId.Text = "0";
             btnSave.Text = "إضافه";
             IsNew = true;
-            TextFather.Texts = "";
+            TextFather .Text = "";
             //TextFather.Enabled = false;
             lblFatherId.Text = "0";
             refrshcombo();

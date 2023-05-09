@@ -1,4 +1,4 @@
-﻿using CustomControls.MessageBox;
+﻿ 
 using Microsoft.EntityFrameworkCore;
 using SaleManagerPro.Assist;
 using SaleManagerPro.Data;
@@ -81,7 +81,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
             search();
         }
 
-        private void textName_TextChanged(object sender, EventArgs e)
+        private void textNameTextChanged(object sender, EventArgs e)
         {
             search();
             textName.BackColor = Color.FromArgb(82, 75, 75);
@@ -113,8 +113,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 string name = dataGridJobsDegrees.CurrentRow.Cells[1].Value.ToString();
                 string details = dataGridJobsDegrees.CurrentRow.Cells[2].Value.ToString();
                 labelId.Text = id;
-                textName.Texts = name;
-                textDetails.Texts = details;
+                textName .Text = name;
+                textDetails .Text = details;
                 btnSave.Text = "تعديل";
                 IsNew = false;
 
@@ -128,7 +128,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!candelete)
             {
-                CustomMessageBox.show("غير مسموح بالحذف", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالحذف");
 
                 return;
             }
@@ -146,7 +146,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
                 catch (Exception)
                 {
 
-                    CustomMessageBox.show("لا يمكن حذف الدرجة الوظيفيه", CustomMessageBox.enmType.Error);
+                     MessageBox.Show("لا يمكن حذف الدرجة الوظيفيه" );
 
                 }
 
@@ -164,33 +164,33 @@ namespace SaleManagerPro.Forms.EmployeeForms
         {
             if (!cancreat)
             {
-                CustomMessageBox.show("غير مسموح بالاضافه", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالاضافه" );
 
                 return;
             }
-            if (isexits(textName.Texts))
+            if (isexits(textName .Text))
             {
                 textName.BackColor = Color.Orange;
-                CustomMessageBox.show("أسم الدرجة الوظيفيه موجود بالفعل", CustomMessageBox.enmType.Warning);
+                 MessageBox.Show("أسم الدرجة الوظيفيه موجود بالفعل" );
 
                 labeNamelError.Text = "أسم الدرجة الوظيفيه موجود بالفعل";
                 return;
             }
             JobDegree jobdegree = new JobDegree();
-            jobdegree.Name = textName.Texts;
-            jobdegree.Details = textDetails.Texts;
+            jobdegree.Name = textName .Text;
+            jobdegree.Details = textDetails .Text;
             jobdegree.IdUser = Properties.Settings.Default.UserId;
             jobdegree.DateCreated = DateTime.Now;
             db.JobDegrees.Add(jobdegree);
 
             db.SaveChanges();
-            CustomMessageBox.show("تم حفظ الدرجة الوظيفيه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم حفظ الدرجة الوظيفيه" );
         }
         private void Edit()
         {
             if (!canedit)
             {
-                CustomMessageBox.show("غير مسموح بالتعديل", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("غير مسموح بالتعديل" );
 
                 return;
             }
@@ -198,39 +198,39 @@ namespace SaleManagerPro.Forms.EmployeeForms
             JobDegree jobdegreeEdit = db.JobDegrees.Find(id);
             if (jobdegreeEdit == null)
             {
-                CustomMessageBox.dialog("لم يتم العثور على الدرجة الوظيفيه");
-                CustomMessageBox.show("لم يتم العثور على الدرجة الوظيفيه", CustomMessageBox.enmType.Error);
+                MessageBox.Show("لم يتم العثور على الدرجة الوظيفيه");
+                 MessageBox.Show("لم يتم العثور على الدرجة الوظيفيه" );
                 return;
             }
-            if (textName.Texts != jobdegreeEdit.Name)
+            if (textName .Text != jobdegreeEdit.Name)
             {
-                if (isexits(textName.Texts))
+                if (isexits(textName .Text))
                 {
                     textName.BackColor = Color.Orange;
-                    CustomMessageBox.show("أسم الدرجة الوظيفيه موجود بالفعل", CustomMessageBox.enmType.Warning);
+                     MessageBox.Show("أسم الدرجة الوظيفيه موجود بالفعل" );
 
                     labeNamelError.Text = "أسم الدرجة الوظيفيه موجود بالفعل";
                     return;
                 }
             }
-            jobdegreeEdit.Name = textName.Texts;
-            jobdegreeEdit.Details = textDetails.Texts;
+            jobdegreeEdit.Name = textName .Text;
+            jobdegreeEdit.Details = textDetails .Text;
             jobdegreeEdit.IdUser = Properties.Settings.Default.UserId;
             jobdegreeEdit.IsEdit = true;
             jobdegreeEdit.DateEdit = DateTime.Now;
 
             db.JobDegrees.Update(jobdegreeEdit);
             db.SaveChanges();
-            CustomMessageBox.show("تم تعديل الدرجة الوظيفيه", CustomMessageBox.enmType.Success);
+             MessageBox.Show("تم تعديل الدرجة الوظيفيه" );
         }
         private int Validation()
         {
             int errors = 0;
-            if (string.IsNullOrEmpty(textName.Texts))
+            if (string.IsNullOrEmpty(textName .Text))
             {
                 textName.BackColor = Color.Red;
                 labeNamelError.Text = "أسم الدرجة الوظيفيه مطلوب";
-                CustomMessageBox.show("أسم الدرجة الوظيفيه مطلوب", CustomMessageBox.enmType.Error);
+                 MessageBox.Show("أسم الدرجة الوظيفيه مطلوب" );
                 errors++;
             }
             return errors;
@@ -245,7 +245,7 @@ namespace SaleManagerPro.Forms.EmployeeForms
         }
         private void search()
         {
-            string search = string.IsNullOrEmpty(textName.Texts) ? " " : textName.Texts;
+            string search = string.IsNullOrEmpty(textName .Text) ? " " : textName .Text;
 
             var a = db.JobDegrees.Include(x => x.User).Select(ct => new JobDegreeDto
             {
@@ -264,8 +264,8 @@ namespace SaleManagerPro.Forms.EmployeeForms
 
         void cleartext()
         {
-            textDetails.Texts = "";
-            textName.Texts = "";
+            textDetails .Text = "";
+            textName .Text = "";
             labelId.Text = "0";
             btnSave.Text = "إضافه";
             IsNew = true;

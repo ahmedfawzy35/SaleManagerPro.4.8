@@ -36,16 +36,16 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.label9 = new System.Windows.Forms.Label();
             this.panelunit3 = new System.Windows.Forms.Panel();
             this.labeunit3lError = new System.Windows.Forms.Label();
-            this.btnunit3cancel = new CustomControls.Controls.RJButton();
+            this.btnunit3cancel = new Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textunit3count = new CustomControls.Controls.RJTextBox();
+            this.textunit3count = new TextBox();
             this.combounit3 = new System.Windows.Forms.ComboBox();
             this.pictureaddunit3 = new System.Windows.Forms.PictureBox();
             this.panelunit2 = new System.Windows.Forms.Panel();
             this.labeunit2lError = new System.Windows.Forms.Label();
-            this.btnunit2cancel = new CustomControls.Controls.RJButton();
+            this.btnunit2cancel = new  Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textunit2count = new CustomControls.Controls.RJTextBox();
+            this.textunit2count = new TextBox();
             this.combounit2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TextCatogry = new System.Windows.Forms.ComboBox();
@@ -56,18 +56,18 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textStartStock = new CustomControls.Controls.RJTextBox();
+            this.textStartStock = new TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textLimitStock = new CustomControls.Controls.RJTextBox();
+            this.textLimitStock = new TextBox();
             this.labeLimitStockError = new System.Windows.Forms.Label();
-            this.textPricePurchase = new CustomControls.Controls.RJTextBox();
+            this.textPricePurchase = new TextBox();
             this.labePricePurchaseError = new System.Windows.Forms.Label();
-            this.textPriceSale = new CustomControls.Controls.RJTextBox();
+            this.textPriceSale = new TextBox();
             this.labePriceSaleError = new System.Windows.Forms.Label();
-            this.textName = new CustomControls.Controls.RJTextBox();
+            this.textName = new TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new CustomControls.Controls.RJButton();
-            this.btnSave = new CustomControls.Controls.RJButton();
+            this.btnCancel = new  Button();
+            this.btnSave = new  Button();
             this.labelId = new System.Windows.Forms.Label();
             this.labeNamelError = new System.Windows.Forms.Label();
             this.pictureaddunit2 = new System.Windows.Forms.PictureBox();
@@ -162,10 +162,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // btnunit3cancel
             // 
             this.btnunit3cancel.BackColor = System.Drawing.Color.Red;
-            this.btnunit3cancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnunit3cancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnunit3cancel.BorderRadius = 15;
-            this.btnunit3cancel.BorderSize = 0;
+
             this.btnunit3cancel.FlatAppearance.BorderSize = 0;
             this.btnunit3cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnunit3cancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -175,7 +172,6 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.btnunit3cancel.Size = new System.Drawing.Size(81, 39);
             this.btnunit3cancel.TabIndex = 19;
             this.btnunit3cancel.Text = "الغاء";
-            this.btnunit3cancel.TextColor = System.Drawing.Color.White;
             this.btnunit3cancel.UseVisualStyleBackColor = false;
             this.btnunit3cancel.Click += new System.EventHandler(this.btnunit3cancel_Click_1);
             // 
@@ -191,10 +187,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textunit3count
             // 
             this.textunit3count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textunit3count.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textunit3count.BorderFocusColor = System.Drawing.Color.Red;
-            this.textunit3count.BorderRadius = 15;
-            this.textunit3count.BorderSize = 2;
+
             this.textunit3count.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textunit3count.ForeColor = System.Drawing.Color.White;
             this.textunit3count.Location = new System.Drawing.Point(14, 97);
@@ -202,14 +195,12 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textunit3count.Multiline = false;
             this.textunit3count.Name = "textunit3count";
             this.textunit3count.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textunit3count.PasswordChar = false;
-            this.textunit3count.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textunit3count.PlaceholderText = "عدد الوحدات الاساسيه";
+
             this.textunit3count.Size = new System.Drawing.Size(253, 42);
             this.textunit3count.TabIndex = 17;
-            this.textunit3count.Texts = "";
-            this.textunit3count.UnderlinedStyle = false;
-            this.textunit3count._TextChanged += new System.EventHandler(this.textunit3count__TextChanged);
+            this.textunit3count.Text = "";
+
+            this.textunit3count.TextChanged += new System.EventHandler(this.textunit3count_TextChanged);
             this.textunit3count.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textunit3count_KeyPress);
             // 
             // combounit3
@@ -264,10 +255,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // btnunit2cancel
             // 
             this.btnunit2cancel.BackColor = System.Drawing.Color.Red;
-            this.btnunit2cancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnunit2cancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnunit2cancel.BorderRadius = 15;
-            this.btnunit2cancel.BorderSize = 0;
+
             this.btnunit2cancel.FlatAppearance.BorderSize = 0;
             this.btnunit2cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnunit2cancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -277,7 +265,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.btnunit2cancel.Size = new System.Drawing.Size(81, 39);
             this.btnunit2cancel.TabIndex = 19;
             this.btnunit2cancel.Text = "الغاء";
-            this.btnunit2cancel.TextColor = System.Drawing.Color.White;
+            this.btnunit2cancel.ForeColor = System.Drawing.Color.White;
             this.btnunit2cancel.UseVisualStyleBackColor = false;
             this.btnunit2cancel.Click += new System.EventHandler(this.btnunit2cancel_Click);
             // 
@@ -293,10 +281,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textunit2count
             // 
             this.textunit2count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textunit2count.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textunit2count.BorderFocusColor = System.Drawing.Color.Red;
-            this.textunit2count.BorderRadius = 15;
-            this.textunit2count.BorderSize = 2;
+
             this.textunit2count.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textunit2count.ForeColor = System.Drawing.Color.White;
             this.textunit2count.Location = new System.Drawing.Point(14, 97);
@@ -304,14 +289,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textunit2count.Multiline = false;
             this.textunit2count.Name = "textunit2count";
             this.textunit2count.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textunit2count.PasswordChar = false;
-            this.textunit2count.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textunit2count.PlaceholderText = "عدد الوحدات الاساسيه";
+
             this.textunit2count.Size = new System.Drawing.Size(253, 42);
             this.textunit2count.TabIndex = 17;
-            this.textunit2count.Texts = "";
-            this.textunit2count.UnderlinedStyle = false;
-            this.textunit2count._TextChanged += new System.EventHandler(this.textunit2count__TextChanged);
+            this.textunit2count.Text = "";
+            this.textunit2count.TextChanged += new System.EventHandler(this.textunit2count_TextChanged);
             this.textunit2count.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textunit2count_KeyPress);
             // 
             // combounit2
@@ -416,10 +398,6 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textStartStock
             // 
             this.textStartStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textStartStock.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textStartStock.BorderFocusColor = System.Drawing.Color.Red;
-            this.textStartStock.BorderRadius = 15;
-            this.textStartStock.BorderSize = 2;
             this.textStartStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textStartStock.ForeColor = System.Drawing.Color.White;
             this.textStartStock.Location = new System.Drawing.Point(290, 391);
@@ -427,15 +405,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textStartStock.Multiline = false;
             this.textStartStock.Name = "textStartStock";
             this.textStartStock.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textStartStock.PasswordChar = false;
-            this.textStartStock.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textStartStock.PlaceholderText = "الرصيد المبدئي";
+
             this.textStartStock.Size = new System.Drawing.Size(292, 42);
             this.textStartStock.TabIndex = 3;
-            this.textStartStock.Texts = "";
-            this.textStartStock.UnderlinedStyle = false;
-            this.textStartStock._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
-            this.textStartStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textStartStock_KeyPress);
+            this.textStartStock.Text = "";
+            this.textStartStock.TextChanged += new System.EventHandler(this.textLimitStock_TextChanged);
             // 
             // label10
             // 
@@ -451,10 +425,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textLimitStock
             // 
             this.textLimitStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textLimitStock.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textLimitStock.BorderFocusColor = System.Drawing.Color.Red;
-            this.textLimitStock.BorderRadius = 15;
-            this.textLimitStock.BorderSize = 2;
+
             this.textLimitStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textLimitStock.ForeColor = System.Drawing.Color.White;
             this.textLimitStock.Location = new System.Drawing.Point(290, 299);
@@ -462,14 +433,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textLimitStock.Multiline = false;
             this.textLimitStock.Name = "textLimitStock";
             this.textLimitStock.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textLimitStock.PasswordChar = false;
-            this.textLimitStock.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textLimitStock.PlaceholderText = "الحد الادنى في المخزن";
+
             this.textLimitStock.Size = new System.Drawing.Size(292, 42);
             this.textLimitStock.TabIndex = 3;
-            this.textLimitStock.Texts = "";
-            this.textLimitStock.UnderlinedStyle = false;
-            this.textLimitStock._TextChanged += new System.EventHandler(this.textLimitStock__TextChanged);
+            this.textLimitStock.Text = "";
+            this.textLimitStock.TextChanged += new System.EventHandler(this.textLimitStock_TextChanged);
             this.textLimitStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textLimitStock_KeyPress);
             // 
             // labeLimitStockError
@@ -486,10 +454,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textPricePurchase
             // 
             this.textPricePurchase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textPricePurchase.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textPricePurchase.BorderFocusColor = System.Drawing.Color.Red;
-            this.textPricePurchase.BorderRadius = 15;
-            this.textPricePurchase.BorderSize = 2;
+
             this.textPricePurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textPricePurchase.ForeColor = System.Drawing.Color.White;
             this.textPricePurchase.Location = new System.Drawing.Point(290, 218);
@@ -497,14 +462,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textPricePurchase.Multiline = false;
             this.textPricePurchase.Name = "textPricePurchase";
             this.textPricePurchase.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textPricePurchase.PasswordChar = false;
-            this.textPricePurchase.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textPricePurchase.PlaceholderText = "سعر الشراء";
+
             this.textPricePurchase.Size = new System.Drawing.Size(292, 42);
             this.textPricePurchase.TabIndex = 2;
-            this.textPricePurchase.Texts = "";
-            this.textPricePurchase.UnderlinedStyle = false;
-            this.textPricePurchase._TextChanged += new System.EventHandler(this.textPricePurchase__TextChanged);
+            this.textPricePurchase.Text = "";
+            this.textPricePurchase.TextChanged += new System.EventHandler(this.textPricePurchase_TextChanged);
             this.textPricePurchase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPricePurchase_KeyPress);
             // 
             // labePricePurchaseError
@@ -521,10 +483,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textPriceSale
             // 
             this.textPriceSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textPriceSale.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textPriceSale.BorderFocusColor = System.Drawing.Color.Red;
-            this.textPriceSale.BorderRadius = 15;
-            this.textPriceSale.BorderSize = 2;
+
             this.textPriceSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textPriceSale.ForeColor = System.Drawing.Color.White;
             this.textPriceSale.Location = new System.Drawing.Point(290, 130);
@@ -532,14 +491,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textPriceSale.Multiline = false;
             this.textPriceSale.Name = "textPriceSale";
             this.textPriceSale.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textPriceSale.PasswordChar = false;
-            this.textPriceSale.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textPriceSale.PlaceholderText = "سعر البيع";
+
             this.textPriceSale.Size = new System.Drawing.Size(292, 42);
             this.textPriceSale.TabIndex = 1;
-            this.textPriceSale.Texts = "";
-            this.textPriceSale.UnderlinedStyle = false;
-            this.textPriceSale._TextChanged += new System.EventHandler(this.textPriceSale__TextChanged);
+            this.textPriceSale.Text = "";
+            this.textPriceSale.TextChanged += new System.EventHandler(this.textPriceSale_TextChanged);
             this.textPriceSale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPriceSale_KeyPress);
             // 
             // labePriceSaleError
@@ -556,10 +512,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // textName
             // 
             this.textName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.textName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.textName.BorderFocusColor = System.Drawing.Color.Red;
-            this.textName.BorderRadius = 15;
-            this.textName.BorderSize = 2;
+
             this.textName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.textName.ForeColor = System.Drawing.Color.White;
             this.textName.Location = new System.Drawing.Point(290, 43);
@@ -567,14 +520,11 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.textName.Multiline = false;
             this.textName.Name = "textName";
             this.textName.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.textName.PasswordChar = false;
-            this.textName.PlaceholderColor = System.Drawing.Color.Gainsboro;
-            this.textName.PlaceholderText = "اسم المنتج";
+
             this.textName.Size = new System.Drawing.Size(292, 42);
             this.textName.TabIndex = 0;
-            this.textName.Texts = "";
-            this.textName.UnderlinedStyle = false;
-            this.textName._TextChanged += new System.EventHandler(this.textName__TextChanged);
+            this.textName.Text = "";
+            this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // panel3
             // 
@@ -589,10 +539,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Red;
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.BorderSize = 0;
+
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -602,17 +549,14 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.btnCancel.Size = new System.Drawing.Size(125, 39);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "الغاء";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
-            this.btnSave.BackgroundColor = System.Drawing.Color.Lime;
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.BorderSize = 0;
+
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 16F);
@@ -622,7 +566,7 @@ namespace SaleManagerPro.Forms.ProductsForms
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "إضافه";
-            this.btnSave.TextColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -754,10 +698,10 @@ namespace SaleManagerPro.Forms.ProductsForms
         }
 
         #endregion
-        private CustomControls.Controls.RJTextBox textName;
+        private TextBox textName;
         private Panel panel3;
-        private CustomControls.Controls.RJButton btnCancel;
-        private CustomControls.Controls.RJButton btnSave;
+        private Button btnCancel;
+        private Button btnSave;
         public Label labelId;
         public Label labeNamelError;
         private Panel panel2;
@@ -765,11 +709,11 @@ namespace SaleManagerPro.Forms.ProductsForms
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem تعديلالمنتجToolStripMenuItem;
         private ToolStripMenuItem حذفالمنتجToolStripMenuItem;
-        private CustomControls.Controls.RJTextBox textLimitStock;
+        private TextBox textLimitStock;
         public Label labeLimitStockError;
-        private CustomControls.Controls.RJTextBox textPricePurchase;
+        private TextBox textPricePurchase;
         public Label labePricePurchaseError;
-        private CustomControls.Controls.RJTextBox textPriceSale;
+        private TextBox textPriceSale;
         public Label labePriceSaleError;
         private Label label4;
         public Panel panel1;
@@ -781,22 +725,22 @@ namespace SaleManagerPro.Forms.ProductsForms
         private ComboBox combounit1;
         private Label label1;
         private Panel panelunit3;
-        private CustomControls.Controls.RJButton btnunit3cancel;
+        private Button btnunit3cancel;
         private Label label3;
-        private CustomControls.Controls.RJTextBox textunit3count;
+        private TextBox textunit3count;
         private ComboBox combounit3;
         private PictureBox pictureaddunit3;
         private PictureBox pictureaddunit2;
         private Panel panelunit2;
-        private CustomControls.Controls.RJButton btnunit2cancel;
+        private Button btnunit2cancel;
         private Label label2;
-        private CustomControls.Controls.RJTextBox textunit2count;
+        private TextBox textunit2count;
         private ComboBox combounit2;
         private Label label9;
         public Label labeunit3lError;
         public Label labeunit2lError;
         private Label label11;
-        private CustomControls.Controls.RJTextBox textStartStock;
+        private TextBox textStartStock;
         public Label label10;
     }
 }
