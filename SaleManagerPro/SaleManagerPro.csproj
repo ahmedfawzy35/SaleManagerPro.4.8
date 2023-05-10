@@ -296,6 +296,7 @@
     <Compile Include="Forms\Master\MasterForm.designer.cs">
       <DependentUpon>MasterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master\MasterFormAssets.cs" />
     <Compile Include="Forms\MultyStringBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

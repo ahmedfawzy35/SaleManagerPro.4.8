@@ -19,19 +19,7 @@ using System.Windows.Forms;
 
 namespace SaleManagerPro.Forms.Master
 {
-    public enum MasterPanels
-    {
-        المنتجات ,
-        العملاء,
-        الموردين,
-        المستخدمين,
-        
-    }public enum SupPanels
-    {
-        إضافة,
-        ادارة,
-        تعديل,
-    }
+    
     public partial class MasterForm : Form
     {
         #region getter
@@ -56,11 +44,7 @@ namespace SaleManagerPro.Forms.Master
         }
         //
         #endregion
-        // تستخدم لعرض الازارا للقائمة الفرعية 
-        Panel SubPnel = new Panel();
-        Button btn_add = new Button();
-        Button btn_edit = new Button();
-        Button btn_manage = new Button();
+
 
 
 
@@ -68,7 +52,6 @@ namespace SaleManagerPro.Forms.Master
 
 
         List<Panel> SupPsnels = new List<Panel>();
-        List<Panel> MasterPsnels = new List<Panel>();
         public  List<Claime> userClaims = new List<Claime>();
         public UserRoleManager roleManager = new UserRoleManager();
         public static AppDbContext db = new AppDbContext();
@@ -78,59 +61,34 @@ namespace SaleManagerPro.Forms.Master
         {
             InitializeComponent();
             if (masterForm == null) masterForm = this;
-            setbutton(btn_add);
-            setbutton(btn_edit);
-            setbutton(btn_manage);
-            setsubpnel();
+            AddButtonsToSubPanel();
+
         }
 
 
         #region Methods
 
  
-        void setbutton(Button btn)
+        Button SetButtonFormat(string text)
         {
+            Button btn = new Button();
             btn.Dock = System.Windows.Forms.DockStyle.Top;
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn.Font = new System.Drawing.Font("Segoe UI", 19F);
             btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            btn.TextAlign = ContentAlignment.MiddleLeft;
           //  btn.Location = new System.Drawing.Point(0, 205);
            // btn.Name = "button32";
-            btn.Size = new System.Drawing.Size(201, 60);
-            btn.TabIndex = 8;
-            btn.Text = "";
+            btn.Size = new System.Drawing.Size(287, 60);
+            btn.Text = text;
             btn.UseVisualStyleBackColor = true;
+            return btn;
 
 
         }
-        void setsubpnel()
-        {
-            panelSideBar.Controls.Add(SubPnel);
-            SubPnel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
 
-            SubPnel.Dock = System.Windows.Forms.DockStyle.Top;
-            SubPnel.Location = new System.Drawing.Point(0, 238);
-            //SubPnel.Name = "SubPanel4";
-            SubPnel.Padding = new System.Windows.Forms.Padding(0, 0, 21, 0);
-            SubPnel.Size = new System.Drawing.Size(222, 17);
-            //SubPnel.TabIndex = 7;
-            SubPnel.Visible = false;
-            SubPnel.BringToFront();
-        }
-        private void ShowForm(Form form)
-        {
-            //if (_ActivForm != null) _ActivForm.Close();
-            //_ActivForm = form;
-            ////panelForm.TopLevelControl = false;
-            //form.TopLevel = false;
-            //form.FormBorderStyle = FormBorderStyle.None;
-            //form.Dock = DockStyle.Fill;
-            //panelForm.Controls.Add(form);
-            //panelForm.Tag = form;
-            //form.BringToFront();
-            //form.Show();
-        }
+
         private void showpanel(Panel panel)
         {
 
@@ -156,28 +114,41 @@ namespace SaleManagerPro.Forms.Master
 
             }
         }
-
-        private void set_sub_panel_button(Panel master, MasterPanels name )
+         private void btnclick(object sender, EventArgs e )
         {
-           
-            if (SubPnel.Visible)
-            {
-                SubPnel.Visible = false;
-            }
-            else SubPnel.Visible = true;
+            var btn = (Button)sender;
 
-            SubPnel.Controls.Clear();
-            btn_add.Text = " اضافة" + " "+name.ToString();
-            btn_edit.Text = " تعديل" +" "+ name.ToString();
-            btn_manage.Text = " ادارة" +" "+ name.ToString();
-            SubPnel.Controls.Add(btn_manage);
-            SubPnel.Controls.Add(btn_edit);
-            SubPnel.Controls.Add(btn_add);
-            SubPnel.Height = 285;
-            SubPnel.Location = new Point(master.Location.X + 25, master.Location.Y);
+            showform(btn.Text, CallFomr.GetFormByName(btn.Name));
 
 
         }
+        private void AddOneButton(Panel panel , Button button)
+        {
+            button.Click += new EventHandler(btnclick);
+            panel.Controls.Add(button);
+
+
+        }
+        private void AddButtonsToSubPanel()
+        {
+           // SubPanelProducts
+           Button Product =  SetButtonFormat( "ادارة المنتجات");
+           AddOneButton(SubPanelProducts, Product);
+           
+            Button Catogry =  SetButtonFormat( "ادارة الاصناف");
+           AddOneButton(SubPanelProducts, Catogry);
+           
+            Button Unit =  SetButtonFormat( "ادارة الوحدات");
+           AddOneButton(SubPanelProducts, Unit);
+
+
+
+
+
+
+        }
+        
+
         int is_exits(string x)
         {
             int a = -1;
@@ -270,18 +241,17 @@ namespace SaleManagerPro.Forms.Master
         private void MasterForm_Load(object sender, EventArgs e)
         {
             #region add panel to list
-            //SupPsnels = this.Controls.OfType<Panel>().Where(x => x.Name.Contains("SubPanel")).ToList();
-            SupPsnels.Add(SubPanel1); SupPsnels.Add(SubPanel2); SupPsnels.Add(SubPanel3); SupPsnels.Add(SubPanel4); SupPsnels.Add(SubPanel5);
-            SupPsnels.Add(SubPanel6);
-            MasterPsnels.Add(MasterPanel1); MasterPsnels.Add(MasterPanel2); MasterPsnels.Add(MasterPanel3); MasterPsnels.Add(MasterPanel4); MasterPsnels.Add(MasterPanel5);
-            MasterPsnels.Add(MasterPanel6);
+            SupPsnels = this.Controls.OfType<Panel>().Where(x => x.Name.Contains("SubPanel")).ToList();
+            SupPsnels.Add(SubPanelProducts); SupPsnels.Add(SubPanelCustomersAndSalers); SupPsnels.Add(SubPanelOrdersAndPurchases); SupPsnels.Add(SubPanelCash); SupPsnels.Add(SubPanelChecKs);
+            SupPsnels.Add(SubPanelEmployees); SupPsnels.Add(SubPanelUsersAndRoles);
+
             #endregion
             // get claims
             userClaims = roleManager.getuserclaims(Properties.Settings.Default.UserId);
 
 
             // set sidebar minimize
-            panelSideBar.Width = 15;
+            panelSideBar.Width = 2;
             // tab control setting
             CloseImage = Properties.Resources.close_window_32px;
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
@@ -291,22 +261,22 @@ namespace SaleManagerPro.Forms.Master
         #region SidBar Master Button Events
         private void button1_Click_1(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel1);
+            showpanel(this.SubPanelProducts);
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel1);
+            showpanel(this.SubPanelProducts);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel2);
+            showpanel(this.SubPanelCustomersAndSalers);
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel3);
+            showpanel(this.SubPanelOrdersAndPurchases);
 
         }
 
@@ -318,22 +288,18 @@ namespace SaleManagerPro.Forms.Master
 
         private void button5_Click(object sender, EventArgs e)
         {
-            showpanel(this.SubPanel5);
+
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //  showpanel(this.SubPanel6);
-            set_sub_panel_button(MasterPanel6, MasterPanels.المستخدمين);
+
 
         }
         #endregion
         #region SideBar Button Events
-        private void button7_Click(object sender, EventArgs e)
-        {
-            showform("إنشاء تصنيف جديد",  FormCatogryAddEdit.GetFormCatogryAddEdit);
-        }
+
 
         #endregion
         #region Tab Controle
@@ -456,93 +422,45 @@ namespace SaleManagerPro.Forms.Master
             }
         }
         #endregion
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
 
-        private void panel3_Click(object sender, EventArgs e)
-        {
-            showpanel(new Panel());
-            if (panelSideBar.Width == 259)
-            {
-                panelSideBar.Width = 15;
 
-            }
-            else
-            {
-                panelSideBar.Width = 259;
-            }
-        }
 
         private void المنتجاتToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            showform("إنشاء منتج جديد", new FormProductAddEdit());
 
-        }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+
+
+
+
+        private void PictureSidBarView_Click(object sender, EventArgs e)
         {
-            
             if (panelSideBar.Width == 259)
             {
-                showpanel(new Panel());
-                panelSideBar.Width = 15;
+                panelSideBar.Width = 2;
 
             }
             else
             {
-                
                 panelSideBar.Width = 259;
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void BtnLoans_Click(object sender, EventArgs e)
         {
-            
-            //showform("إدارة الاجراءات الصلاحيه", new FormRoleClaimManager() { IdRole = 1 , RoleName = "Admin"});
-            showform("إدارة الاقسام", FormDepartmentAddEdit.GetFormDepartmentAddEdit );
 
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void BtnEmployee_Click(object sender, EventArgs e)
         {
-            showform("ادراة المستخدمين", new FormUserAddEdit());
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void BtnUsersAndRoles_Click(object sender, EventArgs e)
         {
-            showform("ادراة الوحدات", FormUnitsAddEdit.GetFormUnitsAddEdit);
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            showform("ادراة العملاء", FormCustomerAddEdit.GetFormCustomerAddEdit);
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            
-             showform("ادراة الموظفين",new  FormEmployeeAddEdit());
-
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            //EmployeePromotionAddEdit
-            showform("ادراة الترقيات", EmployeePromotionAddEdit.GetFormEmployeePromotionAddEdit);
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            showform("ادراة الجزاءات", FormEmployeePunishmentAddEdit.GetFormEmployeePunishmentAddEdit);
 
         }
     }
